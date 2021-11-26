@@ -1,4 +1,5 @@
 // import Form from "../../src/Components/Form.tsx";
+import Link from "next/link";
 
 export default function Login(){
 
@@ -7,7 +8,11 @@ export default function Login(){
             <div className="bg-gray-900 h-1/2 fixed inset-0 z-0"/>
             <div className="h-full flex flex-wrap justify-center items-center z-10">
                 <div className="w-1/4 h-5/6 flex justify-center items-center z-10">
-                    <form className="bg-white rounded-2xl h-full w-full shadow-md border-gray-200 border flex flex-col items-center p-4">
+
+                    <form className="bg-white rounded-2xl h-full w-full shadow-md border-gray-200 border flex flex-col items-center p-4"
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                        }}>
                         <div className="h-2/3 flex flex-col justify-between items-center">
                             <h1 className="text-4xl mt-4 font-bold">Cheers.</h1>
 
@@ -19,14 +24,16 @@ export default function Login(){
 
                                         <div className="flex justify-center items-center">
                                             <input type="checkbox" id="showPassword" className="w-4 h-4"/>
-                                            <label for="showPassword" className="text-sm ml-1 cursor-pointer">Show Password</label>
+                                            <label htmlFor="showPassword" className="text-sm ml-1 cursor-pointer">Show Password</label>
                                         </div>
 
                                         <p className="text-sm text-yellow-400 cursor-pointer">Forgot Password?</p>
                                     </div>
                                 </div>
                                 <button className="h-10 w-full bg-gray-900 text-white rounded-md mb-6">
-                                    Log In
+                                    <Link href="/">
+                                        <a>Log In</a>
+                                    </Link>
                                 </button>
                             </div>
                         </div>
