@@ -1,18 +1,21 @@
-// import Form from "../../src/Components/Form.tsx";
 import Link from "next/link";
+import Head from "next/head";
+
 
 export default function Login(){
 
     return(
+        <>
+        <Head>
+            <title>Login</title>
+        </Head>
+
         <main className=" mx-auto h-screen">
-            <div className="bg-gray-900 h-1/2 fixed inset-0 z-0"/>
+            <div className="bg-black h-1/2 fixed inset-0 z-0"/>
             <div className="h-full flex flex-wrap justify-center items-center z-10">
                 <div className="w-1/4 h-5/6 flex justify-center items-center z-10">
 
-                    <form className="bg-white rounded-2xl h-full w-full shadow-md border-gray-200 border flex flex-col items-center p-4"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                        }}>
+                    <form className="bg-white rounded-2xl h-full w-full shadow-md border-gray-200 border flex flex-col items-center p-4">
                         <div className="h-2/3 flex flex-col justify-between items-center">
                             <h1 className="text-4xl mt-4 font-bold">Cheers.</h1>
 
@@ -30,7 +33,7 @@ export default function Login(){
                                         <p className="text-sm text-yellow-400 cursor-pointer">Forgot Password?</p>
                                     </div>
                                 </div>
-                                <button className="h-10 w-full bg-gray-900 text-white rounded-md mb-6">
+                                <button className="h-10 w-full bg-black text-white rounded-md mb-6">
                                     <Link href="/">
                                         <a>Log In</a>
                                     </Link>
@@ -60,5 +63,6 @@ export default function Login(){
                 </div>
             </div>
         </main>
+        </>
     )
 }
