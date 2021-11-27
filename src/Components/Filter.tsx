@@ -5,7 +5,7 @@ const Filter = () => {
             <div className="flex flex-1 justify-start">
                 <div className="flex-1 mr-5">
                     <p className="font-semibold mb-2">Type</p>
-                    <select className="w-full h-10 bg-white border rounded-md">
+                    <select className="w-full h-10 bg-white border rounded-md px-2">
                         <option>Both</option>
                         <option>Bars</option>
                         <option>Clubs</option>
@@ -14,7 +14,7 @@ const Filter = () => {
 
                 <div className="flex-1 mr-5">
                     <p className="font-semibold mb-2">Reviews</p>
-                    <select className="w-full h-10 bg-white border rounded-md">
+                    <select className="w-full h-10 bg-white border rounded-md px-2">
                         <option>All</option>
                         <option>5 Stars</option>
                         <option>4 Stars</option>
@@ -26,7 +26,7 @@ const Filter = () => {
 
                 <div className="flex-1 mr-5">
                     <p className="font-semibold mb-2">Location</p>
-                    <select className="w-full h-10 bg-white border rounded-md">
+                    <select className="w-full h-10 bg-white border rounded-md px-2">
                         <option>Near Me</option>
                         <option>Bars</option>
                         <option>Clubs</option>
