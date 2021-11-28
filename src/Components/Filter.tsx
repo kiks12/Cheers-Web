@@ -36,7 +36,8 @@ const Filter = () => {
                 <div className="flex-auto mr-5">
                     <p className="font-semibold mb-2">Price Range</p>
                     <p className="text-sm">P100.00</p>
-                    <input type="range" className="w-full" min="50" max="1000"/>
+                    <input type="range" className="w-full slider" min="50" max="1000"/>
+                    <div className="thumb"></div>
                 </div>
             </div>
 
