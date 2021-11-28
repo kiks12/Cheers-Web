@@ -1,6 +1,7 @@
 import Link from "next/dist/client/link";
 import OverviewPhotosReviewsEventsBar from "./OverviewPhotosReviewsEventsBar";
 import { MdStar } from "react-icons/md";
+import {BsArrowLeft} from "react-icons/bs";
 
 const PageBar = ({barName, isFeatured, active}) => {
 
@@ -9,7 +10,10 @@ const PageBar = ({barName, isFeatured, active}) => {
             <div className="w-full flex flex-col mt">
                 <div className="w-full">
                     <Link href="/">
-                        <button className="font-light border-black border px-5 py-2 text-sm rounded-md hover:bg-black hover:text-white transition-all">
+                        <button className="font-light border-black border px-5 py-1 text-sm rounded-md hover:bg-black hover:text-white transition-all flex items-center">
+                            <div className="w-auto h-auto mr-1">
+                                <BsArrowLeft size={18} />
+                            </div>
                             Go Back
                         </button>
                     </Link>
