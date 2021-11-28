@@ -7,8 +7,13 @@ const Featured = () => {
                 <p className="font-light">Featured by Cheers</p>
             </div>
 
-            <div className="h-72 bg-black w-full rounded-2xl p-4 flex justify-between mt-1 shadow-lg hover:w-full-hover hover:h-80 transition-all">
-                <div className="">
+            <div className="h-72 w-full rounded-2xl p-4 flex justify-between mt-1 shadow-lg hover:w-full-hover hover:shadow-2xl hover:h-80 transition-all relative featured"
+                style={{
+                    backgroundImage: "url(bar-goto-nyc-bar-interior-Alex-lau.jpeg)",
+                    backgroundSize: "contain",
+                }}>
+                
+                <div className="flex flex-col justify-start z-10">
                     <h1 className="text-white font-bold text-6xl">Bar Name</h1>
 
                     <div className="flex items-center mt-1">
@@ -23,10 +28,9 @@ const Featured = () => {
                     </div>
                 </div>
 
-                <div className="w-1/4 h-full bg-white rounded-xl flex items-center justify-center">
+                <div className="w-1/4 h-full bg-white rounded-xl flex items-center justify-center z-10">
                     Map
                 </div>
-
             </div>
         </div>
     )

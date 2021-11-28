@@ -1,3 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html{
+    font-family: 'Poppins';
+}
+
+.featured::after{
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    backdrop-filter: blur(1.5px);
+    backdrop-filter: contrast(0.7);
+    backdrop-filter: brightness(0.6);
+    content: "";
+}
+
+.featured:hover::after{
+    backdrop-filter: contrast(1);
+    backdrop-filter: brightness(1);
+}
