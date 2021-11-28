@@ -9,7 +9,7 @@ const PageBar = ({barName, isFeatured, active}) => {
             <div className="w-full flex flex-col mt">
                 <div className="w-full">
                     <Link href="/">
-                        <button className="font-light border-black border px-5 py-1 rounded-md hover:bg-black hover:text-white transition-all">
+                        <button className="font-light border-black border px-5 py-2 text-sm rounded-md hover:bg-black hover:text-white transition-all">
                             Go Back
                         </button>
                     </Link>
@@ -33,7 +33,7 @@ const PageBar = ({barName, isFeatured, active}) => {
                     </div>
 
                     <div>
-                        <button className="bg-black text-white py-1 px-5 font-light rounded-md hover:bg-gray-700 transition-all">
+                        <button className="bg-black text-white py-2 px-5 text-sm font-light rounded-md hover:bg-gray-700 transition-all">
                             Create Reservation
                         </button>
                     </div>
