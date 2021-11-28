@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Head from "next/head";
-
+import {FcGoogle} from "react-icons/fc";
+import {BsFacebook} from "react-icons/bs";
 
 export default function Login(){
 
@@ -11,11 +12,11 @@ export default function Login(){
         </Head>
 
         <main className=" mx-auto h-screen">
-            <div className="bg-black h-1/2 fixed inset-0 z-0"/>
+            <div className="bg-black h-1/2 fixed inset-0 z-0 skew-x-12"/>
             <div className="h-full flex flex-wrap justify-center items-center z-10">
                 <div className="w-1/4 h-5/6 flex justify-center items-center z-10">
 
-                    <form className="bg-white rounded-2xl h-full w-full shadow-md border-gray-200 border flex flex-col items-center p-4">
+                    <form className="rounded-2xl h-full w-full shadow-md border-gray-200 border flex flex-col items-center p-4" style={{backgroundColor: "white"}}>
                         <div className="h-2/3 flex flex-col justify-between items-center">
                             <h1 className="text-4xl mt-4 font-bold">Cheers.</h1>
 
@@ -43,15 +44,11 @@ export default function Login(){
                         <div className="border-t border-gray-200 w-full h-1/3 flex flex-col items-center justify-between">
                             <p className="text-md mt-5">Login With</p>
                             <div className="flex">
-                                <div className="rounded-full h-12 w-12 shadow-md mr-2 cursor-pointer">
-                                    <span>
-                                        <i></i>
-                                    </span>
+                                <div className="rounded-full h-12 w-12 shadow-md mr-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all">
+                                    <FcGoogle size={32}/>
                                 </div>
-                                <div className="rounded-full h-12 w-12 shadow-md ml-2 cursor-pointer">
-                                    <span>
-                                        <i></i>
-                                    </span>
+                                <div className="rounded-full h-12 w-12 shadow-md ml-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all">
+                                    <BsFacebook color="#1977F3" size={32}/>
                                 </div>
                             </div>
                             <div className="flex">
@@ -60,6 +57,7 @@ export default function Login(){
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </main>
