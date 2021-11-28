@@ -52,7 +52,7 @@ export default function Login(){
                                 </div>
                             </div>
                             <div className="flex">
-                                <p>Don't have an Account?</p>
+                                <p>{"Don't have an Account?"}</p>
                                 <p className="ml-2 text-yellow-400 cursor-pointer">Sign Up</p>
                             </div>
                         </div>
