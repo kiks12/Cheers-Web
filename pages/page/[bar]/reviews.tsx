@@ -4,7 +4,7 @@ import Navhar from "../../../src/Components/navbar";
 import PageBar from "../../../src/Components/PageBar";
 import Review from "../../../src/Components/Review";
 
-const reviews = ['sdf','asdf','asdf','sdfsdd','sasfsd','sdfs','asfasd','sdfasdf'];
+const reviews = ['sdf','asdf','sdfsdd','sasfsd','sdfs','asfasd','sdfasdf'];
 
 const Bar = () => {
     const router = useRouter();
@@ -24,7 +24,7 @@ const Bar = () => {
                 </div>
 
                 {
-                    reviews && reviews.map(() => <Review />)
+                    reviews && reviews.map(review => <Review key={review}/>)
                 }
                                 
             </main>
