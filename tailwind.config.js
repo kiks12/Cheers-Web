@@ -18,10 +18,16 @@ module.exports = {
       red: colors.red,
       indigo: colors.indigo
     },
-    extend: {},
+    extend: {
+      width: {
+        'full-hover': '105%'
+      },
+    },
   },
   variants: {
     extend: {},
+    width: ["responsive", "hover", "focus"],
+    height: ["responsive", "hover", "focus"]
   },
   plugins: [],
 }

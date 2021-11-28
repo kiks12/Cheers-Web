@@ -10,7 +10,7 @@ export default function Home() {
       <title>Home</title>
     </Head>
     <Navhar />
-    <main className="container mx-auto h-screen py-3">
+    <main className="container mx-auto h-screen py-3 flex flex-col items-center">
       <Featured />
       <Feed />
     </main>

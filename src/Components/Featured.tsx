@@ -2,9 +2,12 @@ import { MdStar } from "react-icons/md";
 
 const Featured = () => {
     return(
-        <>
-            <p className="font-light">Featured by Cheers</p>
-            <div className="h-72 bg-black w-full rounded-2xl hover:w-screen p-4 flex justify-between mt-1 shadow-lg">
+        <div className="w-full flex flex-col items-center">
+            <div className="w-full">
+                <p className="font-light">Featured by Cheers</p>
+            </div>
+
+            <div className="h-72 bg-black w-full rounded-2xl p-4 flex justify-between mt-1 shadow-lg hover:w-full-hover hover:h-80 transition-all">
                 <div className="">
                     <h1 className="text-white font-bold text-6xl">Bar Name</h1>
 
@@ -25,7 +28,7 @@ const Featured = () => {
                 </div>
 
             </div>
-        </>
+        </div>
     )
 }
 

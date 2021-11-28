@@ -17,10 +17,10 @@ const Navhar = () => {
             </div>
 
             <ul className="flex justify-start w-1/4 h-full">
-                <li className="w-1/6 border-b-4 border-black h-full flex items-center justify-center">
+                <li className="w-1/6 border-b-4 border-black h-full flex items-center justify-center cursor-pointer hover:bg-white">
                     <MdOutlineHome size={24}/>
                 </li>
-                <li className="w-1/6 h-full flex items-center justify-center border-b-4 border-transparent">
+                <li className="w-1/6 h-full flex items-center justify-center border-b-4 border-transparent cursor-pointer hover:bg-white">
                     <MdCalendarToday size={19}/>
                 </li>
             </ul>
