@@ -20,7 +20,8 @@ module.exports = {
     },
     extend: {
       width: {
-        'full-hover': '105%'
+        'full-hover': '105%',
+        '1/4-m-1': '24.2%',
       },
     },
   },
