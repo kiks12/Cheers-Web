@@ -1,7 +1,7 @@
 
 const Filter = () => {
     return(
-        <div className="w-full flex items-end justify-between mt-1 sticky pb-5 pt-1 bg-white" style={{backgroundColor: "white", top: "3rem"}}>
+        <div className="w-full flex items-end justify-between mt-1 sticky pb-5 pt-2 bg-white" style={{backgroundColor: "white", top: "3rem"}}>
             <div className="flex flex-1 justify-start">
                 <div className="flex-1 mr-5">
                     <p className="font-semibold mb-2">Type</p>

@@ -2,7 +2,7 @@ import { MdStar } from "react-icons/md";
 
 const Featured = () => {
     return(
-        <div className="w-full flex flex-col items-center">
+        <div className="w-full flex flex-col items-center cursor-pointer">
             <div className="w-full">
                 <p className="font-light">Featured by Cheers</p>
             </div>
