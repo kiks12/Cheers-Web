@@ -24,7 +24,7 @@ const Photos = () => {
                         images ?
                         images.map(image => {
                             return(
-                                <div className="w-1/4-m-1 m-1 bg-gray-300 h-44 hover:border-black hover:border hover:shadow-md flex items-center justify-center rounded-lg">
+                                <div className="w-1/4-m-1 m-1 bg-gray-300 h-44 cursor-pointer hover:border-black hover:border hover:shadow-md flex items-center justify-center rounded-lg">
                                     {image}
                                 </div>
                             )
