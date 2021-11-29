@@ -8,7 +8,7 @@ const Navhar = () => {
 
             <div className="w-1/4 h-full items-center justify-center p-2">
                 <div className="w-full h-full bg-white border rounded-full pl-3 flex pt-1 pr-1 pb-1">
-                    <input className="w-full bg-transparent h-full focus:outline-none"
+                    <input className="w-full bg-transparent h-full focus:outline-none text-sm"
                         placeholder="Search"/>
                     <div className="bg-white w-8 h-full rounded-full cursor-pointer hover:bg-gray-200 flex items-center justify-center">
                         <MdSearch size={20}/>
@@ -31,7 +31,7 @@ const Navhar = () => {
                         <i></i>
                     </span>
                 </div>
-                <p>Username</p>
+                <p className="text-sm">Username</p>
                 <div className="flex items-center">
                     <div className="ml-3 w-6 h-6 cursor-pointer rounded-full hover:bg-gray-200">
                         <MdArrowDropDown size={24}/>
