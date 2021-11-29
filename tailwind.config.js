@@ -24,6 +24,11 @@ module.exports = {
         '1/4-m-1': '24.2%',
       },
     },
+    screens:{
+      'sm': '300px',
+      'md': '768px',
+      'lg': '1280px',
+    }
   },
   variants: {
     extend: {},
