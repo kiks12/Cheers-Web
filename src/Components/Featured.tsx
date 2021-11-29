@@ -30,7 +30,7 @@ const Featured = () => {
                         </div>
                     </div>
 
-                    <div className="w-1/4 h-full bg-white rounded-xl flex items-center justify-center z-10">
+                    <div className="w-1/4 h-full bg-white rounded-xl items-center justify-center z-10 sm:hidden lg:flex md:flex">
                         Map
                     </div>
                 </div>
