@@ -1,29 +1,31 @@
 import { MutableRefObject, useEffect, useRef } from "react";
 
 const getFilterContainerPosition = (elementRef: MutableRefObject<HTMLDivElement> = null) => {
-    const filterContainerBoundingRect = elementRef.current.getBoundingClientRect();
+    if(elementRef.current){
+        const filterContainerBoundingRect = elementRef.current.getBoundingClientRect();
 
-    if(filterContainerBoundingRect.top === 48){
-        elementRef.current.style.backgroundColor = "white";
-        elementRef.current.classList.add("shadow-md");
-        return;
+        if(filterContainerBoundingRect.top === 48){
+            elementRef.current.style.backgroundColor = "white";
+            elementRef.current.classList.add("shadow-md");
+            return;
+        }
+        elementRef.current.style.backgroundColor = "transparent";
+        elementRef.current.classList.remove("shadow-md");
     }
-    elementRef.current.style.backgroundColor = "transparent";
-    elementRef.current.classList.remove("shadow-md");
 }
 
 
 const Filter = () => {
     const filterContainer = useRef<HTMLDivElement>(null);
-    
 
     useEffect(() => {
         window.addEventListener("scroll", () => getFilterContainerPosition(filterContainer));
 
         return () => {
             window.removeEventListener("scroll", () => getFilterContainerPosition());
+            filterContainer.current = null;
         }
-    });
+    },[]);
 
     return(
         <div ref={filterContainer} className="w-screen sticky flex items-center justify-center" style={{top: "3rem"}}>
