@@ -1,4 +1,5 @@
 import React, { Dispatch, MutableRefObject, SetStateAction, useEffect, useRef, useState } from "react";
+import useInnerWidth from "../Custom-Hooks/useInnerWidth";
 import FilterComponent from "./FilterComponent";
 import FilterModal from "./FilterModal";
 
@@ -17,14 +18,11 @@ const getFilterContainerPosition = (elementRef: MutableRefObject<HTMLDivElement>
     }
 }
 
-const getWindowWidth = (setInnerWidth : Dispatch<SetStateAction<number>> = null) => {
-    setInnerWidth(prev => prev = window.innerWidth);
-}
 
 const Filter = () => {
     const filterContainer = useRef<HTMLDivElement>(null);
-    const [innerWidth, setInnerWidth] = useState<number>(null);
     const [showFilterModal, setShowFilterModal] = useState<boolean>(false);
+    const [innerWidth] = useInnerWidth();
 
     useEffect(() => {
         window.addEventListener("scroll", () => getFilterContainerPosition(filterContainer));
@@ -34,16 +32,6 @@ const Filter = () => {
             filterContainer.current = null;
         }
     },[]);
-
-    useEffect(() => {
-        setInnerWidth(prev => prev = window.innerWidth);
-
-        window.addEventListener("resize", () => getWindowWidth(setInnerWidth));
-
-        return () => {
-            window.removeEventListener("resize", () => getWindowWidth());
-        }
-    }, []);
 
     return(
         <>

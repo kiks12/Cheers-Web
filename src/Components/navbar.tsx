@@ -1,6 +1,7 @@
 import {MdOutlineHome, MdCalendarToday, MdSearch, MdArrowDropDown} from "react-icons/md";
 
 const Navhar = () => {
+
     return (
         <nav className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20" style={{backgroundColor: "white"}}>
 
