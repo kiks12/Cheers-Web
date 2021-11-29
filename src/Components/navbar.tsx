@@ -1,9 +1,7 @@
 import {MdOutlineHome, MdCalendarToday, MdSearch, MdArrowDropDown} from "react-icons/md";
 import {GiHamburgerMenu} from "react-icons/gi";
-import useInnerWidth from "../Custom-Hooks/useInnerWidth";
 
 const Navhar = () => {
-    const [innerWidth] = useInnerWidth();
 
     return (
         <>
