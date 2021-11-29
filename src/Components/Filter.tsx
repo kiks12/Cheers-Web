@@ -1,4 +1,4 @@
-import React, { Dispatch, MutableRefObject, SetStateAction, useEffect, useRef, useState } from "react";
+import React, { MutableRefObject, useEffect, useRef, useState } from "react";
 import useInnerWidth from "../Custom-Hooks/useInnerWidth";
 import FilterComponent from "./FilterComponent";
 import FilterModal from "./FilterModal";
