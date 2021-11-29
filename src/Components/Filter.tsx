@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef } from "react";
 
 const getFilterContainerPosition = (elementRef: MutableRefObject<HTMLDivElement> = null) => {
     const filterContainerBoundingRect = elementRef.current.getBoundingClientRect();
