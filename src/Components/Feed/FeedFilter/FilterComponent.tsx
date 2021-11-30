@@ -58,7 +58,7 @@ const FilterComponent : React.FC<FilterComponentProps> = ({showCancel, setShowFi
                     <button className="w-full border border-red-400 text-red-400 font-light h-10 rounded-md hover:bg-red-400 hover:text-white mt-2 transition-all"
                         onClick={() => {
                             if(setShowFilterModal){
-                                setShowFilterModal((prev : boolean) => prev = false);
+                                setShowFilterModal((prev) => prev = false);
                             }
                         }}>
                         Cancel

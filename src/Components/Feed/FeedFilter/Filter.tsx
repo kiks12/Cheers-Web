@@ -49,7 +49,7 @@ const Filter : React.FC = () => {
                 <div className="w-full flex items-center justify-center">
                     <button className="border border-black w-full py-2 px-5 rounded-md hover:bg-black hover:text-white transition-all"
                         onClick={() => {
-                            setShowFilterModal((prev: boolean) => prev = true);
+                            setShowFilterModal((prev) => prev = true);
                         }}>
                         Filters
                     </button>
