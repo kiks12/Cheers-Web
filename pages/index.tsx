@@ -3,7 +3,7 @@ import Navhar from '../src/Components/Generals/navbar';
 import Featured from '../src/Components/Feed/Featured';
 import Feed from '../src/Components/Feed/Feed';
 
-export default function Home() : JSX.Element {
+const Home = () => {
   return (
    <>
     <Head>
@@ -17,3 +17,5 @@ export default function Home() : JSX.Element {
    </> 
   )
 }
+
+export default Home;

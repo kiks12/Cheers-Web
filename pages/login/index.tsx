@@ -3,7 +3,7 @@ import Head from "next/head";
 import {FcGoogle} from "react-icons/fc";
 import {BsFacebook} from "react-icons/bs";
 
-export default function Login() : JSX.Element {
+const Login = () => {
 
     return(
         <>
@@ -64,3 +64,6 @@ export default function Login() : JSX.Element {
         </>
     )
 }
+
+
+export default Login;

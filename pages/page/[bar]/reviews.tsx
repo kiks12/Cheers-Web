@@ -1,8 +1,8 @@
 import { useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
 import Navhar from "../../../src/Components/Generals/navbar";
-import PageBar from "../../../src/Components/PageBar";
-import Review from "../../../src/Components/Review";
+import PageBar from "../../../src/Components/SingleBarPage/PageBar";
+import Review from "../../../src/Components/SingleBarPage/Review";
 
 const reviews = ['sdf','asdf','sdfsdd','sasfsd','sdfs','asfasd','sdfasdf'];
 
