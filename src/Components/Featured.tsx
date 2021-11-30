@@ -1,7 +1,9 @@
+import React from "react";
 import { MdStar } from "react-icons/md";
 import Link from "next/dist/client/link";
 
-const Featured = () => {
+const Featured : React.FC = () => {
+
     return(
         <Link href="page/Bar-name/overview" >
             <div className="w-full flex flex-col items-center cursor-pointer">
@@ -37,6 +39,7 @@ const Featured = () => {
             </div>
         </Link>
     )
+    
 }
 
 export default Featured;

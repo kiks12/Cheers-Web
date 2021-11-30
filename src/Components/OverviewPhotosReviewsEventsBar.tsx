@@ -1,7 +1,11 @@
+import React from "react";
 import Link from "next/dist/client/link";
 
+interface OPREBarProps {
+    active: string;
+}
 
-const OverviewPhotosReviewsEventsBar = ({active}) => {
+const OverviewPhotosReviewsEventsBar : React.FC<OPREBarProps> = ({active}) => {
     return (
         <nav className="w-full border-t border-b mt-2 flex items-center justify-center">
             <ul className="flex h-full">

@@ -1,11 +1,11 @@
-import { Dispatch, SetStateAction } from "react";
+import React from "react";
 
 interface FilterComponentProps {
     showCancel: boolean,
-    setShowFilterModal?: Dispatch<SetStateAction<boolean>>,
+    setShowFilterModal?: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-const FilterComponent = ({showCancel, setShowFilterModal} : FilterComponentProps) => {
+const FilterComponent : React.FC<FilterComponentProps> = ({showCancel, setShowFilterModal}) => {
     return (
         <div className="flex flex-1 lg:flex-row md:flex-col md:w-full sm:flex-col sm:w-full">
             <div className="flex lg:flex-row lg:items-end lg:justify-between md:flex-col md:w-full sm:flex-col sm:w-full">
@@ -57,7 +57,7 @@ const FilterComponent = ({showCancel, setShowFilterModal} : FilterComponentProps
                 <div className="flex items-center justify-center">
                     <button className="w-full border border-red-400 text-red-400 font-light h-10 rounded-md hover:bg-red-400 hover:text-white mt-2"
                         onClick={() => {
-                            setShowFilterModal(prev => prev = false);
+                            // setShowFilterModal(prev => prev = false);
                         }}>
                         Cancel
                     </button>

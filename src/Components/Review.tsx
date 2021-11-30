@@ -1,7 +1,8 @@
+import React from "react";
 import {BsThreeDots} from "react-icons/bs";
 import { MdStar } from "react-icons/md";
 
-const Review = () => {
+const Review : React.FC = () => {
     return(
         <div className="w-full h-auto p-3 border mt-3 rounded-md">
             <div className="w-full flex justify-between">

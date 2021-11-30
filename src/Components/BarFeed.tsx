@@ -1,6 +1,7 @@
+import React from "react";
 import {MdStar, MdOutlineLocationOn} from "react-icons/md";
 
-const BarFeed = () => {
+const BarFeed : React.FC = () => {
     return(
         <div className="mt-4 h-28 bg-white border rounded-lg p-2 flex justify-between w-full">
             <div className="flex flex-col flex-1 pr-2">

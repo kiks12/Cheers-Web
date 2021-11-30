@@ -1,9 +1,16 @@
+import React from "react";
 import Link from "next/dist/client/link";
 import OverviewPhotosReviewsEventsBar from "./OverviewPhotosReviewsEventsBar";
 import { MdStar } from "react-icons/md";
 import {BsArrowLeft} from "react-icons/bs";
 
-const PageBar = ({barName, isFeatured, active}) => {
+interface PageBarProps {
+    barName: string;
+    isFeatured: boolean;
+    active: string;
+}
+
+const PageBar : React.FC<PageBarProps> = ({barName, isFeatured, active}) => {
 
     return(
         <>

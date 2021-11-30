@@ -1,5 +1,6 @@
+import React from "react";
 
-const SortBy = () => {
+const SortBy : React.FC = () => {
     return(
         <div className="mt-10 w-full">
             <p className="mb-2">Sort By:</p>

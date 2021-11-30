@@ -4,7 +4,7 @@ import FilterComponent from "./FilterComponent";
 import FilterModal from "./FilterModal";
 
 
-const getFilterContainerPosition = (elementRef: MutableRefObject<HTMLDivElement> = null) => {
+const getFilterContainerPosition = (elementRef: MutableRefObject<HTMLDivElement | null>) => {
     if(elementRef.current){
         const filterContainerBoundingRect = elementRef.current.getBoundingClientRect();
 
@@ -19,8 +19,8 @@ const getFilterContainerPosition = (elementRef: MutableRefObject<HTMLDivElement>
 }
 
 
-const Filter = () => {
-    const filterContainer = useRef<HTMLDivElement>(null);
+const Filter : React.FC = () => {
+    const filterContainer = useRef<HTMLDivElement | null>(null);
     const [showFilterModal, setShowFilterModal] = useState<boolean>(false);
     const [innerWidth] = useInnerWidth();
 
@@ -28,7 +28,7 @@ const Filter = () => {
         window.addEventListener("scroll", () => getFilterContainerPosition(filterContainer));
 
         return () => {
-            window.removeEventListener("scroll", () => getFilterContainerPosition());
+            window.removeEventListener("scroll", () => getFilterContainerPosition(filterContainer));
             filterContainer.current = null;
         }
     },[]);
@@ -49,7 +49,7 @@ const Filter = () => {
                 <div className="w-full flex items-center justify-center">
                     <button className="border border-black w-full py-2 px-5 rounded-md hover:bg-black hover:text-white transition-all"
                         onClick={() => {
-                            setShowFilterModal(prev => true);
+                            setShowFilterModal(prev => prev = true);
                         }}>
                         Filters
                     </button>

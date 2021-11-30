@@ -1,7 +1,8 @@
+import React from "react";
 import {MdOutlineHome, MdCalendarToday, MdSearch, MdArrowDropDown} from "react-icons/md";
 import {GiHamburgerMenu} from "react-icons/gi";
 
-const Navhar = () => {
+const Navhar : React.FC = () => {
 
     return (
         <>
