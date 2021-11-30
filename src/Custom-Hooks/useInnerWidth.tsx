@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-type DESKTOP_SCREEN_SIZE = number;
-const DEFAULT_DESKTOP_SCREEN_SIZE : DESKTOP_SCREEN_SIZE= 1280;
-
 const getWindowInnerWidth = (setInitialState : React.Dispatch<React.SetStateAction<number>>) => {
     setInitialState((prev: number) => prev = window.innerWidth);
 }
 
 const useInnerWidth = () => {
-    const [intialState, setInitialState] = useState<number>(DEFAULT_DESKTOP_SCREEN_SIZE);
+    const [intialState, setInitialState] = useState<number>(0);
+
+    useEffect(() => {
+        window.addEventListener("load", () => {
+            console.log("load");
+            setInitialState((prev: number) => prev = window.innerWidth);
+        })
+        
+    }, []);
     
     useEffect(() => {
         window.addEventListener("resize", getWindowInnerWidth.bind(null, setInitialState));
@@ -16,7 +21,7 @@ const useInnerWidth = () => {
         return () => {
             window.removeEventListener("resize", getWindowInnerWidth.bind(null, setInitialState));
         }
-    })
+    }, []);
 
     return [intialState];
 }
