@@ -1,7 +1,12 @@
 import "../styles/out.css";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
+interface myAppProps {
+  Component: any;
+  pageProps: any;
+}
+
+const MyApp = ({ Component, pageProps } : myAppProps) => {
   return <Component {...pageProps} />
 }
 

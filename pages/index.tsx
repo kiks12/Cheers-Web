@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Navhar from '../src/Components/Generals/navbar';
-import Featured from '../src/Components/Featured';
-import Feed from '../src/Components/Feed';
+import Featured from '../src/Components/Feed/Featured';
+import Feed from '../src/Components/Feed/Feed';
 
-export default function Home() {
+export default function Home() : JSX.Element {
   return (
    <>
     <Head>
