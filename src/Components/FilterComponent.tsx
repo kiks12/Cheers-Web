@@ -47,7 +47,7 @@ const FilterComponent : React.FC<FilterComponentProps> = ({showCancel, setShowFi
             </div>
 
             <div className="flex lg:w-1/4 md:w-full sm:w-full lg:pl-5 items-center justify-center md:mt-10 sm:mt-10">
-                <button className="w-full bg-black text-white font-light h-10 rounded-md hover:bg-gray-700">
+                <button className="w-full bg-black text-white font-light h-10 rounded-md hover:bg-gray-700 transition-all">
                     Apply
                 </button>
             </div>
@@ -55,7 +55,7 @@ const FilterComponent : React.FC<FilterComponentProps> = ({showCancel, setShowFi
             {
                 showCancel &&                    
                 <div className="flex items-center justify-center">
-                    <button className="w-full border border-red-400 text-red-400 font-light h-10 rounded-md hover:bg-red-400 hover:text-white mt-2"
+                    <button className="w-full border border-red-400 text-red-400 font-light h-10 rounded-md hover:bg-red-400 hover:text-white mt-2 transition-all"
                         onClick={() => {
                             if(setShowFilterModal){
                                 setShowFilterModal((prev : boolean) => prev = false);
