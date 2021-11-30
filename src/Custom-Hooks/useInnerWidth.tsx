@@ -4,7 +4,7 @@ type DEFAULT_SCREEN_SIZE = number;
 const _DEFAULT_SCREEN_SIZE : DEFAULT_SCREEN_SIZE = 1280;
 
 const useInnerWidth = () => {
-    const [intialState, setInitialState] = useState<number | null>(_DEFAULT_SCREEN_SIZE);
+    const [intialState, setInitialState] = useState<number>(_DEFAULT_SCREEN_SIZE);
 
     const getWindowInnerWidth = useCallback(() => {
         setInitialState(window.innerWidth);
