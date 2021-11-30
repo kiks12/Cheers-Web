@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-
-const getWindowInnerWidth = (setInitialState : React.Dispatch<React.SetStateAction<number>>) => {
-    setInitialState((prev) => prev = window.innerWidth);
-}
+import { useCallback, useEffect, useState } from "react";
 
 const useInnerWidth = () => {
     const [intialState, setInitialState] = useState<number>(0);
 
+    const getWindowInnerWidth = useCallback(() => {
+        setInitialState(window.innerWidth);
+    }, [setInitialState]);
+
     useEffect(() => {
-        window.addEventListener("load", getWindowInnerWidth.bind(null, setInitialState));
-        return () => window.removeEventListener("load", getWindowInnerWidth.bind(null, setInitialState));
+        window.addEventListener("load", getWindowInnerWidth);
+        return () => window.removeEventListener("load", getWindowInnerWidth);
     }, []);
     
     useEffect(() => {
-        window.addEventListener("resize", getWindowInnerWidth.bind(null, setInitialState));
-        return () => window.removeEventListener("resize", getWindowInnerWidth.bind(null, setInitialState));
+        window.addEventListener("resize", getWindowInnerWidth);
+        return () => window.removeEventListener("resize", getWindowInnerWidth);
     }, []);
 
     return [intialState];
