@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Navhar from '../src/Components/navbar';
+import Navhar from '../src/Components/Generals/navbar';
 import Featured from '../src/Components/Featured';
 import Feed from '../src/Components/Feed';
 

@@ -1,6 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
-import Navhar from "../../../src/Components/navbar";
+import Navhar from "../../../src/Components/Generals/navbar";
 import PageBar from "../../../src/Components/PageBar";
 import { MdOutlineLocationOn } from "react-icons/md";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import BarFeed from "./BarFeed";
-import Filter from "./Filter";
+import Filter from "./FeedFilter/Filter";
 import SortBy from "./SortBy";
 
 const Feed : React.FC = () => {

@@ -5,7 +5,7 @@ import { MdStar } from "react-icons/md";
 import {BsArrowLeft} from "react-icons/bs";
 
 interface PageBarProps {
-    barName: string;
+    barName: string | string[] | undefined;
     isFeatured: boolean;
     active: string;
 }

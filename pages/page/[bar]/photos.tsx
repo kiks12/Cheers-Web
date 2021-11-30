@@ -1,13 +1,13 @@
-import { useRouter } from "next/dist/client/router";
+import { NextRouter, useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
-import Navhar from "../../../src/Components/navbar";
+import Navhar from "../../../src/Components/Generals/navbar";
 import PageBar from "../../../src/Components/PageBar";
 
 
 const images = ['Image 1', 'Image 2', 'Image 3', 'Image 4', 'image 5', 'ad', 'sdf', 'sdafsd', 'sdfas'];
 
 const Photos = () => {
-    const router = useRouter();
+    const router : NextRouter = useRouter();
     const {bar} = router.query;
 
     return(
