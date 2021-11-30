@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 
+type DEFAULT_SCREEN_SIZE = number;
+const _DEFAULT_SCREEN_SIZE : DEFAULT_SCREEN_SIZE = 1280;
+
 const useInnerWidth = () => {
-    const [intialState, setInitialState] = useState<number>(0);
+    const [intialState, setInitialState] = useState<number | null>(_DEFAULT_SCREEN_SIZE);
 
     const getWindowInnerWidth = useCallback(() => {
         setInitialState(window.innerWidth);
