@@ -7271,6 +7271,14 @@ video {
   width: 24.2%;
 }
 
+.w-1\/3-m-1 {
+  width: 32.2%;
+}
+
+.w-1\/2-m-1 {
+  width: 48.2%;
+}
+
 .hover\:w-0:hover {
   width: 0px;
 }
@@ -7547,6 +7555,14 @@ video {
   width: 24.2%;
 }
 
+.hover\:w-1\/3-m-1:hover {
+  width: 32.2%;
+}
+
+.hover\:w-1\/2-m-1:hover {
+  width: 48.2%;
+}
+
 .focus\:w-0:focus {
   width: 0px;
 }
@@ -7821,6 +7837,14 @@ video {
 
 .focus\:w-1\/4-m-1:focus {
   width: 24.2%;
+}
+
+.focus\:w-1\/3-m-1:focus {
+  width: 32.2%;
+}
+
+.focus\:w-1\/2-m-1:focus {
+  width: 48.2%;
 }
 
 .min-w-0 {
@@ -32925,6 +32949,14 @@ video {
     width: 24.2%;
   }
 
+  .sm\:w-1\/3-m-1 {
+    width: 32.2%;
+  }
+
+  .sm\:w-1\/2-m-1 {
+    width: 48.2%;
+  }
+
   .sm\:hover\:w-0:hover {
     width: 0px;
   }
@@ -33201,6 +33233,14 @@ video {
     width: 24.2%;
   }
 
+  .sm\:hover\:w-1\/3-m-1:hover {
+    width: 32.2%;
+  }
+
+  .sm\:hover\:w-1\/2-m-1:hover {
+    width: 48.2%;
+  }
+
   .sm\:focus\:w-0:focus {
     width: 0px;
   }
@@ -33475,6 +33515,14 @@ video {
 
   .sm\:focus\:w-1\/4-m-1:focus {
     width: 24.2%;
+  }
+
+  .sm\:focus\:w-1\/3-m-1:focus {
+    width: 32.2%;
+  }
+
+  .sm\:focus\:w-1\/2-m-1:focus {
+    width: 48.2%;
   }
 
   .sm\:min-w-0 {
@@ -58321,6 +58369,14 @@ video {
     width: 24.2%;
   }
 
+  .md\:w-1\/3-m-1 {
+    width: 32.2%;
+  }
+
+  .md\:w-1\/2-m-1 {
+    width: 48.2%;
+  }
+
   .md\:hover\:w-0:hover {
     width: 0px;
   }
@@ -58597,6 +58653,14 @@ video {
     width: 24.2%;
   }
 
+  .md\:hover\:w-1\/3-m-1:hover {
+    width: 32.2%;
+  }
+
+  .md\:hover\:w-1\/2-m-1:hover {
+    width: 48.2%;
+  }
+
   .md\:focus\:w-0:focus {
     width: 0px;
   }
@@ -58871,6 +58935,14 @@ video {
 
   .md\:focus\:w-1\/4-m-1:focus {
     width: 24.2%;
+  }
+
+  .md\:focus\:w-1\/3-m-1:focus {
+    width: 32.2%;
+  }
+
+  .md\:focus\:w-1\/2-m-1:focus {
+    width: 48.2%;
   }
 
   .md\:min-w-0 {
@@ -83717,6 +83789,14 @@ video {
     width: 24.2%;
   }
 
+  .lg\:w-1\/3-m-1 {
+    width: 32.2%;
+  }
+
+  .lg\:w-1\/2-m-1 {
+    width: 48.2%;
+  }
+
   .lg\:hover\:w-0:hover {
     width: 0px;
   }
@@ -83993,6 +84073,14 @@ video {
     width: 24.2%;
   }
 
+  .lg\:hover\:w-1\/3-m-1:hover {
+    width: 32.2%;
+  }
+
+  .lg\:hover\:w-1\/2-m-1:hover {
+    width: 48.2%;
+  }
+
   .lg\:focus\:w-0:focus {
     width: 0px;
   }
@@ -84267,6 +84355,14 @@ video {
 
   .lg\:focus\:w-1\/4-m-1:focus {
     width: 24.2%;
+  }
+
+  .lg\:focus\:w-1\/3-m-1:focus {
+    width: 32.2%;
+  }
+
+  .lg\:focus\:w-1\/2-m-1:focus {
+    width: 48.2%;
   }
 
   .lg\:min-w-0 {

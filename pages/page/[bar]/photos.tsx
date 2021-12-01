@@ -25,7 +25,7 @@ const Photos = () => {
         <title>{bar}</title>
       </Head>
       <Navhar />
-      <main className="container h-full mx-auto py-16 flex flex-col items-center">
+      <main className="md:mx-5 sm:mx-5 lg:container lg:mx-auto h-full py-16 flex flex-col items-center">
         <PageBar barName={bar} isFeatured={true} active="photos" />
 
         <div className="mt-5 flex w-full flex-wrap">
@@ -34,7 +34,7 @@ const Photos = () => {
               return (
                 <div
                   key={image}
-                  className="w-1/4-m-1 m-1 bg-gray-300 h-44 cursor-pointer hover:border-black hover:border hover:shadow-md flex items-center justify-center rounded-lg"
+                  className="lg:w-1/4-m-1 md:w-1/3-m-1 sm:w-1/2-m-1 m-1 bg-gray-300 h-44 cursor-pointer hover:border-black hover:border hover:shadow-md flex items-center justify-center rounded-lg"
                 >
                   {image}
                 </div>
