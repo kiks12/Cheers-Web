@@ -26,8 +26,8 @@ const PageBar : React.FC<PageBarProps> = ({barName, isFeatured, active}) => {
                     </Link>
                 </div>
 
-                <div className="w-full flex justify-between mt-6 items-end">
-                    <div className="flex flex flex-col">
+                <div className="w-full flex justify-between mt-6 lg:items-end md:items-end sm:items-center lg:flex-row md:flex-row sm:flex-col">
+                    <div className="flex flex flex-col lg:w-auto md:w-auto sm:w-full">
                         <div className="flex items-center">
                             <h1 className="font-bold text-4xl">{barName}</h1>
                             <div className="flex ml-3">
@@ -43,8 +43,8 @@ const PageBar : React.FC<PageBarProps> = ({barName, isFeatured, active}) => {
                         </div>
                     </div>
 
-                    <div>
-                        <button className="bg-black text-white py-2 px-5 text-sm font-light rounded-md hover:bg-gray-700 transition-all">
+                    <div className="lg:w-auto md:w-auto sm:w-full">
+                        <button className="bg-black text-white py-2 px-5 text-sm font-light rounded-md hover:bg-gray-700 transition-all w-full lg:mt-0 md:mt-0 sm:mt-4">
                             Create Reservation
                         </button>
                     </div>
