@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
-import Navhar from "../../../src/Components/Generals/navbar";
+import Navhar from "../../../src/Components/Generals/Navbar/navbar";
 import ReservationFeed from "../../../src/Components/Reservations/ReservationFeed";
 import ReservationsHeader from "../../../src/Components/Reservations/ReservationsHeader";
 

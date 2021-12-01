@@ -1,6 +1,6 @@
 import { NextRouter, useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
-import Navhar from "../../../src/Components/Generals/navbar";
+import Navhar from "../../../src/Components/Generals/Navbar/navbar";
 import PageBar from "../../../src/Components/SingleBarPage/PageBar";
 
 const images = [

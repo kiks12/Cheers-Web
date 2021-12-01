@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   MdOutlineHome,
   MdCalendarToday,
@@ -7,7 +7,8 @@ import {
 } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
-import SettingsPopUp from "./SettingsPopUp";
+import SettingsPopUp from "../SettingsPopUp";
+import NavBarFullScreen from "./NavBarFullScreen";
 
 interface NavBarProps {
   activePage?: string;
@@ -24,17 +25,41 @@ const handleSettingsPopUpClick = (
   setShowSettingsPopUp((prev) => (prev = !prev));
 };
 
+const handleFullScreenNavBarClick = (
+  setShowFullScreenNavBar: React.Dispatch<React.SetStateAction<boolean>>,
+  hamburgerMenuRef: React.RefObject<HTMLDivElement>
+) => {
+  setShowFullScreenNavBar((prev) => {
+    if (prev) {
+      prev = false;
+      hamburgerMenuRef.current?.classList.remove("bg-gray-200");
+    } else {
+      prev = true;
+      hamburgerMenuRef.current?.classList.add("bg-gray-200");
+    }
+    return prev;
+  });
+};
+
 const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
   const [showSettingsPopUp, setShowSettingsPopUp] = useState<boolean>(false);
+  const [showFullScreenNavBar, setShowFullScreenNavBar] =
+    useState<boolean>(false);
+  const hamburgerMenuRef = useRef<HTMLDivElement>(null);
 
   return (
     <nav
       className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20"
       style={{ backgroundColor: "white" }}
     >
-      <Link href="/">
-        <h2 className="text-2xl font-semibold cursor-pointer">Cheers.</h2>
-      </Link>
+      <div className="flex items-center">
+        <Link href="/">
+          <h2 className="text-2xl font-semibold cursor-pointer">Cheers.</h2>
+        </Link>
+        <div className="lg:hidden md:hidden sm:flex items-center justify-center ml-4 h-8 w-8 bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300 active:bg-gray-400">
+          <MdSearch size={20} />
+        </div>
+      </div>
 
       <div className="w-1/4 lg:block md:block sm:hidden h-full items-center justify-center p-2">
         <div className="w-full h-full bg-white border rounded-full pl-3 flex pt-1 pr-1 pb-1">
@@ -92,8 +117,29 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
         </div>
       </div>
 
-      <div className="lg:hidden md:hidden sm:block">
-        <GiHamburgerMenu size={24} />
+      <div className="lg:hidden md:hidden sm:flex items-center">
+        <div
+          ref={hamburgerMenuRef}
+          className="mr-3 cursor-pointer p-2 rounded-md transition-all"
+          onClick={() =>
+            handleFullScreenNavBarClick(
+              setShowFullScreenNavBar,
+              hamburgerMenuRef
+            )
+          }
+        >
+          <GiHamburgerMenu size={24} />
+        </div>
+        {showFullScreenNavBar && <NavBarFullScreen />}
+        <div
+          className="rounded-full h-8 w-8 bg-black cursor-pointer relative"
+          onClick={() => handleSettingsPopUpClick(setShowSettingsPopUp)}
+        >
+          <span>
+            <i></i>
+          </span>
+          {showSettingsPopUp && <SettingsPopUp />}
+        </div>
       </div>
     </nav>
   );
