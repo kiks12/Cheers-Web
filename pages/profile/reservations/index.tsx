@@ -3,6 +3,7 @@ import Head from "next/head";
 import React from "react";
 import Navhar from "../../../src/Components/Generals/navbar";
 import ReservationFeed from "../../../src/Components/Reservations/ReservationFeed";
+import ReservationsHeader from "../../../src/Components/Reservations/ReservationsHeader";
 
 interface ReservationsProps {
   reservations: Array<any>;
@@ -16,9 +17,7 @@ const Reservations: React.FC<ReservationsProps> = ({ reservations }) => {
       </Head>
       <Navhar activePage="reservations" />
       <main className="container mx-auto py-16">
-        <div className="w-full mb-1">
-          <h1 className="font-semibold text-xl">Reservations</h1>
-        </div>
+        <ReservationsHeader />
         {reservations.length !== 0 ? (
           reservations.map((reservation) => {
             return <ReservationFeed key={reservation} />;
