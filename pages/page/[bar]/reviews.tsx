@@ -24,12 +24,12 @@ const Bar = () => {
         <title>{bar}</title>
       </Head>
       <Navhar />
-      <main className="container mx-auto h-full py-16 flex flex-col items-center">
+      <main className="md:mx-5 sm:mx-5 lg:container lg:mx-auto h-full py-16 flex flex-col items-center">
         <PageBar barName={bar} isFeatured={true} active="reviews" />
 
         <div className="w-full mt-5 h-16 border rounded-md flex items-center p-3">
           <input
-            className="h-full bg-white border p-2 w-1/4 rounded-full"
+            className="h-full bg-white border p-2 lg:w-1/4 md:w-1/3 sm:w-full rounded-full text-sm"
             placeholder="Add a review"
           />
         </div>
