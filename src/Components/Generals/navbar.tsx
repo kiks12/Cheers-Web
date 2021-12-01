@@ -1,9 +1,16 @@
 import React from "react";
 import {MdOutlineHome, MdCalendarToday, MdSearch, MdArrowDropDown} from "react-icons/md";
 import {GiHamburgerMenu} from "react-icons/gi";
+import Link from "next/link";
 
-const Navhar : React.FC = () => {
+interface NavBarProps {
+    activePage: string;
+}
 
+const ACTIVE_NAVBAR_LINK_STYLING = "w-1/6 border-b-4 border-black h-full flex items-center justify-center cursor-pointer hover:bg-white";
+const INACTIVE_NAVBAR_LINK_STYLING = "w-1/6 border-b-4 border-transparent h-full flex items-center justify-center cursor-pointer hover:bg-white";
+
+const Navhar : React.FC<NavBarProps> = ({activePage}) => {
     return (
         <>
             <nav className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20" style={{backgroundColor: "white"}}>
@@ -21,12 +28,33 @@ const Navhar : React.FC = () => {
                 </div>
 
                 <ul className="lg:flex md:flex sm:hidden justify-start w-1/4 h-full">
-                    <li className="w-1/6 border-b-4 border-black h-full flex items-center justify-center cursor-pointer hover:bg-white">
-                        <MdOutlineHome size={24}/>
-                    </li>
-                    <li className="w-1/6 h-full flex items-center justify-center border-b-4 border-transparent cursor-pointer hover:bg-white">
-                        <MdCalendarToday size={19}/>
-                    </li>
+                    <Link href="/">
+                        {
+                            activePage === "home" ? 
+
+                            <li className={ACTIVE_NAVBAR_LINK_STYLING}>
+                                <MdOutlineHome size={24}/>
+                            </li>
+                            : 
+                            <li className={INACTIVE_NAVBAR_LINK_STYLING}>
+                                <MdOutlineHome size={24}/>
+                            </li>
+                        }
+                    </Link>
+
+                    <Link href="/profile/reservations">
+                        {
+                            activePage === "reservations" ?
+
+                            <li className={ACTIVE_NAVBAR_LINK_STYLING}>
+                                <MdCalendarToday size={19}/>
+                            </li>
+                            :
+                            <li className={INACTIVE_NAVBAR_LINK_STYLING}>
+                                <MdCalendarToday size={19}/>
+                            </li>
+                        }
+                    </Link>
                 </ul>
 
                 <div className="items-center lg:flex md:flex sm:hidden">

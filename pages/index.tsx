@@ -9,7 +9,7 @@ const Home = () => {
     <Head>
       <title>Home</title>
     </Head>
-    <Navhar />
+    <Navhar activePage="home"/>
     <main className="lg:container md:mx-5 sm:mx-5 lg:mx-auto h-screen py-16 flex flex-col items-center">
       <Featured />
       <Feed />
