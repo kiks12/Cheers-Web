@@ -32,7 +32,9 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
       className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20"
       style={{ backgroundColor: "white" }}
     >
-      <h2 className="text-2xl font-semibold">Cheers.</h2>
+      <Link href="/">
+        <h2 className="text-2xl font-semibold cursor-pointer">Cheers.</h2>
+      </Link>
 
       <div className="w-1/4 lg:block md:block sm:hidden h-full items-center justify-center p-2">
         <div className="w-full h-full bg-white border rounded-full pl-3 flex pt-1 pr-1 pb-1">
