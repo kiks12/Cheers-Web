@@ -6,7 +6,7 @@ interface NavBarFullScreenProps {}
 const NavBarFullScreen: React.FC<NavBarFullScreenProps> = () => {
   return (
     <div
-      className="fixed z-20 left-0 right-0 h-auto shadow-md p-1"
+      className="fixed z-20 left-0 right-0 h-auto shadow-lg p-1"
       style={{ top: "3rem", backgroundColor: "#ffff" }}
     >
       <Link href="/">

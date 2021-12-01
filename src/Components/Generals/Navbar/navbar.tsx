@@ -9,6 +9,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
 import SettingsPopUp from "../SettingsPopUp";
 import NavBarFullScreen from "./NavBarFullScreen";
+import FloatingSearchBar from "./FloatingSearchBar";
 
 interface NavBarProps {
   activePage?: string;
@@ -41,11 +42,30 @@ const handleFullScreenNavBarClick = (
   });
 };
 
+const handleFloatingSearchBarIconClick = (
+  setShowFloatingSearchBar: React.Dispatch<React.SetStateAction<boolean>>,
+  searchIconRef: React.RefObject<HTMLDivElement>
+) => {
+  setShowFloatingSearchBar((prev) => {
+    if (prev) {
+      prev = false;
+      searchIconRef.current?.classList.remove("bg-gray-200");
+    } else {
+      prev = true;
+      searchIconRef.current?.classList.add("bg-gray-200");
+    }
+    return prev;
+  });
+};
+
 const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
   const [showSettingsPopUp, setShowSettingsPopUp] = useState<boolean>(false);
   const [showFullScreenNavBar, setShowFullScreenNavBar] =
     useState<boolean>(false);
+  const [showFloatingSearchBar, setShowFloatingSearchBar] =
+    useState<boolean>(false);
   const hamburgerMenuRef = useRef<HTMLDivElement>(null);
+  const searchIconRef = useRef<HTMLDivElement>(null);
 
   return (
     <nav
@@ -56,9 +76,19 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
         <Link href="/">
           <h2 className="text-2xl font-semibold cursor-pointer">Cheers.</h2>
         </Link>
-        <div className="lg:hidden md:hidden sm:flex items-center justify-center ml-4 h-8 w-8 bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300 active:bg-gray-400">
-          <MdSearch size={20} />
+        <div
+          ref={searchIconRef}
+          className="lg:hidden md:hidden sm:flex items-center justify-center ml-4 h-8 w-8 rounded-full cursor-pointer"
+          onClick={() =>
+            handleFloatingSearchBarIconClick(
+              setShowFloatingSearchBar,
+              searchIconRef
+            )
+          }
+        >
+          <MdSearch size={22} />
         </div>
+        {showFloatingSearchBar && <FloatingSearchBar />}
       </div>
 
       <div className="w-1/4 lg:block md:block sm:hidden h-full items-center justify-center p-2">
@@ -138,8 +168,8 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
           <span>
             <i></i>
           </span>
-          {showSettingsPopUp && <SettingsPopUp />}
         </div>
+        {showSettingsPopUp && <SettingsPopUp />}
       </div>
     </nav>
   );
