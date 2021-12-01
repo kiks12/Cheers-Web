@@ -2,6 +2,7 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
 import Navhar from "../../../src/Components/Generals/navbar";
+import ReservationFeed from "../../../src/Components/Reservations/ReservationFeed";
 
 interface ReservationsProps {
   reservations: Array<any>;
@@ -15,11 +16,12 @@ const Reservations: React.FC<ReservationsProps> = ({ reservations }) => {
       </Head>
       <Navhar activePage="reservations" />
       <main className="container mx-auto py-16">
-        <div></div>
-        <h1 className="font-semibold text-xl">Reservations</h1>
+        <div className="w-full mb-1">
+          <h1 className="font-semibold text-xl">Reservations</h1>
+        </div>
         {reservations.length !== 0 ? (
           reservations.map((reservation) => {
-            return <p key={reservation}>Reserve</p>;
+            return <ReservationFeed key={reservation} />;
           })
         ) : (
           <p>No Reservations to Show</p>

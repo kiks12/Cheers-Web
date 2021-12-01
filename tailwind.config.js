@@ -31,7 +31,9 @@ module.exports = {
     }
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['active'],
+    },
     width: ["responsive", "hover", "focus"],
     height: ["responsive", "hover", "focus"]
   },
