@@ -13,7 +13,7 @@ const UpcomingEvents = () => {
 				<title>{bar}</title>
 			</Head>
 			<Navhar />
-			<main className="container mx-auto h-screen py-16 flex flex-col items-center">
+			<main className="md:mx-5 sm:mx-5 lg:container lg:mx-auto h-full py-16 flex flex-col items-center">
 				<PageBar
 					barName={bar}
 					isFeatured={true}
