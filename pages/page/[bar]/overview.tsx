@@ -33,7 +33,7 @@ const Overview = () => {
 					</div>
 				</div>
 
-				<p className="text-sm mt-8 font-normal">{dummyText}</p>
+				<p className="text-sm mt-8 font-normal leading-relaxed">{dummyText}</p>
 
 				<div className="w-full mt-10 flex lg:flex-row md:flex-row sm:flex-col justify-between">
 					<div className="lg:w-1/6 md:w-1/6 sm:w-full">
