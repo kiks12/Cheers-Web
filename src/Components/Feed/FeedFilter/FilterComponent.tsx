@@ -21,7 +21,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
 					</select>
 				</div>
 
-				<div className="flex-1 lg:mr-5 md:mr-0 mt-3 flex flex-col justify-between h-full">
+				<div className="flex-1 lg:mr-5 md:mr-0 flex flex-col justify-between h-full">
 					<p className="font-semibold mb-2">Reviews</p>
 					<select className="w-full h-8 bg-white border rounded-md px-2 text-sm">
 						<option>All</option>
@@ -33,7 +33,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
 					</select>
 				</div>
 
-				<div className="flex-1 lg:mr-5 md:mr-0 mt-3 flex flex-col justify-between h-full">
+				<div className="flex-1 lg:mr-5 md:mr-0 flex flex-col justify-between h-full">
 					<p className="font-semibold mb-2">Location</p>
 					<select className="w-full h-8 bg-white border rounded-md px-2 text-sm">
 						<option>Near Me</option>
@@ -42,7 +42,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
 					</select>
 				</div>
 
-				<div className="flex-1 mt-3">
+				<div className="flex-1">
 					<p className="font-semibold mb-2">Price Range</p>
 					<p className="text-sm">P100.00</p>
 					<input
