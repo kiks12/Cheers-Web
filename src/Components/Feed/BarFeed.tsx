@@ -3,7 +3,7 @@ import { MdStar, MdOutlineLocationOn } from "react-icons/md";
 
 const BarFeed: React.FC = () => {
 	return (
-		<div className="mt-4 h-auto bg-white border rounded-lg p-2 flex justify-between w-full cursor-pointer">
+		<div className="mt-4 h-28 bg-transparent border rounded-lg p-2 flex justify-between w-full cursor-pointer">
 			<div className="flex flex-col flex-1 pr-2">
 				<div className="border-b">
 					<div className="flex items-center">
@@ -16,16 +16,16 @@ const BarFeed: React.FC = () => {
 							<MdStar color="#FFE769" size={20} />
 						</div>
 					</div>
-					<p className="text-md">Bar</p>
+					<p className="text-sm">Bar</p>
 				</div>
 				<div className="flex items-center h-full py-1">
 					<MdOutlineLocationOn size={19} color="gray" />
-					<p className="text-gray-400 ml-1">1.2 km</p>
-					<p className="text-gray-400 ml-10">200php - 500php</p>
+					<p className="text-gray-400 ml-1 text-sm">1.2 km</p>
+					<p className="text-gray-400 ml-10 text-sm">200php - 500php</p>
 				</div>
 			</div>
 
-			<div className="w-48 h-full bg-black rounded-md text-white flex items-center justify-center lg:flex md:flex sm:hidden">
+			<div className="w-48 h-full text-sm bg-black rounded-md text-white flex items-center justify-center lg:flex md:flex sm:hidden">
 				image
 			</div>
 		</div>
