@@ -21,7 +21,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
 					</select>
 				</div>
 
-				<div className="flex-1 lg:mr-5 md:mr-0 flex flex-col justify-between h-full">
+				<div className="flex-1 lg:mr-5 md:mr-0 mt-3 flex flex-col justify-between h-full">
 					<p className="font-semibold mb-2">Reviews</p>
 					<select className="w-full h-8 bg-white border rounded-md px-2 text-sm">
 						<option>All</option>
@@ -33,7 +33,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
 					</select>
 				</div>
 
-				<div className="flex-1 lg:mr-5 md:mr-0 flex flex-col justify-between h-full">
+				<div className="flex-1 lg:mr-5 md:mr-0 mt-3 flex flex-col justify-between h-full">
 					<p className="font-semibold mb-2">Location</p>
 					<select className="w-full h-8 bg-white border rounded-md px-2 text-sm">
 						<option>Near Me</option>
@@ -42,7 +42,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
 					</select>
 				</div>
 
-				<div className="flex-1">
+				<div className="flex-1 mt-3">
 					<p className="font-semibold mb-2">Price Range</p>
 					<p className="text-sm">P100.00</p>
 					<input
@@ -55,7 +55,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
 			</div>
 
 			<div className="flex lg:w-1/4 md:w-full sm:w-full lg:pl-5 items-end justify-end md:mt-10 sm:mt-10">
-				<button className="w-2/3 bg-black text-white font-light h-8 rounded-md hover:bg-gray-700 transition-all text-sm">
+				<button className="w-full bg-black text-white font-light h-8 rounded-md hover:bg-gray-700 transition-all text-sm">
 					Apply
 				</button>
 			</div>
@@ -63,7 +63,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
 			{showCancel && (
 				<div className="flex items-center justify-center">
 					<button
-						className="w-full border border-red-400 text-red-400 font-light h-10 rounded-md hover:bg-red-400 hover:text-white mt-2 transition-all"
+						className="w-full border border-red-400 text-red-400 font-light h-8 rounded-md hover:bg-red-400 hover:text-white mt-2 transition-all text-sm"
 						onClick={() => {
 							if (setShowFilterModal) {
 								setShowFilterModal(false);
