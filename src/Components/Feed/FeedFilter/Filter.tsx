@@ -40,7 +40,7 @@ const Filter: React.FC = () => {
 		<>
 			<div
 				ref={filterContainer}
-				className="w-screen sticky items-center justify-center lg:flex md:hidden sm:hidden"
+				className="w-screen sticky items-center justify-center lg:flex md:hidden sm:hidden z-20"
 				style={{ top: "3rem" }}
 			>
 				<div className="flex lg:items-end mt-1 pb-5 pt-2 lg:container md:container sm:mx-5 lg:flex-row lg:justify-between md:flex-col md:w-full md:items-center md:justify-center sm:flex-col sm:w-full sm:items-center sm:justify-center">
