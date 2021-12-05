@@ -34,7 +34,7 @@ const Photos = () => {
 							return (
 								<div
 									key={image}
-									className="lg:w-1/4-m-1 md:w-1/3-m-1 sm:w-1/2-m-1 m-1 bg-gray-300 h-44 cursor-pointer hover:border-black hover:border hover:shadow-md flex items-center justify-center rounded-lg"
+									className="lg:w-1/4-m-1 md:w-1/3-m-1 sm:w-1/2-m-1 m-1 bg-gray-300 h-44 cursor-pointer hover:shadow-md flex items-center justify-center rounded-lg border border-transparent hover:border-white"
 								>
 									{image}
 								</div>
