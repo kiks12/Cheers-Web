@@ -16,7 +16,7 @@ const Reservations: React.FC<ReservationsProps> = ({ reservations }) => {
 				<title>Reservations</title>
 			</Head>
 			<Navhar activePage="reservations" />
-			<main className="container mx-auto py-16">
+			<main className="lg:container lg:mx-auto md:mx-5 sm:mx-5 py-16">
 				<ReservationsHeader />
 				{reservations.length !== 0 ? (
 					reservations.map((reservation) => {
