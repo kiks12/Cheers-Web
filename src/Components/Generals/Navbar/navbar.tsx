@@ -16,9 +16,9 @@ interface NavBarProps {
 }
 
 const ACTIVE_NAVBAR_LINK_STYLING =
-	"w-1/6 border-b-4 border-black h-full flex items-center justify-center cursor-pointer hover:bg-white";
+	"lg:w-1/5 md:w-1/4 border-b-4 border-black h-full flex items-center justify-center cursor-pointer hover:bg-white ";
 const INACTIVE_NAVBAR_LINK_STYLING =
-	"w-1/6 border-b-4 border-transparent h-full flex items-center justify-center cursor-pointer hover:bg-white";
+	"lg:w-1/5 md:w-1/4 border-b-4 border-transparent h-full flex items-center justify-center cursor-pointer hover:bg-white";
 
 const handleSettingsPopUpClick = (
 	setShowSettingsPopUp: React.Dispatch<React.SetStateAction<boolean>>
@@ -106,7 +106,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				</div>
 			</div>
 
-			<ul className="lg:flex md:flex sm:hidden justify-start w-1/4 h-full">
+			<ul className="lg:flex md:flex sm:hidden justify-end w-1/4 h-full">
 				<Link href="/">
 					{activePage === "home" ? (
 						<li className={ACTIVE_NAVBAR_LINK_STYLING}>
