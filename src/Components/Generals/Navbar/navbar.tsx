@@ -1,30 +1,19 @@
 import React, { useRef, useState } from "react";
-import {
-	MdOutlineHome,
-	MdCalendarToday,
-	MdSearch,
-	MdArrowDropDown,
-} from "react-icons/md";
+import { MdOutlineHome, MdCalendarToday, MdSearch, MdArrowDropDown } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
-import SettingsPopUp from "../SettingsPopUp";
+import SettingsPopUp from "../PopUpSettings/SettingsPopUp";
 import NavBarFullScreen from "./NavBarFullScreen";
 import FloatingSearchBar from "./FloatingSearchBar";
+import { handleSettingsPopUpClick } from "../PopUpSettings/PopUpSettingsHandlers";
 
 interface NavBarProps {
 	activePage?: string;
 }
 
-const ACTIVE_NAVBAR_LINK_STYLING =
-	"lg:w-1/5 md:w-1/4 border-b-4 border-black h-full flex items-center justify-center cursor-pointer hover:bg-white ";
+const ACTIVE_NAVBAR_LINK_STYLING = "lg:w-1/5 md:w-1/4 border-b-4 border-black h-full flex items-center justify-center cursor-pointer hover:bg-white ";
 const INACTIVE_NAVBAR_LINK_STYLING =
 	"lg:w-1/5 md:w-1/4 border-b-4 border-transparent h-full flex items-center justify-center cursor-pointer hover:bg-white";
-
-const handleSettingsPopUpClick = (
-	setShowSettingsPopUp: React.Dispatch<React.SetStateAction<boolean>>
-) => {
-	setShowSettingsPopUp((prev) => (prev = !prev));
-};
 
 const handleFullScreenNavBarClick = (
 	setShowFullScreenNavBar: React.Dispatch<React.SetStateAction<boolean>>,
@@ -60,33 +49,21 @@ const handleFloatingSearchBarIconClick = (
 
 const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 	const [showSettingsPopUp, setShowSettingsPopUp] = useState<boolean>(false);
-	const [showFullScreenNavBar, setShowFullScreenNavBar] =
-		useState<boolean>(false);
-	const [showFloatingSearchBar, setShowFloatingSearchBar] =
-		useState<boolean>(false);
+	const [showFullScreenNavBar, setShowFullScreenNavBar] = useState<boolean>(false);
+	const [showFloatingSearchBar, setShowFloatingSearchBar] = useState<boolean>(false);
 	const hamburgerMenuRef = useRef<HTMLDivElement>(null);
 	const searchIconRef = useRef<HTMLDivElement>(null);
 
 	return (
-		<nav
-			className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20"
-			style={{ backgroundColor: "white" }}
-		>
+		<nav className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20" style={{ backgroundColor: "white" }}>
 			<div className="flex items-center">
 				<Link href="/">
-					<h2 className="text-2xl font-semibold cursor-pointer">
-						Cheers.
-					</h2>
+					<h2 className="text-2xl font-semibold cursor-pointer">Cheers.</h2>
 				</Link>
 				<div
 					ref={searchIconRef}
 					className="lg:hidden md:hidden sm:flex items-center justify-center ml-4 h-8 w-8 rounded-full cursor-pointer"
-					onClick={() =>
-						handleFloatingSearchBarIconClick(
-							setShowFloatingSearchBar,
-							searchIconRef
-						)
-					}
+					onClick={() => handleFloatingSearchBarIconClick(setShowFloatingSearchBar, searchIconRef)}
 				>
 					<MdSearch size={22} />
 				</div>
@@ -142,13 +119,11 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				<div className="flex items-center relative">
 					<div
 						className="ml-3 w-6 h-6 cursor-pointer rounded-full hover:bg-gray-200 transition-all"
-						onClick={() =>
-							handleSettingsPopUpClick(setShowSettingsPopUp)
-						}
+						onClick={() => handleSettingsPopUpClick(setShowSettingsPopUp)}
 					>
 						<MdArrowDropDown size={24} />
 					</div>
-					{showSettingsPopUp && <SettingsPopUp />}
+					{showSettingsPopUp && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
 				</div>
 			</div>
 
@@ -156,27 +131,22 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				<div
 					ref={hamburgerMenuRef}
 					className="mr-3 cursor-pointer p-2 rounded-md transition-all"
-					onClick={() =>
-						handleFullScreenNavBarClick(
-							setShowFullScreenNavBar,
-							hamburgerMenuRef
-						)
-					}
+					onClick={() => handleFullScreenNavBarClick(setShowFullScreenNavBar, hamburgerMenuRef)}
 				>
 					<GiHamburgerMenu size={24} />
 				</div>
 				{showFullScreenNavBar && <NavBarFullScreen />}
 				<div
 					className="rounded-full h-8 w-8 bg-black cursor-pointer relative"
-					onClick={() =>
-						handleSettingsPopUpClick(setShowSettingsPopUp)
-					}
+					onClick={() => {
+						// handleSettingsPopUpClick(setShowSettingsPopUp);
+					}}
 				>
 					<span>
 						<i></i>
 					</span>
 				</div>
-				{showSettingsPopUp && <SettingsPopUp />}
+				{showSettingsPopUp && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
 			</div>
 		</nav>
 	);
