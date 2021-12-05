@@ -7,8 +7,8 @@ interface OPREBarProps {
 
 const OverviewPhotosReviewsEventsBar: React.FC<OPREBarProps> = ({ active }) => {
 	return (
-		<nav className="w-full border-t border-b mt-2 flex items-center justify-center">
-			<ul className="flex h-full w-auto items-center justify-center overflow-auto">
+		<nav className="w-full h-8 border-t border-b mt-2 flex items-center justify-center overflow-x-scroll sm:relative">
+			<ul className="flex h-full lg:w-1/2 md:w-2/3 items-center mx-auto justify-center md:static sm:absolute sm:top-0 sm:left-0 sm:bottom-0">
 				<Link href="/page/Bar-name/overview">
 					{active === "overview" ? (
 						<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1">
@@ -47,11 +47,11 @@ const OverviewPhotosReviewsEventsBar: React.FC<OPREBarProps> = ({ active }) => {
 
 				<Link href="/page/Bar-name/upcoming-events">
 					{active === "upcomingEvents" ? (
-						<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer">
+						<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1 whitespace-nowrap">
 							Upcoming Events
 						</li>
 					) : (
-						<li className="h-full flex items-center border-b-4 py-1 border-transparent justify-center px-5 text-sm font-light cursor-pointer">
+						<li className="h-full flex items-center border-b-4 py-1 border-transparent justify-center px-5 text-sm font-light cursor-pointer flex-1 whitespace-nowrap">
 							Upcoming Events
 						</li>
 					)}
