@@ -7,8 +7,6 @@ interface SettingsPopUpProps {
 }
 
 const SettingsPopUp: React.FC<SettingsPopUpProps> = ({ setShowSettingsPopUp }) => {
-	// const popUpSettingsRef = useRef<HTMLDivElement>(null);
-
 	const popUpSettingsRef = useCursorOutside(() => {
 		setShowSettingsPopUp((prev) => (prev = !prev));
 	});
