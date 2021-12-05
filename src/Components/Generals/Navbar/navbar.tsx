@@ -94,13 +94,14 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 			</div>
 
 			<div className="w-1/4 lg:block md:block sm:hidden h-full items-center justify-center p-2">
-				<div className="w-full h-full bg-white border rounded-full pl-3 flex pt-1 pr-1 pb-1">
+				<div className="w-full h-full flex relative">
 					<input
-						className="w-full bg-transparent h-full focus:outline-none text-sm"
+						className="bg-transparent h-full focus:outline-none text-sm border bg-white pl-2 rounded-l-md pr-2"
+						style={{ width: "91%" }}
 						placeholder="Search"
 					/>
-					<div className="bg-white w-8 h-full rounded-full cursor-pointer hover:bg-gray-200 flex items-center justify-center">
-						<MdSearch size={20} />
+					<div className="bg-black w-8 h-full flex-auto cursor-pointer rounded-r-md border border-black hover:bg-gray-700 flex items-center justify-center absolute top-0 right-0 bottom-0 active:bg-gray-500">
+						<MdSearch color="#f8f8f8" size={18} />
 					</div>
 				</div>
 			</div>
