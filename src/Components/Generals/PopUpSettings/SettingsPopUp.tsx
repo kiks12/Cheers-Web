@@ -7,13 +7,12 @@ interface SettingsPopUpProps {
 }
 
 const SettingsPopUp: React.FC<SettingsPopUpProps> = ({ setShowSettingsPopUp }) => {
-	const popUpSettingsRef = useCursorOutside(() => {
+	const ref = useCursorOutside(() => {
 		setShowSettingsPopUp((prev) => (prev = !prev));
 	});
-
 	return (
 		<div
-			ref={popUpSettingsRef}
+			ref={ref}
 			className="absolute w-48 h-auto border p-2 rounded-md shadow-lg lg:top-5 md:top-5 sm:top-10"
 			style={{ right: "0.1rem", backgroundColor: "#ffff" }}
 		>

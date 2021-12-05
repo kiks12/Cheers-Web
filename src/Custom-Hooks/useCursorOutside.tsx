@@ -5,16 +5,15 @@ const useCursorOutside = (handler: () => void) => {
 
 	useEffect(() => {
 		const secondHandler = (e: any) => {
-			if (!elementRef.current) return;
-			if (!elementRef.current.contains(e.target)) {
+			if (elementRef.current && !elementRef.current.contains(e.target)) {
 				handler();
 			}
 		};
 
-		document.addEventListener("mousedown", secondHandler);
+		document.addEventListener("click", secondHandler, { once: true });
 
 		return () => {
-			document.removeEventListener("mousedown", secondHandler);
+			document.removeEventListener("click", secondHandler);
 		};
 	});
 
