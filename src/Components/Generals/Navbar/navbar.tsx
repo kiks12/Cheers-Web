@@ -93,7 +93,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				{showFloatingSearchBar && <FloatingSearchBar />}
 			</div>
 
-			<div className="w-1/4 lg:block md:block sm:hidden h-full items-center justify-center p-2">
+			<div className="lg:w-1/4 md:w-1/3 lg:block md:block sm:hidden h-full items-center justify-center p-2">
 				<div className="w-full h-full flex relative">
 					<input
 						className="bg-transparent h-full focus:outline-none text-sm border bg-white pl-2 rounded-l-md pr-2"
