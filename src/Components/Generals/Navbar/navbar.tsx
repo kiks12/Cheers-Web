@@ -110,12 +110,16 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 			</ul>
 
 			<div className="items-center lg:flex md:flex sm:hidden">
-				<div className="rounded-full h-8 w-8 bg-black mr-2">
-					<span>
-						<i></i>
-					</span>
-				</div>
-				<p className="text-sm">Username</p>
+				<Link href="/profile/settings">
+					<div className="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400">
+						<div className="rounded-full h-8 w-8 bg-black mr-2">
+							<span>
+								<i></i>
+							</span>
+						</div>
+						<p className="text-sm">Username</p>
+					</div>
+				</Link>
 				<div className="flex items-center relative">
 					<div
 						className="ml-3 w-6 h-6 cursor-pointer rounded-full hover:bg-gray-200 transition-all"
@@ -139,7 +143,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				<div
 					className="rounded-full h-8 w-8 bg-black cursor-pointer relative"
 					onClick={() => {
-						// handleSettingsPopUpClick(setShowSettingsPopUp);
+						handleSettingsPopUpClick(setShowSettingsPopUp);
 					}}
 				>
 					<span>
