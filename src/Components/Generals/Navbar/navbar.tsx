@@ -5,7 +5,6 @@ import Link from "next/link";
 import SettingsPopUp from "../PopUpSettings/SettingsPopUp";
 import NavBarFullScreen from "./NavBarFullScreen";
 import FloatingSearchBar from "./FloatingSearchBar";
-import { handleSettingsPopUpClick } from "../PopUpSettings/PopUpSettingsHandlers";
 
 interface NavBarProps {
 	activePage?: string;
@@ -14,6 +13,10 @@ interface NavBarProps {
 const ACTIVE_NAVBAR_LINK_STYLING = "lg:w-1/5 md:w-1/4 border-b-4 border-black h-full flex items-center justify-center cursor-pointer hover:bg-white ";
 const INACTIVE_NAVBAR_LINK_STYLING =
 	"lg:w-1/5 md:w-1/4 border-b-4 border-transparent h-full flex items-center justify-center cursor-pointer hover:bg-white";
+
+const handleSettingsPopUpClick = (setShowSettingsPopUp: React.Dispatch<React.SetStateAction<boolean>>) => {
+	setShowSettingsPopUp((prev) => (prev = !prev));
+};
 
 const handleFullScreenNavBarClick = (
 	setShowFullScreenNavBar: React.Dispatch<React.SetStateAction<boolean>>,
