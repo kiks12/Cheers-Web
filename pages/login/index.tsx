@@ -2,8 +2,31 @@ import Link from "next/link";
 import Head from "next/head";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
+import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "@firebase/auth";
+import { googleProvider } from "../../src/service/firebase";
+import { useEffect } from "react";
+import { useRouter } from "next/dist/client/router";
+
+const auth = getAuth();
 
 const Login = () => {
+	const router = useRouter();
+	useEffect(() => {
+		const getUser = async () => {
+			try {
+				const result = await getRedirectResult(auth);
+				if (!result) return;
+				const credentials = GoogleAuthProvider.credentialFromResult(result);
+				const user = result.user;
+				const token = credentials?.accessToken;
+				router.push("/");
+			} catch (e) {
+				console.log(e);
+			}
+		};
+
+		getUser();
+	}, []);
 	return (
 		<>
 			<Head>
@@ -19,9 +42,7 @@ const Login = () => {
 							style={{ backgroundColor: "white" }}
 						>
 							<div className="h-2/3 flex flex-col justify-between items-center">
-								<h1 className="text-4xl mt-4 font-bold">
-									Cheers.
-								</h1>
+								<h1 className="text-4xl mt-4 font-bold">Cheers.</h1>
 
 								<div className="h-2/3 flex flex-col justify-around">
 									<div className="">
@@ -37,22 +58,13 @@ const Login = () => {
 										/>
 										<div className="flex justify-between mt-2">
 											<div className="flex justify-center items-center">
-												<input
-													type="checkbox"
-													id="showPassword"
-													className="w-4 h-4"
-												/>
-												<label
-													htmlFor="showPassword"
-													className="text-xs ml-1 cursor-pointer"
-												>
+												<input type="checkbox" id="showPassword" className="w-4 h-4" />
+												<label htmlFor="showPassword" className="text-xs ml-1 cursor-pointer">
 													Show Password
 												</label>
 											</div>
 
-											<p className="text-xs text-yellow-400 cursor-pointer">
-												Forgot Password?
-											</p>
+											<p className="text-xs text-yellow-400 cursor-pointer">Forgot Password?</p>
 										</div>
 									</div>
 									<button className="h-10 w-full bg-black text-white rounded-md mb-6 text-sm">
@@ -65,7 +77,12 @@ const Login = () => {
 							<div className="border-t border-gray-200 w-full h-1/3 flex flex-col items-center justify-between">
 								<p className="text-sm mt-5">Login With</p>
 								<div className="flex">
-									<div className="rounded-full h-12 w-12 shadow-md mr-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all">
+									<div
+										className="rounded-full h-12 w-12 shadow-md mr-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all"
+										onClick={() => {
+											signInWithRedirect(auth, googleProvider);
+										}}
+									>
 										<FcGoogle size={32} />
 									</div>
 									<div className="rounded-full h-12 w-12 shadow-md ml-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all">
@@ -74,9 +91,7 @@ const Login = () => {
 								</div>
 								<div className="flex text-sm">
 									<p>{"Don't have an Account?"}</p>
-									<p className="ml-2 text-yellow-400 cursor-pointer">
-										Sign Up
-									</p>
+									<p className="ml-2 text-yellow-400 cursor-pointer">Sign Up</p>
 								</div>
 							</div>
 						</form>
