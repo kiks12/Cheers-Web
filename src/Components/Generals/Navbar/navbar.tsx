@@ -28,20 +28,8 @@ const handleSettingsPopUpClick = (
 	setCurrentActiveSettings(LARGE_SCREEN_ACTIVE_SETTINGS);
 };
 
-const handleFullScreenNavBarClick = (
-	setShowFullScreenNavBar: React.Dispatch<React.SetStateAction<boolean>>,
-	hamburgerMenuRef: React.RefObject<HTMLDivElement>
-) => {
-	setShowFullScreenNavBar((prev) => {
-		if (prev) {
-			prev = false;
-			hamburgerMenuRef.current?.classList.remove("bg-gray-200");
-		} else {
-			prev = true;
-			hamburgerMenuRef.current?.classList.add("bg-gray-200");
-		}
-		return prev;
-	});
+const handleFullScreenNavBarClick = (setShowFullScreenNavBar: React.Dispatch<React.SetStateAction<boolean>>) => {
+	setShowFullScreenNavBar((prev) => (prev = !prev));
 };
 
 const handleFloatingSearchBarIconClick = (
@@ -149,11 +137,11 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				<div
 					ref={hamburgerMenuRef}
 					className="mr-3 cursor-pointer p-2 rounded-md transition-all"
-					onClick={() => handleFullScreenNavBarClick(setShowFullScreenNavBar, hamburgerMenuRef)}
+					onClick={() => handleFullScreenNavBarClick(setShowFullScreenNavBar)}
 				>
 					<GiHamburgerMenu size={24} />
 				</div>
-				{showFullScreenNavBar && <NavBarFullScreen />}
+				{showFullScreenNavBar && <NavBarFullScreen setShowNavBarFullScreen={setShowFullScreenNavBar} />}
 				<div
 					className="rounded-full h-8 w-8 bg-black cursor-pointer"
 					onClick={() => {
