@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useRef } from "react";
+import React from "react";
 import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
 
 interface SettingsPopUpProps {
