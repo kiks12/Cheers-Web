@@ -2,7 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
-import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "@firebase/auth";
+import { getAuth, signInWithRedirect, getRedirectResult } from "@firebase/auth";
 import { googleProvider } from "../../src/service/firebase";
 import { useEffect } from "react";
 import { useRouter } from "next/dist/client/router";
@@ -16,7 +16,7 @@ const Login = () => {
 			try {
 				const result = await getRedirectResult(auth);
 				if (!result) return;
-				const credentials = GoogleAuthProvider.credentialFromResult(result);
+				// const credentials = GoogleAuthProvider.credentialFromResult(result);
 				// const user = result.user;
 				// const token = credentials?.accessToken;
 				router.push("/");
