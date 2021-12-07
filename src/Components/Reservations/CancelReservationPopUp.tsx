@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
+import useCursorOutside from "../../Custom-Hooks/useCursorOutside";
 
-interface CancelReservationPopUpProps {}
+interface CancelReservationPopUpProps {
+	setShowCancelReservationPopUp: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const CancelReservationPopUp: React.FC<CancelReservationPopUpProps> = () => {
+const CancelReservationPopUp: React.FC<CancelReservationPopUpProps> = ({ setShowCancelReservationPopUp }) => {
+	const initialRef = useRef<HTMLDivElement>(null);
+	const mainRef = useCursorOutside(() => {
+		setShowCancelReservationPopUp((prev) => (prev = !prev));
+	}, initialRef);
+
 	return (
-		<div
-			className="absolute h-12 w-32 rounded-md shadow-lg"
-			style={{ backgroundColor: "#ffff", right: "1rem", top: "0.2rem" }}
-		>
-			<button className="text-sm m-1 hover:bg-gray-100 active:bg-gray-200 rounded-md">
-				Cancel Reservation
-			</button>
+		<div ref={mainRef} className="absolute h-12 w-32 rounded-md shadow-lg" style={{ backgroundColor: "#ffff", right: "1rem", top: "0.2rem" }}>
+			<button className="text-sm m-1 hover:bg-gray-100 active:bg-gray-200 rounded-md">Cancel Reservation</button>
 		</div>
 	);
 };

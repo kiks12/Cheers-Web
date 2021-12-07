@@ -10,6 +10,7 @@ const SettingsPopUp: React.FC<SettingsPopUpProps> = ({ setShowSettingsPopUp }) =
 	const ref = useCursorOutside(() => {
 		setShowSettingsPopUp((prev) => (prev = !prev));
 	});
+
 	return (
 		<div
 			ref={ref}
