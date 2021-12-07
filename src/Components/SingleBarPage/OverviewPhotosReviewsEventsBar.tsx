@@ -9,7 +9,7 @@ const OverviewPhotosReviewsEventsBar: React.FC<OPREBarProps> = ({ active }) => {
 	return (
 		<nav className="w-full h-8 border-t border-b mt-2 flex items-center justify-center overflow-x-scroll sm:relative">
 			<ul className="flex h-full lg:w-1/2 md:w-2/3 items-center mx-auto justify-center md:static sm:absolute sm:top-0 sm:left-0 sm:bottom-0">
-				<Link href="/page/Bar-name/overview">
+				<Link href="/Bar-name/">
 					{active === "overview" ? (
 						<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1">
 							Overview
@@ -21,7 +21,7 @@ const OverviewPhotosReviewsEventsBar: React.FC<OPREBarProps> = ({ active }) => {
 					)}
 				</Link>
 
-				<Link href="/page/Bar-name/photos">
+				<Link href="/Bar-name/photos">
 					{active === "photos" ? (
 						<li className="h-full flex items-center justify-center px-5 py-1 border-b-4 border-black text-sm font-light cursor-pointer flex-1">
 							Photos
@@ -33,7 +33,7 @@ const OverviewPhotosReviewsEventsBar: React.FC<OPREBarProps> = ({ active }) => {
 					)}
 				</Link>
 
-				<Link href="/page/Bar-name/reviews">
+				<Link href="/Bar-name/reviews">
 					{active === "reviews" ? (
 						<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1">
 							Reviews
@@ -45,7 +45,7 @@ const OverviewPhotosReviewsEventsBar: React.FC<OPREBarProps> = ({ active }) => {
 					)}
 				</Link>
 
-				<Link href="/page/Bar-name/upcoming-events">
+				<Link href="/Bar-name/upcoming-events">
 					{active === "upcomingEvents" ? (
 						<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1 whitespace-nowrap">
 							Upcoming Events

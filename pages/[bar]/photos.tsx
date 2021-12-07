@@ -1,19 +1,9 @@
 import { NextRouter, useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
-import Navhar from "../../../src/Components/Generals/Navbar/navbar";
-import PageBar from "../../../src/Components/SingleBarPage/PageBar";
+import Navhar from "../../src/Components/Generals/Navbar/navbar";
+import PageBar from "../../src/Components/SingleBarPage/PageBar";
 
-const images = [
-	"Image 1",
-	"Image 2",
-	"Image 3",
-	"Image 4",
-	"image 5",
-	"ad",
-	"sdf",
-	"sdafsd",
-	"sdfas",
-];
+const images = ["Image 1", "Image 2", "Image 3", "Image 4", "image 5", "ad", "sdf", "sdafsd", "sdfas"];
 
 const Photos = () => {
 	const router: NextRouter = useRouter();
