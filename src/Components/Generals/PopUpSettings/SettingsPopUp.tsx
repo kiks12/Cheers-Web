@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
 
 interface SettingsPopUpProps {
@@ -7,13 +7,13 @@ interface SettingsPopUpProps {
 }
 
 const SettingsPopUp: React.FC<SettingsPopUpProps> = ({ setShowSettingsPopUp }) => {
-	const ref = useCursorOutside(() => {
+	const mainRef = useCursorOutside(() => {
 		setShowSettingsPopUp((prev) => (prev = !prev));
 	});
 
 	return (
 		<div
-			ref={ref}
+			ref={mainRef}
 			className="absolute w-48 h-auto border p-2 rounded-md shadow-lg lg:top-5 md:top-5 sm:top-10"
 			style={{ right: "0.1rem", backgroundColor: "#ffff" }}
 		>

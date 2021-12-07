@@ -5,17 +5,27 @@ import Link from "next/link";
 import SettingsPopUp from "../PopUpSettings/SettingsPopUp";
 import NavBarFullScreen from "./NavBarFullScreen";
 import FloatingSearchBar from "./FloatingSearchBar";
+import {
+	ACTIVE_NAVBAR_LINK_STYLING,
+	INACTIVE_NAVBAR_LINK_STYLING,
+	LARGE_SCREEN_ACTIVE_SETTINGS,
+	SMALL_SCREEN_ACTIVE_SETTINGS,
+} from "./navbarConstants";
 
 interface NavBarProps {
 	activePage?: string;
 }
 
-const ACTIVE_NAVBAR_LINK_STYLING = "lg:w-1/5 md:w-1/4 border-b-4 border-black h-full flex items-center justify-center cursor-pointer hover:bg-white ";
-const INACTIVE_NAVBAR_LINK_STYLING =
-	"lg:w-1/5 md:w-1/4 border-b-4 border-transparent h-full flex items-center justify-center cursor-pointer hover:bg-white";
-
-const handleSettingsPopUpClick = (setShowSettingsPopUp: React.Dispatch<React.SetStateAction<boolean>>) => {
+const handleSettingsPopUpClick = (
+	setShowSettingsPopUp: React.Dispatch<React.SetStateAction<boolean>>,
+	setCurrentActiveSettings: React.Dispatch<React.SetStateAction<number>>
+) => {
 	setShowSettingsPopUp((prev) => (prev = !prev));
+	if (document.body.getBoundingClientRect().width <= 767) {
+		setCurrentActiveSettings(SMALL_SCREEN_ACTIVE_SETTINGS);
+		return;
+	}
+	setCurrentActiveSettings(LARGE_SCREEN_ACTIVE_SETTINGS);
 };
 
 const handleFullScreenNavBarClick = (
@@ -52,6 +62,7 @@ const handleFloatingSearchBarIconClick = (
 
 const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 	const [showSettingsPopUp, setShowSettingsPopUp] = useState<boolean>(false);
+	const [currentActiveSettings, setCurrentActiveSettings] = useState<number>(0);
 	const [showFullScreenNavBar, setShowFullScreenNavBar] = useState<boolean>(false);
 	const [showFloatingSearchBar, setShowFloatingSearchBar] = useState<boolean>(false);
 	const hamburgerMenuRef = useRef<HTMLDivElement>(null);
@@ -126,11 +137,11 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				<div className="flex items-center relative">
 					<div
 						className="ml-3 w-6 h-6 cursor-pointer rounded-full hover:bg-gray-200 transition-all"
-						onClick={() => handleSettingsPopUpClick(setShowSettingsPopUp)}
+						onClick={() => handleSettingsPopUpClick(setShowSettingsPopUp, setCurrentActiveSettings)}
 					>
 						<MdArrowDropDown size={24} />
 					</div>
-					{showSettingsPopUp && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
+					{showSettingsPopUp && currentActiveSettings === 0 && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
 				</div>
 			</div>
 
@@ -144,16 +155,16 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				</div>
 				{showFullScreenNavBar && <NavBarFullScreen />}
 				<div
-					className="rounded-full h-8 w-8 bg-black cursor-pointer relative"
+					className="rounded-full h-8 w-8 bg-black cursor-pointer"
 					onClick={() => {
-						handleSettingsPopUpClick(setShowSettingsPopUp);
+						handleSettingsPopUpClick(setShowSettingsPopUp, setCurrentActiveSettings);
 					}}
 				>
 					<span>
 						<i></i>
 					</span>
 				</div>
-				{showSettingsPopUp && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
+				{showSettingsPopUp && currentActiveSettings === 1 && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
 			</div>
 		</nav>
 	);

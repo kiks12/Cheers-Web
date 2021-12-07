@@ -6,16 +6,16 @@ const useCursorOutside = (handler: () => void, cursorRef?: React.MutableRefObjec
 	const elementRef = typeof cursorRef !== "undefined" ? cursorRef : useRef<ElementRefType>(null);
 
 	useEffect(() => {
-		const secondHandler = (e: any) => {
+		const mainHandler = (e: any) => {
 			if (elementRef.current && !elementRef.current.contains(e.target)) {
-				if (typeof handler !== "undefined") handler();
+				handler();
 			}
 		};
 
-		document.addEventListener("click", secondHandler);
+		document.addEventListener("click", mainHandler);
 
 		return () => {
-			document.removeEventListener("click", secondHandler);
+			document.removeEventListener("click", mainHandler);
 		};
 	});
 
