@@ -17,8 +17,8 @@ const Login = () => {
 				const result = await getRedirectResult(auth);
 				if (!result) return;
 				const credentials = GoogleAuthProvider.credentialFromResult(result);
-				const user = result.user;
-				const token = credentials?.accessToken;
+				// const user = result.user;
+				// const token = credentials?.accessToken;
 				router.push("/");
 			} catch (e) {
 				console.log(e);
