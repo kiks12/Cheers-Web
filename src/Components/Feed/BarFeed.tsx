@@ -4,8 +4,9 @@ import { MdStar, MdOutlineLocationOn } from "react-icons/md";
 
 const BarFeed: React.FC = () => {
 	const BARNAME = "adsfasdf";
+	const IS_FEATURED = false;
 	return (
-		<Link href={`/page/${BARNAME}/`}>
+		<Link href={`/${BARNAME}/${IS_FEATURED ? 1 : 0}`}>
 			<div className="mt-4 h-28 bg-transparent border hover:border-gray-400 rounded-lg p-2 flex justify-between w-full cursor-pointer relative">
 				<div className="flex flex-col flex-1 pr-2">
 					<div className=" pb-2">

@@ -3,6 +3,8 @@ import { MdStar } from "react-icons/md";
 import Link from "next/dist/client/link";
 
 const Featured: React.FC = () => {
+	const BARNAME = "BARNAME";
+	const IS_FEATURED = true;
 	return (
 		<>
 			<div className="w-full flex flex-col items-center">
@@ -10,7 +12,7 @@ const Featured: React.FC = () => {
 					<p className="font-light">Featured by Cheers</p>
 				</div>
 
-				<Link href="/Bar-name/">
+				<Link href={`/${BARNAME}/${IS_FEATURED ? 1 : 0}/`}>
 					<div
 						className="cursor-pointer h-72 w-full rounded-2xl p-4 flex justify-between mt-1 shadow-lg hover:w-full-hover hover:shadow-2xl hover:h-80 transition-all relative featured"
 						style={{

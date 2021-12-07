@@ -1,7 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
-import Navhar from "../../src/Components/Generals/Navbar/navbar";
-import PageBar from "../../src/Components/SingleBarPage/PageBar";
+import Navhar from "../../../src/Components/Generals/Navbar/navbar";
+import PageBar from "../../../src/Components/SingleBarPage/PageBar";
 import { MdOutlineLocationOn } from "react-icons/md";
 
 const dummyText =
@@ -13,8 +13,8 @@ const dummyPrice = "200 php - 1,000 php";
 
 const Overview = () => {
 	const router = useRouter();
-	const { bar } = router.query;
-
+	const { bar, isFeatured } = router.query;
+	const barIsFeatured = isFeatured && parseInt(isFeatured.toString(), 10) === 1 ? true : false;
 	return (
 		<>
 			<Head>
@@ -22,7 +22,7 @@ const Overview = () => {
 			</Head>
 			<Navhar />
 			<main className="md:mx-5 sm:mx-5 lg:container lg:mx-auto h-full py-16 flex flex-col items-center">
-				<PageBar barName={bar} isFeatured={true} active="overview" />
+				<PageBar barName={bar} isFeatured={barIsFeatured} active="overview" />
 
 				<div className="w-full h-auto mt-5 flex lg:flex-row md:flex-row sm:flex-col">
 					<div className="lg:h-96 md:h-96 sm:h-72 lg:w-2/3 md:w-1/2 flex items-center justify-center bg-gray-400 rounded-2xl">Image</div>
