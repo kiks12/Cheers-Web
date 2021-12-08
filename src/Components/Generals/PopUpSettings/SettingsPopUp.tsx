@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/link-passhref */
 import Link from "next/link";
 import React from "react";
 import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
+import {signOut} from "next-auth/react";
 
 interface SettingsPopUpProps {
 	setShowSettingsPopUp: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,11 +24,10 @@ const SettingsPopUp: React.FC<SettingsPopUpProps> = ({ setShowSettingsPopUp }) =
 					Account Settings
 				</button>
 			</Link>
-			<Link href="/login">
-				<button className="py-2 px-5 text-sm flex items-center justify-center w-full hover:bg-gray-100 active:bg-gray-200 transition-all">
-					Log Out
-				</button>
-			</Link>
+			<button className="py-2 px-5 text-sm flex items-center justify-center w-full hover:bg-gray-100 active:bg-gray-200 transition-all"
+			onClick={() => signOut({callbackUrl: "http://localhost:3000/login"})}>
+				Log Out
+			</button>
 		</div>
 	);
 };

@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/link-passhref */
 import React, { useRef, useState } from "react";
 import { MdOutlineHome, MdCalendarToday, MdSearch, MdArrowDropDown } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
+import Image from "next/image";
 import SettingsPopUp from "../PopUpSettings/SettingsPopUp";
 import NavBarFullScreen from "./NavBarFullScreen";
 import FloatingSearchBar from "./FloatingSearchBar";
@@ -11,6 +13,7 @@ import {
 	LARGE_SCREEN_ACTIVE_SETTINGS,
 	SMALL_SCREEN_ACTIVE_SETTINGS,
 } from "./navbarConstants";
+import {useSession} from "next-auth/react";
 
 interface NavBarProps {
 	activePage?: string;
@@ -55,6 +58,8 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 	const [showFloatingSearchBar, setShowFloatingSearchBar] = useState<boolean>(false);
 	const hamburgerMenuRef = useRef<HTMLDivElement>(null);
 	const searchIconRef = useRef<HTMLDivElement>(null);
+
+	const {data: session} = useSession();
 
 	return (
 		<nav className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20" style={{ backgroundColor: "white" }}>
@@ -116,10 +121,12 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 					<div className="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400">
 						<div className="rounded-full h-8 w-8 bg-black mr-2">
 							<span>
-								<i></i>
+								{session && <Image src={`${session?.user?.image}`} alt="profile" width={20} height={20}/>}
 							</span>
 						</div>
-						<p className="text-sm">Username</p>
+						{session ? 
+						<p className="text-sm">{session.user?.name}</p>
+						: <p>Guest</p>}
 					</div>
 				</Link>
 				<div className="flex items-center relative">

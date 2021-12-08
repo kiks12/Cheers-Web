@@ -4,6 +4,7 @@ import Featured from "../src/Components/Feed/Featured";
 import Feed from "../src/Components/Feed/Feed";
 
 const Home = () => {
+
 	return (
 		<>
 			<Head>

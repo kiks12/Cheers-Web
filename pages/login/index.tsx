@@ -2,31 +2,13 @@ import Link from "next/link";
 import Head from "next/head";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
-import { getAuth, signInWithRedirect, getRedirectResult } from "@firebase/auth";
-import { googleProvider } from "../../src/service/firebase";
-import { useEffect } from "react";
-import { useRouter } from "next/dist/client/router";
-
-const auth = getAuth();
+import { signIn, useSession } from "next-auth/react";
 
 const Login = () => {
-	const router = useRouter();
-	useEffect(() => {
-		const getUser = async () => {
-			try {
-				const result = await getRedirectResult(auth);
-				if (!result) return;
-				// const credentials = GoogleAuthProvider.credentialFromResult(result);
-				// const user = result.user;
-				// const token = credentials?.accessToken;
-				router.push("/");
-			} catch (e) {
-				console.log(e);
-			}
-		};
+	const {data: session} = useSession();
+	
+	if(session) window.location.replace("/");
 
-		getUser();
-	}, []);
 	return (
 		<>
 			<Head>
@@ -79,9 +61,7 @@ const Login = () => {
 								<div className="flex">
 									<div
 										className="rounded-full h-12 w-12 shadow-md mr-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all"
-										onClick={() => {
-											signInWithRedirect(auth, googleProvider);
-										}}
+										onClick={() => signIn("google", {callbackUrl: "http://localhost:3000/"})}
 									>
 										<FcGoogle size={32} />
 									</div>
@@ -101,5 +81,6 @@ const Login = () => {
 		</>
 	);
 };
+
 
 export default Login;
