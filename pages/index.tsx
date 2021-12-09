@@ -2,8 +2,15 @@ import Head from "next/head";
 import Navhar from "../src/Components/Generals/Navbar/navbar";
 import Featured from "../src/Components/Feed/Featured";
 import Feed from "../src/Components/Feed/Feed";
+import { NextPage } from "next";
+import Router from "next/router";
 
-const Home = () => {
+const Home : NextPage= () => {
+
+	Router.events.on("routeChangeStart", () => {
+		console.log("route changing");
+	})
+
 
 	return (
 		<>

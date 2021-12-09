@@ -1,4 +1,9 @@
 {
     "editor.wordWrap": "bounded",
-    "editor.wordWrapColumn": 150
+    "editor.wordWrapColumn": 150,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },"[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

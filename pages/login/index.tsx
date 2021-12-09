@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/dist/client/router";
+import ReactLoading from "react-loading";
 
 const Login = () => {
 	const router = useRouter();
@@ -18,7 +19,11 @@ const Login = () => {
 				<title>Login</title>
 			</Head>
 			{
-				status === "loading" && <p>Loading....</p>
+				status === "loading" && (
+				<div className="h-screen w-screen flex items-center justify-center">
+					<ReactLoading type="spinningBubbles" color="#2d2d2d" height="100px" width="100px"/>
+				</div>
+				)
 			}
 			{
 				status === "unauthenticated" &&
