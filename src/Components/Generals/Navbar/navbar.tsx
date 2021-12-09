@@ -117,27 +117,36 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 			</ul>
 
 			<div className="items-center lg:flex md:flex sm:hidden">
-				<Link href="/profile/settings">
-					<div className="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400">
-						<div className="rounded-full h-8 w-8 bg-black mr-2">
-							<span>
-								{session && <Image src={`${session?.user?.image}`} alt="profile" width={20} height={20}/>}
-							</span>
+				{session ? 
+				<>
+					<Link href="/profile/settings">
+						<div className="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400">
+							<div className="rounded-full h-8 w-8 bg-black mr-2">
+								<span>
+									{session && <Image src={`${session?.user?.image}`} alt="profile" width={20} height={20}/>}
+								</span>
+							</div>
+							<p className="text-sm">{session.user?.name}</p>
 						</div>
-						{session ? 
-						<p className="text-sm">{session.user?.name}</p>
-						: <p>Guest</p>}
+					</Link>
+					<div className="flex items-center relative">
+						<div
+							className="ml-3 w-6 h-6 cursor-pointer rounded-full hover:bg-gray-200 transition-all"
+							onClick={() => handleSettingsPopUpClick(setShowSettingsPopUp, setCurrentActiveSettings)}
+						>
+							<MdArrowDropDown size={24} />
+						</div>
+						{showSettingsPopUp && currentActiveSettings === 0 && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
 					</div>
-				</Link>
-				<div className="flex items-center relative">
-					<div
-						className="ml-3 w-6 h-6 cursor-pointer rounded-full hover:bg-gray-200 transition-all"
-						onClick={() => handleSettingsPopUpClick(setShowSettingsPopUp, setCurrentActiveSettings)}
-					>
-						<MdArrowDropDown size={24} />
-					</div>
-					{showSettingsPopUp && currentActiveSettings === 0 && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
-				</div>
+				</>
+				: 
+				<>
+					<p className="text-sm">Guest</p>
+					<Link href="/login">
+					<p className="text-sm rounded-md ml-4 cursor-pointer hover:bg-black active:bg-gray-700 hover:text-white transition-all p-1 px-3 border-black border">Log in</p>
+					</Link>
+				</>
+				}
 			</div>
 
 			<div className="lg:hidden md:hidden sm:flex items-center">
