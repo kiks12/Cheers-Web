@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import Navbar from "../../../src/Components/Generals/Navbar/navbar";
 
 interface AccountSettingsProps {}
 
