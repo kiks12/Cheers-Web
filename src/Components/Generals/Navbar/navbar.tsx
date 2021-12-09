@@ -68,7 +68,6 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
     useState<boolean>(false);
   const hamburgerMenuRef = useRef<HTMLDivElement>(null);
   const searchIconRef = useRef<HTMLDivElement>(null);
-
   const { data: session } = useSession();
 
   return (

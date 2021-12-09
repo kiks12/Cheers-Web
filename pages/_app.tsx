@@ -5,6 +5,7 @@ import { SessionProvider } from "next-auth/react";
 import Head from "next/head";
 import Layout from "../src/Components/Header/layout";
 import { ActivePageProvider } from "../src/Custom-Hooks/useActivePage";
+import { useRouter } from "next/router";
 
 interface myAppProps {
   Component: any;
@@ -15,6 +16,9 @@ const MyApp = ({
   Component,
   pageProps: { session, ...pageProps },
 }: myAppProps) => {
+  const router = useRouter();
+
+  console.log(router.pathname);
   return (
     <>
       <Head>
@@ -25,9 +29,13 @@ const MyApp = ({
       </Head>
       <SessionProvider session={session}>
         <ActivePageProvider>
-          <Layout>
+          {router.pathname === "/login" ? (
             <Component {...pageProps} />
-          </Layout>
+          ) : (
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          )}
         </ActivePageProvider>
       </SessionProvider>
     </>
