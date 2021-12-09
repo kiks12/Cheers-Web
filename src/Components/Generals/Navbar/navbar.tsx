@@ -121,9 +121,9 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				<>
 					<Link href="/profile/settings">
 						<div className="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400">
-							<div className="rounded-full h-8 w-8 bg-black mr-2">
+							<div className="rounded-full h-8 w-8 bg-black mr-2 overflow-hidden">
 								<span>
-									{session && <Image src={`${session?.user?.image}`} alt="profile" width={20} height={20}/>}
+									{session && <Image src={`${session?.user?.image}`} alt="profile" width={40} height={40} objectFit="cover"/>}
 								</span>
 							</div>
 							<p className="text-sm">{session.user?.name}</p>
@@ -159,13 +159,13 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				</div>
 				{showFullScreenNavBar && <NavBarFullScreen setShowNavBarFullScreen={setShowFullScreenNavBar} />}
 				<div
-					className="rounded-full h-8 w-8 bg-black cursor-pointer"
+					className="rounded-full h-8 w-8 bg-black cursor-pointer overflow-hidden"
 					onClick={() => {
 						handleSettingsPopUpClick(setShowSettingsPopUp, setCurrentActiveSettings);
 					}}
 				>
 					<span>
-						<i></i>
+						{session && <Image src={`${session?.user?.image}`} alt="profile" width={40} height={40} objectFit="cover"/>}
 					</span>
 				</div>
 				{showSettingsPopUp && currentActiveSettings === 1 && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
