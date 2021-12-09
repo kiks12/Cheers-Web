@@ -3,18 +3,25 @@ import Head from "next/head";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/dist/client/router";
 
 const Login = () => {
-	const {data: session} = useSession();
+	const router = useRouter();
+	const {status: status} = useSession();
 	
-	if(session) window.location.replace("/");
+	console.log(status);
+	if(status === "authenticated") router.push("/");
 
 	return (
 		<>
 			<Head>
 				<title>Login</title>
 			</Head>
-
+			{
+				status === "loading" && <p>Loading....</p>
+			}
+			{
+				status === "unauthenticated" &&
 			<main className=" mx-auto h-screen">
 				<div className="bg-black h-1/2 fixed inset-0 z-0 skew-x-12" />
 				<div className="h-full flex flex-wrap justify-center items-center z-10">
@@ -78,6 +85,7 @@ const Login = () => {
 					</div>
 				</div>
 			</main>
+            }
 		</>
 	);
 };
