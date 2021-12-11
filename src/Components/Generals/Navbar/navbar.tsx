@@ -93,11 +93,11 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 			<ul className="lg:flex md:flex sm:hidden justify-end w-1/4 h-full">
 				<Link href="/">
 					{activePage === "home" ? (
-						<li className={ACTIVE_NAVBAR_LINK_STYLING} onClick={() => setActivePage("home")}>
+						<li className={ACTIVE_NAVBAR_LINK_STYLING}>
 							<MdOutlineHome size={24} />
 						</li>
 					) : (
-						<li className={INACTIVE_NAVBAR_LINK_STYLING} onClick={() => setActivePage("home")}>
+						<li className={INACTIVE_NAVBAR_LINK_STYLING}>
 							<MdOutlineHome size={24} />
 						</li>
 					)}
@@ -105,11 +105,11 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 
 				<Link href="/profile/reservations">
 					{activePage === "reservations" ? (
-						<li className={ACTIVE_NAVBAR_LINK_STYLING} onClick={() => setActivePage("reservations")}>
+						<li className={ACTIVE_NAVBAR_LINK_STYLING}>
 							<MdCalendarToday size={19} />
 						</li>
 					) : (
-						<li className={INACTIVE_NAVBAR_LINK_STYLING} onClick={() => setActivePage("reservations")}>
+						<li className={INACTIVE_NAVBAR_LINK_STYLING}>
 							<MdCalendarToday size={19} />
 						</li>
 					)}
