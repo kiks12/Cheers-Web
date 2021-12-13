@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/link-passhref */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { MdOutlineHome, MdCalendarToday, MdSearch, MdArrowDropDown } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
