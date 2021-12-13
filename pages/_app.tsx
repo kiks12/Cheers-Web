@@ -15,7 +15,6 @@ interface myAppProps {
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: myAppProps) => {
 	const router = useRouter();
 
-	console.log(router.pathname);
 	return (
 		<>
 			<Head>
