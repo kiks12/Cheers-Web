@@ -81,7 +81,14 @@ const Login = () => {
 										>
 											<FcGoogle size={32} />
 										</div>
-										<div className="rounded-full h-12 w-12 shadow-md ml-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all">
+										<div
+											className="rounded-full h-12 w-12 shadow-md ml-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all"
+											onClick={() => {
+												signIn("facebook", {
+													callbackUrl: "http://localhost:3000/",
+												});
+											}}
+										>
 											<BsFacebook color="#1977F3" size={32} />
 										</div>
 									</div>
