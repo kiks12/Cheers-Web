@@ -1,45 +1,42 @@
-import React, { MutableRefObject, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FilterComponent from "./FilterComponent";
 import FilterModal from "./FilterModal";
 
-const getFilterContainerPosition = (
-	elementRef: MutableRefObject<HTMLDivElement | null>
-) => {
-	if (elementRef.current) {
-		const filterContainerBoundingRect =
-			elementRef.current.getBoundingClientRect();
-
-		if (filterContainerBoundingRect.top === 48) {
-			elementRef.current.style.backgroundColor = "white";
-			elementRef.current.classList.add("shadow-md");
-			return;
-		}
-		elementRef.current.style.backgroundColor = "transparent";
-		elementRef.current.classList.remove("shadow-md");
-	}
-};
-
 const Filter: React.FC = () => {
-	const filterContainer = useRef<HTMLDivElement | null>(null);
+	const filterContainerRef = useRef<HTMLDivElement | null>(null);
 	const [showFilterModal, setShowFilterModal] = useState<boolean>(false);
 
+	const filterContainerPositioningStyles = () => {
+		if (filterContainerRef.current) {
+			const filterContainerBoundingRect = filterContainerRef.current.getBoundingClientRect();
+
+			if (filterContainerBoundingRect.top === 48) {
+				filterContainerRef.current.style.backgroundColor = "white";
+				filterContainerRef.current.classList.add("shadow-md");
+				return;
+			}
+			filterContainerRef.current.style.backgroundColor = "transparent";
+			filterContainerRef.current.classList.remove("shadow-md");
+		}
+	};
+
 	useEffect(() => {
-		window.addEventListener("scroll", () =>
-			getFilterContainerPosition(filterContainer)
-		);
+		filterContainerPositioningStyles();
+	}, []);
+
+	useEffect(() => {
+		window.addEventListener("scroll", filterContainerPositioningStyles);
 
 		return () => {
-			window.removeEventListener("scroll", () =>
-				getFilterContainerPosition(filterContainer)
-			);
-			filterContainer.current = null;
+			window.removeEventListener("scroll", filterContainerPositioningStyles);
+			filterContainerRef.current = null;
 		};
 	}, []);
 
 	return (
 		<>
 			<div
-				ref={filterContainer}
+				ref={filterContainerRef}
 				className="w-screen sticky items-center justify-center lg:flex md:hidden sm:hidden z-20"
 				style={{ top: "3rem" }}
 			>
@@ -58,11 +55,7 @@ const Filter: React.FC = () => {
 					Filters
 				</button>
 			</div>
-
-			<FilterModal
-				showFilterModal={showFilterModal}
-				setShowFilterModal={setShowFilterModal}
-			/>
+			{showFilterModal && <FilterModal setShowFilterModal={setShowFilterModal} />}
 		</>
 	);
 };

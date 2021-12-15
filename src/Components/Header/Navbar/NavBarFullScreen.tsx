@@ -12,13 +12,13 @@ const handleFullScreenNavbarClose = (setShowNavBarFullScreen: React.Dispatch<Rea
 };
 
 const NavBarFullScreen: React.FC<NavBarFullScreenProps> = ({ setShowNavBarFullScreen }) => {
-	const mainRef = useCursorOutside(() => {
+	const fullScreenNavbarRef = useCursorOutside(() => {
 		handleFullScreenNavbarClose(setShowNavBarFullScreen);
 	});
 	return (
 		<div className="fixed z-20 left-0 right-0 top-0 bottom-0 h-auto bg-black bg-opacity-60">
 			<div className="w-full h-full">
-				<div className="fixed top-0 right-0 bottom-0 bg-white w-2/3 pt-1 pb-5" ref={mainRef}>
+				<div className="fixed top-0 right-0 bottom-0 bg-white w-2/3 pt-1 pb-5" ref={fullScreenNavbarRef}>
 					<div className="flex justify-end p-2">
 						<div onClick={() => handleFullScreenNavbarClose(setShowNavBarFullScreen)}>
 							<AiOutlineClose />
