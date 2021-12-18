@@ -28,7 +28,7 @@ const Reservations: React.FC<ReservationsProps> = ({ reservations }) => {
 					<div className="w-full flex items-center flex-col">
 						<p>You need to sign up to see reservations</p>
 						<Link href="/login">
-							<p className="cursor-pointer">Log In</p>
+							<p className="cursor-pointer text-yellow-400">Log In</p>
 						</Link>
 					</div>
 				)}
