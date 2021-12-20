@@ -5,7 +5,7 @@ interface FilterComponentProps {
 	setShowFilterModal?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const FilterComponent: React.FC<FilterComponentProps> = ({ showCancel, setShowFilterModal }) => {
+const FilterComponent: React.FC<FilterComponentProps> = ({ setShowFilterModal }) => {
 	return (
 		<div className="flex lg:flex-row md:flex-col md:w-full sm:flex-col sm:w-full justify-between">
 			<div className="flex lg:flex-row lg:items-end lg:justify-between lg:w-3/4 md:flex-col md:w-full sm:flex-col sm:w-full">
@@ -51,20 +51,18 @@ const FilterComponent: React.FC<FilterComponentProps> = ({ showCancel, setShowFi
 					<button className="w-full bg-black text-white font-light h-8 rounded-md hover:bg-gray-700 transition-all text-sm">Apply</button>
 				</div>
 
-				{showCancel && (
-					<div className="flex items-center justify-center">
-						<button
-							className="w-full border border-red-400 text-red-400 font-light h-8 rounded-md hover:bg-red-400 hover:text-white mt-2 transition-all text-sm"
-							onClick={() => {
-								if (setShowFilterModal) {
-									setShowFilterModal(false);
-								}
-							}}
-						>
-							Cancel
-						</button>
-					</div>
-				)}
+				<div className="flex items-center justify-center lg:hidden">
+					<button
+						className="w-full border border-red-400 text-red-400 font-light h-8 rounded-md hover:bg-red-400 hover:text-white mt-2 transition-all text-sm"
+						onClick={() => {
+							if (setShowFilterModal) {
+								setShowFilterModal(false);
+							}
+						}}
+					>
+						Cancel
+					</button>
+				</div>
 			</div>
 		</div>
 	);
