@@ -1,10 +1,25 @@
+
+/*
+
+Cheers - Main Filter Component in index page (for large screen)
+Last Updated: Dec. 30, 2021
+Tolentino, Francis James S.
+
+*/
+
+
 import React, { useEffect, useRef, useState } from "react";
+
+
 import FilterComponent from "./BaseFilterComponent";
 import FilterModal from "./FilterModal";
 
+
 const Filter: React.FC = () => {
+
 	const filterContainerRef = useRef<HTMLDivElement | null>(null);
 	const [showFilterModal, setShowFilterModal] = useState<boolean>(false);
+
 
 	const filterContainerPositioningStyles = () => {
 		if (filterContainerRef.current) {
@@ -20,9 +35,11 @@ const Filter: React.FC = () => {
 		}
 	};
 
+
 	useEffect(() => {
 		filterContainerPositioningStyles();
 	}, []);
+
 
 	useEffect(() => {
 		window.addEventListener("scroll", filterContainerPositioningStyles);
@@ -33,6 +50,7 @@ const Filter: React.FC = () => {
 		};
 	}, []);
 
+
 	return (
 		<>
 			<div
@@ -40,9 +58,13 @@ const Filter: React.FC = () => {
 				className="w-screen sticky items-center justify-center lg:flex md:hidden sm:hidden z-20"
 				style={{ top: "3rem" }}
 			>
+				
 				<div className="flex lg:items-end mt-1 pb-5 pt-2 lg:container md:container sm:mx-5 lg:flex-row lg:justify-between md:flex-col md:w-full md:items-center md:justify-center sm:flex-col sm:w-full sm:items-center sm:justify-center">
+					
 					<FilterComponent showCancel={false} />
+
 				</div>
+
 			</div>
 
 			<div className="w-full flex items-center justify-center lg:hidden md:block">
@@ -55,7 +77,9 @@ const Filter: React.FC = () => {
 					Filters
 				</button>
 			</div>
+
 			{showFilterModal && <FilterModal setShowFilterModal={setShowFilterModal} />}
+
 		</>
 	);
 };
