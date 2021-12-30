@@ -1,6 +1,6 @@
 import { NextRouter, useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
-import PageBar from "../../../src/Components/SingleBarPage/PageBar";
+import PageBar from "../../../src/Components/SingleBarPage/PageHeader";
 
 const images = [
   "Image 1",

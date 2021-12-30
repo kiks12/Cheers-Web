@@ -20,7 +20,7 @@ import OverviewPhotosReviewsEventsBar from "./OverviewPhotosReviewsEventsBar";
 
 
 interface PageBarProps {
-  barName: string | undefined;
+  barName: string | string[] | undefined;
   isFeatured: boolean;
   active: string;
 }

@@ -1,6 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
-import PageBar from "../../../src/Components/SingleBarPage/PageBar";
+import PageBar from "../../../src/Components/SingleBarPage/PageHeader";
 import { MdOutlineLocationOn } from "react-icons/md";
 
 const dummyText =
