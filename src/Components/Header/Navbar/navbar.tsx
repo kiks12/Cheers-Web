@@ -212,44 +212,24 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 							)
 						}
 						
-						{/* {session && status === "authenticated" ? (
-
-							<>
-								<div className="rounded-full h-8 w-8 bg-black cursor-pointer overflow-hidden" 
-								onClick={handleSettingsPopUpClick}
-								>
-									<span>
-										{
-											session && <Image src={`${session?.user?.image}`} alt="profile" width={40} height={40} objectFit="cover" />
-										}
-									</span>
-								</div>
-
-							{
-								showSettingsPopUp && currentActiveSettings === 1 && (
-									<SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />
-									)
-							}								
-							</>
-
-						) : (
-
-							<Link href="/login">
-								<p className="text-sm rounded-md cursor-pointer hover:bg-black active:bg-gray-700 hover:text-white transition-all p-1 px-3 border-black border">
-									Log in
-								</p>
-							</Link>
-							
-							) 
-						} */}
-
 						<div
 							ref={hamburgerMenuRef}
-							className="cursor-pointer pl-2 rounded-md transition-all"
+							className="cursor-pointer rounded-md transition-all"
 							onClick={handleFullScreenNavBarClick}
-						>
+							>
 							<GiHamburgerMenu size={24} />
 						</div>
+						
+						{
+							status === "unauthenticated" && 
+							(
+								<Link href="/login">
+									<p className="text-sm rounded-md cursor-pointer hover:bg-black active:bg-gray-700 hover:text-white transition-all p-1 px-3 border-black border ml-3">
+										Log in
+									</p>
+								</Link>
+							) 
+						}
 		
 					</div>
 				</nav>
