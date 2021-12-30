@@ -8,25 +8,31 @@ Tolentino, Francis James S.
 
  */
 
-import React, { useRef, useState } from "react";
+
 import { MdSearch, MdArrowDropDown } from "react-icons/md";
 import { BsCalendarEvent, BsCalendarEventFill } from "react-icons/bs";
 import { AiOutlineHome, AiFillHome} from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
+
+
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import SettingsPopUp from "../PopUpSettings/SettingsPopUp";
+import { useSession } from "next-auth/react";
+
+
 import NavBarFullScreen from "./NavBarFullScreen";
+import SettingsPopUp from "../PopUpSettings/PopUpSettings";
 import FloatingSearchBar from "./FloatingSearchBar";
+
 import {
 	ACTIVE_NAVBAR_LINK_STYLING,
 	INACTIVE_NAVBAR_LINK_STYLING,
 	LARGE_SCREEN_ACTIVE_SETTINGS,
 	SMALL_SCREEN_ACTIVE_SETTINGS,
 } from "./navbarConstants";
-import { useSession } from "next-auth/react";
 
-// navigation bar props
+
 interface NavBarProps {
 	activePage?: String;
 	setActivePage: React.Dispatch<React.SetStateAction<String>>;
