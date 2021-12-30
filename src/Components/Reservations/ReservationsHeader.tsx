@@ -35,7 +35,7 @@ const ReservationsHeader: React.FC<ReservationsHeaderProps> = () => {
 
 			<h1 className="font-semibold text-xl mb-5">Reservations</h1>
 
-			<div className="flex justify-between lg:flex-row md:flex-row sm:flex-col">
+			<div className="flex justify-between lg:flex-row md:flex-ro`w sm:flex-col">
 				<div className="flex lg:flex-row md:flex-row sm:flex-col lg:mr-5 md:mr-5 sm:mr-0 lg:items-center md:items-center">
 					<p className="mr-3 font-light text-sm">Sort By:</p>
 					<select
