@@ -1,4 +1,13 @@
 /* eslint-disable @next/next/link-passhref */
+
+/*
+
+Cheers - Navigation bar Component
+Last Update: Dec. 30, 2021
+Tolentino, Francis James S.
+
+ */
+
 import React, { useRef, useState } from "react";
 import { MdOutlineHome, MdCalendarToday, MdSearch, MdArrowDropDown } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -15,51 +24,51 @@ import {
 } from "./navbarConstants";
 import { useSession } from "next-auth/react";
 
+// navigation bar props
 interface NavBarProps {
 	activePage?: String;
 	setActivePage: React.Dispatch<React.SetStateAction<String>>;
 }
 
-const handleSettingsPopUpClick = (
-	setShowSettingsPopUp: React.Dispatch<React.SetStateAction<boolean>>,
-	setCurrentActiveSettings: React.Dispatch<React.SetStateAction<number>>
-) => {
-	setShowSettingsPopUp((prev) => (prev = !prev));
-	if (document.body.getBoundingClientRect().width <= 767) {
-		setCurrentActiveSettings(SMALL_SCREEN_ACTIVE_SETTINGS);
-		return;
-	}
-	setCurrentActiveSettings(LARGE_SCREEN_ACTIVE_SETTINGS);
-};
-
-const handleFullScreenNavBarClick = (setShowFullScreenNavBar: React.Dispatch<React.SetStateAction<boolean>>) => {
-	setShowFullScreenNavBar((prev) => (prev = !prev));
-};
-
-const handleFloatingSearchBarIconClick = (
-	setShowFloatingSearchBar: React.Dispatch<React.SetStateAction<boolean>>,
-	searchIconRef: React.RefObject<HTMLDivElement>
-) => {
-	setShowFloatingSearchBar((prev) => {
-		if (prev) {
-			prev = false;
-			searchIconRef.current?.classList.remove("bg-gray-200");
-		} else {
-			prev = true;
-			searchIconRef.current?.classList.add("bg-gray-200");
-		}
-		return prev;
-	});
-};
-
 const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
+	// settings pop up state
 	const [showSettingsPopUp, setShowSettingsPopUp] = useState<boolean>(false);
+	// current active settings state
 	const [currentActiveSettings, setCurrentActiveSettings] = useState<number>(0);
 	const [showFullScreenNavBar, setShowFullScreenNavBar] = useState<boolean>(false);
 	const [showFloatingSearchBar, setShowFloatingSearchBar] = useState<boolean>(false);
 	const hamburgerMenuRef = useRef<HTMLDivElement>(null);
 	const searchIconRef = useRef<HTMLDivElement>(null);
 	const { data: session, status: status } = useSession();
+
+	// Settings Pop Up on click event
+	const handleSettingsPopUpClick = () => {
+		setShowSettingsPopUp((prev) => (prev = !prev));
+		if (document.body.getBoundingClientRect().width <= 767) {
+			setCurrentActiveSettings(SMALL_SCREEN_ACTIVE_SETTINGS);
+			return;
+		}
+		setCurrentActiveSettings(LARGE_SCREEN_ACTIVE_SETTINGS);
+	};
+
+	// Full Screen Navigation Bar on click event
+	const handleFullScreenNavBarClick = () => {
+		setShowFullScreenNavBar((prev) => (prev = !prev));
+	};
+
+	// Floating Search bar on click event
+	const handleFloatingSearchBarIconClick = () => {
+		setShowFloatingSearchBar((prev) => {
+			if (prev) {
+				prev = false;
+				searchIconRef.current?.classList.remove("bg-gray-200");
+			} else {
+				prev = true;
+				searchIconRef.current?.classList.add("bg-gray-200");
+			}
+			return prev;
+		});
+	};
 
 	return (
 		<>
@@ -74,7 +83,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 						<div
 							ref={searchIconRef}
 							className="lg:hidden md:hidden sm:flex items-center justify-center ml-4 h-8 w-8 rounded-full cursor-pointer"
-							onClick={() => handleFloatingSearchBarIconClick(setShowFloatingSearchBar, searchIconRef)}
+							onClick={handleFloatingSearchBarIconClick}
 						>
 							<MdSearch size={22} />
 						</div>
@@ -147,7 +156,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 								<div className="flex items-center relative">
 									<div
 										className="ml-3 w-6 h-6 cursor-pointer rounded-full hover:bg-gray-200 transition-all"
-										onClick={() => handleSettingsPopUpClick(setShowSettingsPopUp, setCurrentActiveSettings)}
+										onClick={handleSettingsPopUpClick}
 									>
 										<MdArrowDropDown size={24} />
 									</div>
@@ -172,17 +181,12 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 						<div
 							ref={hamburgerMenuRef}
 							className="mr-3 cursor-pointer p-2 rounded-md transition-all"
-							onClick={() => handleFullScreenNavBarClick(setShowFullScreenNavBar)}
+							onClick={handleFullScreenNavBarClick}
 						>
 							<GiHamburgerMenu size={24} />
 						</div>
 						{showFullScreenNavBar && <NavBarFullScreen setShowNavBarFullScreen={setShowFullScreenNavBar} />}
-						<div
-							className="rounded-full h-8 w-8 bg-black cursor-pointer overflow-hidden"
-							onClick={() => {
-								handleSettingsPopUpClick(setShowSettingsPopUp, setCurrentActiveSettings);
-							}}
-						>
+						<div className="rounded-full h-8 w-8 bg-black cursor-pointer overflow-hidden" onClick={handleSettingsPopUpClick}>
 							<span>{session && <Image src={`${session?.user?.image}`} alt="profile" width={40} height={40} objectFit="cover" />}</span>
 						</div>
 						{showSettingsPopUp && currentActiveSettings === 1 && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
