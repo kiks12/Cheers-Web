@@ -35,10 +35,9 @@ import {
 
 interface NavBarProps {
 	activePage?: String;
-	setActivePage: React.Dispatch<React.SetStateAction<String>>;
 }
 
-const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
+const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 	
 	const [showSettingsPopUp, setShowSettingsPopUp] = useState<boolean>(false);
 	const [currentActiveSettings, setCurrentActiveSettings] = useState<number>(0);
@@ -165,7 +164,6 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 								<Link href="/profile/settings">
 									<div
 										className="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400"
-										onClick={() => setActivePage("")}
 									>
 										<div className="rounded-full h-8 w-8 mr-2 overflow-hidden">
 											<span>

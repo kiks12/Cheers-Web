@@ -17,12 +17,12 @@ import { useActivePage } from "../../Custom-Hooks/useActivePage";
 
 const Layout: React.FC = ({ children }) => {
 
-	const [activePage, setActivePage] = useActivePage();
+	const [activePage] = useActivePage();
 
 
 	return (
 		<div>
-			<Navhar activePage={activePage} setActivePage={setActivePage} />
+			<Navhar activePage={activePage} />
 			{children}
 		</div>
 	);
