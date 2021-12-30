@@ -1,3 +1,12 @@
+
+/*
+
+Cheers - Floating Search Bar for Smaller Screen
+Last Updated: Dec. 30, 2021
+Tolentino, Francis James S.
+
+*/
+
 import React from "react";
 
 interface FloatingSearchBarProps {}
