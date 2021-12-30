@@ -1,7 +1,20 @@
+
+/*
+
+Cheers - Single bar page Overview/index page
+Last Updated: Dec. 30, 2021
+Tolentino, Francis James S. 
+
+*/
+
+import { MdOutlineLocationOn } from "react-icons/md";
+
+
 import { useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
+
 import PageBar from "../../../src/Components/SingleBarPage/PageHeader";
-import { MdOutlineLocationOn } from "react-icons/md";
+
 
 const dummyText =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
@@ -10,17 +23,23 @@ const dummyAddress = "Angeles City, Pampanga";
 const dummyContacts = "(0948) 279 1258";
 const dummyPrice = "200 php - 1,000 php";
 
+
 const Overview = () => {
+
   const router = useRouter();
   const { bar, isFeatured } = router.query;
-  const barIsFeatured =
-    isFeatured && parseInt(isFeatured.toString(), 10) === 1 ? true : false;
+  
+  const barIsFeatured = isFeatured && parseInt(isFeatured.toString(), 10) === 1 ? true : false;
+
+
   return (
     <>
       <Head>
         <title>{bar}</title>
       </Head>
+
       <main className='md:mx-5 sm:mx-5 lg:container lg:mx-auto h-full py-16 flex flex-col items-center'>
+       
         <PageBar barName={bar} isFeatured={barIsFeatured} active='overview' />
 
         <div className='w-full h-auto mt-5 flex lg:flex-row md:flex-row sm:flex-col'>
@@ -62,7 +81,9 @@ const Overview = () => {
 
             <p className='font-normal text-sm'>{dummyPrice}</p>
           </div>
+
         </div>
+
       </main>
     </>
   );
