@@ -1,11 +1,24 @@
+
+/*
+
+Cheers - Scroll to top Buttom Component
+Last Updated: Dec. 30, 2021
+Tolentino, Francis James S.
+
+*/
+
 import React from "react";
+
+
 import { IoIosArrowUp } from "react-icons/io";
+
 
 const scrollToTopHandler = () => {
 	window.scrollTo(0, 0);
 };
 
 const ScrollToTopButton: React.FC = () => {
+
 	return (
 		<div
 			className="fixed z-20 bottom-0 right-0 mr-5 mb-5 shadow-md cursor-pointer rounded-full border p-3"
@@ -15,6 +28,7 @@ const ScrollToTopButton: React.FC = () => {
 			<IoIosArrowUp size={20} />
 		</div>
 	);
+	
 };
 
 export default ScrollToTopButton;
