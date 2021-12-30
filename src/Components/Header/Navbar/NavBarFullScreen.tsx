@@ -14,6 +14,7 @@ import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
 import { AiOutlineClose } from "react-icons/ai";
 import type { Session } from "next-auth";
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 
 
 interface NavBarFullScreenProps {
@@ -41,24 +42,57 @@ const NavBarFullScreen: React.FC<NavBarFullScreenProps> = ({ setShowNavBarFullSc
 				<div className="fixed top-0 right-0 bottom-0 bg-white w-2/3 pt-1 pb-5" ref={fullScreenNavbarRef}>
 
 					<div className="flex justify-end p-2">
-						<div onClick={handleFullScreenNavbarClose}>
+						<div className="cursor-pointer" onClick={handleFullScreenNavbarClose}>
 							<AiOutlineClose />
 						</div>
 					</div>
 
+					{
+						data && 
+						(
+							<Link href="/profile/settings/">
+								<div className="flex items-center justify-center py-4">
+									<div className="h-16 w-16 overflow-hidden rounded-full cursor-pointer"
+										 onClick={handleFullScreenNavbarClose}
+									>
+										<span>
+											<Image src={`${data && data?.user?.image}`} 
+												alt="profile" 
+												width={100} 
+												height={100} 
+												objectFit="cover"/>
+										</span>
+									</div>
+								</div>
+							</Link>
+						)
+					}
+
 					<Link href="/">
-						<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200">Home</button>
+						<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200"
+								onClick={handleFullScreenNavbarClose}
+						>
+							Home
+						</button>
 					</Link>
 
 					<Link href="/profile/reservations/">
-						<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200">Reservations</button>
+						<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200"
+								onClick={handleFullScreenNavbarClose}
+						>
+							Reservations
+						</button>
 					</Link>
 
 					{
 						status === "authenticated" && data && (
 						<>
 							<Link href="/profile/settings/">
-								<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200">Account Settings</button>
+								<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200"
+										onClick={handleFullScreenNavbarClose}
+								>
+									Account Settings
+								</button>
 							</Link>
 
 							<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200"

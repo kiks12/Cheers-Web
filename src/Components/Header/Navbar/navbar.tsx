@@ -159,7 +159,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 										className="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400"
 										onClick={() => setActivePage("")}
 									>
-										<div className="rounded-full h-8 w-8 bg-black mr-2 overflow-hidden">
+										<div className="rounded-full h-8 w-8 mr-2 overflow-hidden">
 											<span>
 												{session && (
 													<Image
