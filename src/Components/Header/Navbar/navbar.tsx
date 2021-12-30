@@ -9,7 +9,7 @@ Tolentino, Francis James S.
  */
 
 import React, { useRef, useState } from "react";
-import { MdSearch, MdArrowDropDown, MdHome } from "react-icons/md";
+import { MdSearch, MdArrowDropDown } from "react-icons/md";
 import { BsCalendarEvent, BsCalendarEventFill } from "react-icons/bs";
 import { AiOutlineHome, AiFillHome} from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
