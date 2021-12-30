@@ -1,22 +1,41 @@
-import React from "react";
-import Link from "next/dist/client/link";
-import OverviewPhotosReviewsEventsBar from "./OverviewPhotosReviewsEventsBar";
+
+/*
+
+Cheers - Single Bar page header/bar
+Last Updated: Dec. 30, 2021
+Tolentino, Francis James S.
+
+*/
+
 import { MdStar } from "react-icons/md";
 import { BsArrowLeft } from "react-icons/bs";
 import { useActivePage } from "../../Custom-Hooks/useActivePage";
 
+
+import React from "react";
+import Link from "next/dist/client/link";
+
+
+import OverviewPhotosReviewsEventsBar from "./OverviewPhotosReviewsEventsBar";
+
+
 interface PageBarProps {
-  barName: string | string[] | undefined;
+  barName: string | undefined;
   isFeatured: boolean;
   active: string;
 }
 
+
 const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active }) => {
+
   const [_activePage, setActivePage] = useActivePage();
+  
   return (
     <>
       <div className='w-full flex flex-col mt'>
+        
         <div className='w-full'>
+
           <Link href='/'>
             <button
               className='font-light border-black border px-5 py-1 text-sm rounded-md hover:bg-black hover:text-white transition-all flex items-center'
@@ -27,6 +46,7 @@ const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active }) => {
               Go Back
             </button>
           </Link>
+
         </div>
 
         <div className='w-full flex justify-between mt-6 lg:items-end md:items-end sm:items-center lg:flex-row md:flex-row sm:flex-col'>
