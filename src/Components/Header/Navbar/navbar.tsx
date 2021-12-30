@@ -31,15 +31,15 @@ interface NavBarProps {
 }
 
 const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
-	// settings pop up state
+	
 	const [showSettingsPopUp, setShowSettingsPopUp] = useState<boolean>(false);
-	// current active settings state
 	const [currentActiveSettings, setCurrentActiveSettings] = useState<number>(0);
 	const [showFullScreenNavBar, setShowFullScreenNavBar] = useState<boolean>(false);
 	const [showFloatingSearchBar, setShowFloatingSearchBar] = useState<boolean>(false);
 	const hamburgerMenuRef = useRef<HTMLDivElement>(null);
 	const searchIconRef = useRef<HTMLDivElement>(null);
 	const { data: session, status: status } = useSession();
+
 
 	// Settings Pop Up on click event
 	const handleSettingsPopUpClick = () => {
@@ -51,10 +51,12 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 		setCurrentActiveSettings(LARGE_SCREEN_ACTIVE_SETTINGS);
 	};
 
+
 	// Full Screen Navigation Bar on click event
 	const handleFullScreenNavBarClick = () => {
 		setShowFullScreenNavBar((prev) => (prev = !prev));
 	};
+
 
 	// Floating Search bar on click event
 	const handleFloatingSearchBarIconClick = () => {
@@ -70,16 +72,24 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 		});
 	};
 
+
 	return (
 		<>
-			{status === "loading" ? (
-				<></>
-			) : (
-				<nav className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20" style={{ backgroundColor: "white" }}>
+			{/* if status is loading render nothing */}
+			{status === "loading" ? <></> : 
+
+				(
+				<nav className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20" 
+					 style={{ backgroundColor: "white" }}>
+
 					<div className="flex items-center">
+						
 						<Link href="/">
-							<h2 className="text-2xl font-semibold cursor-pointer">Cheers.</h2>
+							<h2 className="text-2xl font-semibold cursor-pointer">
+								Cheers.
+							</h2>
 						</Link>
+
 						<div
 							ref={searchIconRef}
 							className="lg:hidden md:hidden sm:flex items-center justify-center ml-4 h-8 w-8 rounded-full cursor-pointer"
@@ -87,23 +97,33 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 						>
 							<MdSearch size={22} />
 						</div>
+
 						{showFloatingSearchBar && <FloatingSearchBar />}
+						
 					</div>
 
+
 					<div className="lg:w-1/4 md:w-1/3 lg:block md:block sm:hidden h-full items-center justify-center p-2">
+						
 						<div className="w-full h-full flex relative">
+							
 							<input
 								className="bg-transparent h-full focus:outline-none text-sm border bg-white pl-2 rounded-l-md pr-2"
 								style={{ width: "91%" }}
 								placeholder="Search"
 							/>
+
 							<div className="bg-black w-8 h-full flex-auto cursor-pointer rounded-r-md border border-black hover:bg-gray-700 flex items-center justify-center absolute top-0 right-0 bottom-0 active:bg-gray-500">
 								<MdSearch color="#f8f8f8" size={18} />
 							</div>
+
 						</div>
+
 					</div>
 
+
 					<ul className="lg:flex md:flex sm:hidden justify-end w-1/4 h-full">
+
 						<Link href="/">
 							{activePage === "home" ? (
 								<li className={ACTIVE_NAVBAR_LINK_STYLING}>
@@ -127,7 +147,9 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 								</li>
 							)}
 						</Link>
+						
 					</ul>
+
 
 					<div className="items-center lg:flex md:flex sm:hidden">
 						{session && status === "authenticated" ? (
@@ -174,10 +196,12 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 									</p>
 								</Link>
 							</>
-						)}
+							)
+						}
 					</div>
 
 					<div className="lg:hidden md:hidden sm:flex items-center">
+						
 						<div
 							ref={hamburgerMenuRef}
 							className="mr-3 cursor-pointer p-2 rounded-md transition-all"
@@ -185,14 +209,47 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 						>
 							<GiHamburgerMenu size={24} />
 						</div>
-						{showFullScreenNavBar && <NavBarFullScreen setShowNavBarFullScreen={setShowFullScreenNavBar} />}
-						<div className="rounded-full h-8 w-8 bg-black cursor-pointer overflow-hidden" onClick={handleSettingsPopUpClick}>
-							<span>{session && <Image src={`${session?.user?.image}`} alt="profile" width={40} height={40} objectFit="cover" />}</span>
-						</div>
-						{showSettingsPopUp && currentActiveSettings === 1 && <SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />}
+
+						{
+							showFullScreenNavBar && <NavBarFullScreen setShowNavBarFullScreen={setShowFullScreenNavBar} />
+						}
+						
+						{session && status === "authenticated" ? (
+
+							<>
+								<div className="rounded-full h-8 w-8 bg-black cursor-pointer overflow-hidden" 
+								onClick={handleSettingsPopUpClick}
+								>
+									<span>
+										{
+											session && <Image src={`${session?.user?.image}`} alt="profile" width={40} height={40} objectFit="cover" />
+										}
+									</span>
+								</div>
+
+							{
+								showSettingsPopUp && currentActiveSettings === 1 && (
+									<SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />
+									)
+							}								
+							</>
+
+						) : (
+
+							<Link href="/login">
+								<p className="text-sm rounded-md cursor-pointer hover:bg-black active:bg-gray-700 hover:text-white transition-all p-1 px-3 border-black border">
+									Log in
+								</p>
+							</Link>
+							
+							) 
+						}
+		
 					</div>
 				</nav>
-			)}
+
+				)
+			}
 		</>
 	);
 };
