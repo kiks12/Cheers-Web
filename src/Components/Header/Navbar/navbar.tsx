@@ -9,7 +9,9 @@ Tolentino, Francis James S.
  */
 
 import React, { useRef, useState } from "react";
-import { MdOutlineHome, MdCalendarToday, MdSearch, MdArrowDropDown } from "react-icons/md";
+import { MdSearch, MdArrowDropDown, MdHome } from "react-icons/md";
+import { BsCalendarEvent, BsCalendarEventFill } from "react-icons/bs";
+import { AiOutlineHome, AiFillHome} from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
 import Image from "next/image";
@@ -127,11 +129,11 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 						<Link href="/">
 							{activePage === "home" ? (
 								<li className={ACTIVE_NAVBAR_LINK_STYLING}>
-									<MdOutlineHome size={24} />
+									<AiFillHome size={22} />
 								</li>
 							) : (
 								<li className={INACTIVE_NAVBAR_LINK_STYLING}>
-									<MdOutlineHome size={24} />
+									<AiOutlineHome size={22} />
 								</li>
 							)}
 						</Link>
@@ -139,11 +141,11 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 						<Link href="/profile/reservations">
 							{activePage === "reservations" ? (
 								<li className={ACTIVE_NAVBAR_LINK_STYLING}>
-									<MdCalendarToday size={19} />
+									<BsCalendarEventFill size={18} />
 								</li>
 							) : (
 								<li className={INACTIVE_NAVBAR_LINK_STYLING}>
-									<MdCalendarToday size={19} />
+									<BsCalendarEvent size={18} />
 								</li>
 							)}
 						</Link>
