@@ -30,7 +30,7 @@ const dummyImages = [
 const Photos = () => {
 
   const router: NextRouter = useRouter();
-  
+
   const { bar } = router.query;
 
   return (
@@ -38,7 +38,10 @@ const Photos = () => {
       <Head>
         <title>{bar}</title>
       </Head>
+
+
       <main className='md:mx-5 sm:mx-5 lg:container lg:mx-auto h-full py-16 flex flex-col items-center'>
+        
         <PageBar barName={bar} isFeatured={true} active='photos' />
 
         <div className='mt-5 flex w-full flex-wrap'>
@@ -56,7 +59,10 @@ const Photos = () => {
             <p>No Photos to show</p>
           )}
         </div>
+
       </main>
+
+
     </>
   );
 };
