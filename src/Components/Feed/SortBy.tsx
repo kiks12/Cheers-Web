@@ -1,6 +1,18 @@
+
+/*
+
+Cheers - Sort by Component
+Last Updated: Dec. 30, 2021
+Tolentino, Francis James S.
+
+*/
+
+
 import React from "react";
 
+
 const SortBy: React.FC = () => {
+	
 	return (
 		<div className="mt-10 w-full">
 			<p className="mb-2">Sort By:</p>
