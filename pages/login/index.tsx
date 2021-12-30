@@ -1,28 +1,46 @@
-import Link from "next/link";
-import Head from "next/head";
+
+/*
+
+Cheers - Login Page
+Last Updated: Dec. 30, 2021
+Tolentino, Francis James S.
+
+*/
+
+
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
+
+
+import Link from "next/link";
+import Head from "next/head";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/dist/client/router";
+
+
 import ReactLoading from "react-loading";
 
+
 const Login = () => {
+
 	const router = useRouter();
 	const { status: status } = useSession();
 
-	console.log(status);
 	if (status === "authenticated") router.push("/");
+
 
 	return (
 		<>
 			<Head>
 				<title>Login</title>
 			</Head>
+
 			{status === "loading" && (
 				<div className="h-screen w-screen flex items-center justify-center">
 					<ReactLoading type="spinningBubbles" color="#2d2d2d" height="100px" width="100px" />
 				</div>
 			)}
+			
 			{status === "unauthenticated" && (
 				<main className=" mx-auto h-screen">
 					<div className="bg-black h-1/2 fixed inset-0 z-0 skew-x-12" />
