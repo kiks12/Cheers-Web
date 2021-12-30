@@ -1,21 +1,36 @@
 /* eslint-disable @next/next/no-page-custom-font */
+
+/*
+
+Cheers - _app main page
+Last Updated: Dec. 30, 2021
+Tolentino, Francis James S.
+
+*/
+
+
 import "../styles/out.css";
 import "../styles/globals.css";
-import { SessionProvider } from "next-auth/react";
+
 import Head from "next/head";
-import Layout from "../src/Components/Header/layout";
-import { ActivePageProvider } from "../src/Custom-Hooks/useActivePage";
+import { SessionProvider } from "next-auth/react";
 import { useRouter } from "next/router";
+
+
+import Layout from "../src/Components/Header/layout";
+
+
+import { ActivePageProvider } from "../src/Custom-Hooks/useActivePage";
+
 
 interface myAppProps {
   Component: any;
   pageProps: any;
 }
 
-const MyApp = ({
-  Component,
-  pageProps: { session, ...pageProps },
-}: myAppProps) => {
+
+const MyApp = ({Component, pageProps: { session, ...pageProps }}: myAppProps) => {
+  
   const router = useRouter();
 
   return (
