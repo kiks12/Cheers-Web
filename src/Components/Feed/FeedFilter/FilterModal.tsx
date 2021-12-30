@@ -13,7 +13,7 @@ import React from "react";
 import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
 
 
-import FilterComponent from "./FilterComponent";
+import FilterComponent from "./BaseFilterComponent";
 
 
 interface FilterModalProps {

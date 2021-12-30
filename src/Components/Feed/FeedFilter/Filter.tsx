@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import FilterComponent from "./FilterComponent";
+import FilterComponent from "./BaseFilterComponent";
 import FilterModal from "./FilterModal";
 
 const Filter: React.FC = () => {

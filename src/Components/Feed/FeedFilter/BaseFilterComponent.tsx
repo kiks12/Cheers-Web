@@ -1,4 +1,15 @@
+
+/*
+
+Cheers - Base Filter Component (Filter component that handles the ui button rendering)
+Last Updated: Dec. 30, 2021
+Tolentino, Francis James S.
+
+*/
+
+
 import React from "react";
+
 
 interface FilterComponentProps {
 	showCancel: boolean;
@@ -6,6 +17,8 @@ interface FilterComponentProps {
 }
 
 const FilterComponent: React.FC<FilterComponentProps> = ({ setShowFilterModal }) => {
+
+	
 	return (
 		<div className="flex lg:flex-row md:flex-col md:w-full sm:flex-col sm:w-full justify-between">
 			<div className="flex lg:flex-row lg:items-end lg:justify-between lg:w-3/4 md:flex-col md:w-full sm:flex-col sm:w-full">
