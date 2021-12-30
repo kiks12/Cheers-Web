@@ -8,16 +8,23 @@ Tolentino, Francis James S.
 */
 
 /* eslint-disable @next/next/link-passhref */
+
+
 import Link from "next/link";
 import React from "react";
-import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
 import { signOut } from "next-auth/react";
 
+
+import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
+
+
 import { SIGNOUT_CALLBACK_URL } from "../Navbar/navbarConstants";
+
 
 interface SettingsPopUpProps {
 	setShowSettingsPopUp: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 
 const SettingsPopUp: React.FC<SettingsPopUpProps> = ({ setShowSettingsPopUp }) => {
 
