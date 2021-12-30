@@ -64,4 +64,5 @@ export const getStaticProps: GetStaticProps = () => {
 	};
 };
 
+
 export default Reservations;
