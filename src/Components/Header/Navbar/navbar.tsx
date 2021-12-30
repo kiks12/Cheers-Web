@@ -201,20 +201,18 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 					</div>
 
 					<div className="lg:hidden md:hidden sm:flex items-center">
-						
-						<div
-							ref={hamburgerMenuRef}
-							className="mr-3 cursor-pointer p-2 rounded-md transition-all"
-							onClick={handleFullScreenNavBarClick}
-						>
-							<GiHamburgerMenu size={24} />
-						</div>
 
 						{
-							showFullScreenNavBar && <NavBarFullScreen setShowNavBarFullScreen={setShowFullScreenNavBar} />
+							showFullScreenNavBar && 
+							(
+								<NavBarFullScreen 
+									setShowNavBarFullScreen={setShowFullScreenNavBar} 
+									data={session}
+									status={status}/>
+							)
 						}
 						
-						{session && status === "authenticated" ? (
+						{/* {session && status === "authenticated" ? (
 
 							<>
 								<div className="rounded-full h-8 w-8 bg-black cursor-pointer overflow-hidden" 
@@ -243,7 +241,15 @@ const Navhar: React.FC<NavBarProps> = ({ activePage, setActivePage }) => {
 							</Link>
 							
 							) 
-						}
+						} */}
+
+						<div
+							ref={hamburgerMenuRef}
+							className="cursor-pointer pl-2 rounded-md transition-all"
+							onClick={handleFullScreenNavBarClick}
+						>
+							<GiHamburgerMenu size={24} />
+						</div>
 		
 					</div>
 				</nav>
