@@ -1,8 +1,20 @@
+
+/*
+
+Cheers - Single Bar Page Photos Component
+Last Updated: Dec. 30, 2021
+Tolentino, Francis James S.
+
+*/
+
 import { NextRouter, useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
+
+
 import PageBar from "../../../src/Components/SingleBarPage/PageHeader";
 
-const images = [
+
+const dummyImages = [
   "Image 1",
   "Image 2",
   "Image 3",
@@ -14,8 +26,11 @@ const images = [
   "sdfas",
 ];
 
+
 const Photos = () => {
+
   const router: NextRouter = useRouter();
+  
   const { bar } = router.query;
 
   return (
@@ -27,8 +42,8 @@ const Photos = () => {
         <PageBar barName={bar} isFeatured={true} active='photos' />
 
         <div className='mt-5 flex w-full flex-wrap'>
-          {images ? (
-            images.map((image) => {
+          {dummyImages ? (
+            dummyImages.map((image) => {
               return (
                 <div
                   key={image}
