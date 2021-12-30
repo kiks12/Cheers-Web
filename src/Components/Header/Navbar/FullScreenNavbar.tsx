@@ -8,13 +8,20 @@ Tolentino, Francis James S.
 */
 
 
+import { AiOutlineClose } from "react-icons/ai";
+
+
 import React from "react";
 import Link from "next/link";
-import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
-import { AiOutlineClose } from "react-icons/ai";
+import Image from "next/image";
 import type { Session } from "next-auth";
 import { signOut } from "next-auth/react";
-import Image from "next/image";
+
+
+import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
+
+
+import { SIGNOUT_CALLBACK_URL } from "../Navbar/navbarConstants";
 
 
 interface NavBarFullScreenProps {
@@ -96,7 +103,7 @@ const NavBarFullScreen: React.FC<NavBarFullScreenProps> = ({ setShowNavBarFullSc
 							</Link>
 
 							<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200"
-									onClick={() => signOut({callbackUrl: "http://localhost:3000/login"})}
+									onClick={() => signOut({callbackUrl: SIGNOUT_CALLBACK_URL})}
 									>
 								Log Out
 							</button>

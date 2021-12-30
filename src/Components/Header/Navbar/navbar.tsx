@@ -21,7 +21,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 
 
-import NavBarFullScreen from "./NavBarFullScreen";
+import NavBarFullScreen from "./FullScreenNavbar";
 import SettingsPopUp from "../PopUpSettings/PopUpSettings";
 import FloatingSearchBar from "./FloatingSearchBar";
 
