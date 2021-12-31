@@ -1,20 +1,25 @@
 
 /*
 
-Cheers - custom hook for handling active pages navbar link
-Last Updated: Dec. 30, 2021
+Cheers - custom hook for handling active navbar link
+Last Updated: Dec. 31, 2021
 Tolentino, Francis James S.
 
 */
+
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 
-const activePageContext = createContext<any>([]);
+const INDEX_ROUTE = "/";
+const PROFILE_RESERVATIONS_ROUTE = "/profile/reservations";
 
 
 type ActivePage = "home" | "reservations" | "";
+
+
+const activePageContext = createContext<[ActivePage, React.Dispatch<React.SetStateAction<ActivePage>>] | []>([]);
 
 
 export const ActivePageProvider = ({ children }: any) => {
@@ -23,15 +28,16 @@ export const ActivePageProvider = ({ children }: any) => {
 
 	const [activePage, setActivePage] = useState<ActivePage>("");
 
+
 	useEffect(() => {
 
 		const path = router.pathname;
 
 		switch (path) {
-			case "/":
+			case INDEX_ROUTE:
 				setActivePage("home");
 				break;
-			case "/profile/reservations":
+			case PROFILE_RESERVATIONS_ROUTE:
 				setActivePage("reservations");
 				break;
 			default:
@@ -41,11 +47,13 @@ export const ActivePageProvider = ({ children }: any) => {
 
 	}, [router, setActivePage]);
 
+
 	return (
 		<activePageContext.Provider value={[activePage, setActivePage]}>
 			{children}
 		</activePageContext.Provider>
 	)
 };
+
 
 export const useActivePage = () => useContext(activePageContext);
