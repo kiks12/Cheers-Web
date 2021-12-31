@@ -2,35 +2,41 @@
 /*
 
 Cheers - custom hook for closing pop up components on click outside itself
-Last Updated: Dec. 30, 2021
+Last Updated: Dec. 31, 2021
 Tolentino, Francis James S.
 
 */
 
-import React, { useEffect, useRef } from "react";
 
-type ElementRefType = HTMLDivElement | null;
+import { useEffect, useRef } from "react";
 
-const useCursorOutside = (handler: () => void, cursorRef?: React.MutableRefObject<ElementRefType>) => {
+
+type ElementRefType = HTMLDivElement | HTMLInputElement | null;
+
+
+const useCursorOutside = (handler: () => any) => {
 	
-	const elementRef = typeof cursorRef !== "undefined" ? cursorRef : useRef<ElementRefType>(null);
+	const elementRef = useRef<ElementRefType>(null);
 
 	useEffect(() => {
 		
-		const mainHandler = (e: any) => {
-			if (elementRef.current && !elementRef.current.contains(e.target)) {
+		const mainHandler = (e: MouseEvent) => {
+			if (elementRef.current && !elementRef.current.contains(e.target as Node)) {
 				handler();
 			}
 		};
 
 		document.addEventListener("click", mainHandler);
 
+		
 		return () => {
 			document.removeEventListener("click", mainHandler);
 		};
 	});
 
+
 	return elementRef;
 };
+
 
 export default useCursorOutside;
