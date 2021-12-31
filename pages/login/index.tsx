@@ -27,10 +27,12 @@ const Login = () => {
  	const router = useRouter();
   	const { status: status } = useSession();
 
+
 	useEffect(() => {
 		if (status === "authenticated") router.push("/");
 	}, [router, status]);
 
+	
 	return (
 		<>
 		<Head>
