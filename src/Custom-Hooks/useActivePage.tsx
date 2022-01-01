@@ -2,7 +2,7 @@
 /*
 
 Cheers - custom hook for handling active navbar link
-Last Updated: Dec. 31, 2021
+Last Updated: Jan. 2, 2022
 Tolentino, Francis James S.
 
 */
@@ -19,7 +19,7 @@ const PROFILE_RESERVATIONS_ROUTE = "/profile/reservations";
 type ActivePage = "home" | "reservations" | "";
 
 
-const activePageContext = createContext<[ActivePage, React.Dispatch<React.SetStateAction<ActivePage>>] | []>([]);
+const activePageContext = createContext<[ActivePage, React.Dispatch<React.SetStateAction<ActivePage>>] | any[]>([]);
 
 
 export const ActivePageProvider = ({ children }: any) => {
