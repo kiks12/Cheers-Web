@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         <title>Home</title>
       </Head>
 
-      {status !== "loading" && (
+      {status === "authenticated" || status === "unauthenticated" && (
         <>
           <main className='lg:container md:mx-5 sm:mx-5 lg:mx-auto h-full py-16 flex flex-col items-center'>
             <Featured />

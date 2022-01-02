@@ -12,12 +12,12 @@ import React from "react";
 
 
 import Navhar from "./Navbar/navbar";
+import FilterComponent from "../Feed/FeedFilter/BaseFilterComponent";
 
 
 import { useActivePage } from "../../Custom-Hooks/useActivePage";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import FilterComponent from "../Feed/FeedFilter/BaseFilterComponent";
 
 
 const Layout: React.FC = ({ children }) => {
@@ -55,25 +55,26 @@ const Layout: React.FC = ({ children }) => {
 						</div>
 					</div>
 
-					<div
-					className="w-screen sticky items-center justify-center lg:flex md:hidden sm:hidden z-20"
+				<div
+				className="w-screen sticky items-center justify-center lg:flex md:hidden sm:hidden z-20"
+				style={{ top: "3rem" }}
+				>
+				
+					<div className="flex lg:items-end mt-1 pb-5 pt-2 lg:container md:container sm:mx-5 lg:flex-row lg:justify-between md:flex-col md:w-full md:items-center md:justify-center sm:flex-col sm:w-full sm:items-center sm:justify-center">
+						
+						<FilterComponent showCancel={false} />
+
+					</div>
+
+				</div>
+
+				<div className="w-full flex items-center justify-center lg:hidden md:block">
+					<button
+						className="border border-black w-full py-2 px-5 rounded-md hover:bg-black hover:text-white transition-all"
 					>
-					
-						<div className="flex lg:items-end mt-1 pb-5 pt-2 lg:container md:container sm:mx-5 lg:flex-row lg:justify-between md:flex-col md:w-full md:items-center md:justify-center sm:flex-col sm:w-full sm:items-center sm:justify-center">
-							
-							<FilterComponent showCancel={false} />
-
-						</div>
-
-					</div>
-
-					<div className="w-full flex items-center justify-center lg:hidden md:block">
-						<button
-							className="border border-black w-full py-2 px-5 rounded-md hover:bg-black hover:text-white transition-all"
-						>
-							Filters
-						</button>
-					</div>
+						Filters
+					</button>
+				</div>
 				</main>
 			</>
 		)
