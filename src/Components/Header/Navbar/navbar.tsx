@@ -21,8 +21,9 @@ import { useSession } from "next-auth/react";
 
 
 import NavBarFullScreen from "./FullScreenNavbar";
-import SettingsPopUp from "../PopUpSettings/PopUpSettings";
+import PopupSettings from "../PopUpSettings/PopUpSettings";
 import FloatingSearchBar from "./FloatingSearchBar";
+
 
 import {
 	ACTIVE_NAVBAR_LINK_STYLING,
@@ -36,9 +37,10 @@ interface NavBarProps {
 	activePage?: String;
 }
 
+
 const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 	
-	const [showSettingsPopUp, setShowSettingsPopUp] = useState<boolean>(false);
+	const [showPopupSettings, setShowPopupSettings] = useState<boolean>(false);
 	const [currentActiveSettings, setCurrentActiveSettings] = useState<number>(0);
 	const [showFullScreenNavBar, setShowFullScreenNavBar] = useState<boolean>(false);
 	const [showFloatingSearchBar, setShowFloatingSearchBar] = useState<boolean>(false);
@@ -46,9 +48,9 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 	const { data: session, status: status } = useSession();
 
 
-	// Settings Pop Up on click event
-	const handleSettingsPopUpClick = () => {
-		setShowSettingsPopUp((prev) => (prev = !prev));
+	// Pop Up Settings on click event
+	const popupSettingsOnClickHandler = () => {
+		setShowPopupSettings((prev) => (prev = !prev));
 		if (document.body.getBoundingClientRect().width <= 767) {
 			setCurrentActiveSettings(SMALL_SCREEN_ACTIVE_SETTINGS);
 			return;
@@ -64,7 +66,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 
 
 	// Floating Search bar on click event
-	const handleFloatingSearchBarIconClick = useMemo(() => {
+	const floatingSearchBarIconClassHandler = useMemo(() => {
 		if (showFloatingSearchBar) {
 			return "lg:hidden md:hidden sm:flex items-center justify-center ml-4 h-8 w-8 rounded-full cursor-pointer bg-gray-200";
 		}
@@ -91,7 +93,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 						</Link>
 
 						<div
-							className={handleFloatingSearchBarIconClick}
+							className={floatingSearchBarIconClassHandler}
 							onClick={() => setShowFloatingSearchBar(prev => prev = !prev)}
 						>
 							<MdSearch size={22} />
@@ -178,12 +180,12 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 								<div className="flex items-center relative">
 									<div
 										className="ml-3 w-6 h-6 cursor-pointer rounded-full hover:bg-gray-200 transition-all"
-										onClick={handleSettingsPopUpClick}
+										onClick={popupSettingsOnClickHandler}
 									>
 										<MdArrowDropDown size={24} />
 									</div>
-									{showSettingsPopUp && currentActiveSettings === 0 && (
-										<SettingsPopUp setShowSettingsPopUp={setShowSettingsPopUp} />
+									{showPopupSettings && currentActiveSettings === 0 && (
+										<PopupSettings setShowPopupSettings={setShowPopupSettings} />
 									)}
 								</div>
 							</>

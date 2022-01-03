@@ -21,12 +21,12 @@ import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
 import { SIGNOUT_CALLBACK_URL } from "../Navbar/navbarConstants";
 
 
-interface SettingsPopUpProps {
-	setShowSettingsPopUp: React.Dispatch<React.SetStateAction<boolean>>;
+interface PopupSettingsProps {
+	setShowPopupSettings: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 
-const SettingsPopUp: React.FC<SettingsPopUpProps> = ({ setShowSettingsPopUp }) => {
+const PopupSettings: React.FC<PopupSettingsProps> = ({ setShowPopupSettings: setShowSettingsPopUp }) => {
 
 	const mainRef = useCursorOutside(() => {
 		setShowSettingsPopUp((prev) => (prev = !prev));
@@ -56,4 +56,4 @@ const SettingsPopUp: React.FC<SettingsPopUpProps> = ({ setShowSettingsPopUp }) =
 	);
 };
 
-export default SettingsPopUp;
+export default PopupSettings;
