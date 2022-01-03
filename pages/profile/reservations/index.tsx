@@ -2,10 +2,11 @@
 /*
 
 Cheers - Reservations Page
-Last Updated: Dec. 30, 2021
+Last Updated: Jan. 3, 2022
 Tolentino, Francis James S.
 
 */
+
 
 import { GetStaticProps } from "next";
 import { useSession } from "next-auth/react";
@@ -21,6 +22,7 @@ import ReservationsHeader from "../../../src/Components/Reservations/Reservation
 interface ReservationsProps {
 	reservations: Array<any>;
 }
+
 
 const Reservations: React.FC<ReservationsProps> = ({ reservations }) => {
 
@@ -44,7 +46,7 @@ const Reservations: React.FC<ReservationsProps> = ({ reservations }) => {
 				) : (
 					<div className="w-full flex items-center flex-col">
 						<p>You need to sign up to see reservations</p>
-						<Link href="/login">
+						<Link href="/login" passHref={true}>
 							<p className="cursor-pointer text-yellow-400">Log In</p>
 						</Link>
 					</div>
