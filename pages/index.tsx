@@ -2,7 +2,7 @@
 /*
 
 Cheers - Index Page
-Last Updated: Dec. 30, 2021
+Last Updated: Jan. 3, 2022
 Tolentino, Francis James S.
 
 */
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         <title>Home</title>
       </Head>
 
-      {status === "authenticated" || status === "unauthenticated" && (
+      {status !== "loading" && (
         <>
           <main className='lg:container md:mx-5 sm:mx-5 lg:mx-auto h-full py-16 flex flex-col items-center'>
             <Featured />
