@@ -2,7 +2,7 @@
 /*
 
 Cheers - Main Filter Component in index page (for large screen)
-Last Updated: Dec. 30, 2021
+Last Updated: Jan. 3, 2022
 Tolentino, Francis James S.
 
 */
@@ -61,7 +61,7 @@ const Filter: React.FC = () => {
 				
 				<div className="flex lg:items-end mt-1 pb-5 pt-2 lg:container md:container sm:mx-5 lg:flex-row lg:justify-between md:flex-col md:w-full md:items-center md:justify-center sm:flex-col sm:w-full sm:items-center sm:justify-center">
 					
-					<FilterComponent showCancel={false} />
+					<FilterComponent showCancel={false} setShowFilterModal={setShowFilterModal} />
 
 				</div>
 
