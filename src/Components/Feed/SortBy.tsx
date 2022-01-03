@@ -2,7 +2,7 @@
 /*
 
 Cheers - Sort by Component
-Last Updated: Dec. 30, 2021
+Last Updated: Jan. 3, 2022
 Tolentino, Francis James S.
 
 */
@@ -16,7 +16,7 @@ const SortBy: React.FC = () => {
 	return (
 		<div className="mt-10 w-full">
 			<p className="mb-2">Sort By:</p>
-			<select className="h-8 w-48 px-2 bg-white border rounded-md text-sm">
+			<select className="h-8 lg:w-48 md:w-48 sm:w-full px-2 bg-white border rounded-md text-sm">
 				<option>Location</option>
 				<option>Reviews</option>
 			</select>
