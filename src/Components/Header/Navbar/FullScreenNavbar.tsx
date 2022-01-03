@@ -33,14 +33,14 @@ interface NavBarFullScreenProps {
 
 const NavBarFullScreen: React.FC<NavBarFullScreenProps> = ({ setShowNavBarFullScreen, data, status }) => {
 
-	const fullScreenNavbarRef = useCursorOutside(() => {
-		handleFullScreenNavbarClose();
-	});
-
 	const handleFullScreenNavbarClose = () => {
 		setShowNavBarFullScreen((prev) => (prev = !prev));
 	};
 
+
+	const fullScreenNavbarRef = useCursorOutside(handleFullScreenNavbarClose);
+
+	
 	return (
 		<div className="fixed z-20 left-0 right-0 top-0 bottom-0 h-auto bg-black bg-opacity-60">
 			
@@ -57,7 +57,7 @@ const NavBarFullScreen: React.FC<NavBarFullScreenProps> = ({ setShowNavBarFullSc
 					{
 						data && 
 						(
-							<Link href="/profile/settings/">
+							<Link href="/profile/settings/" passHref={true}>
 								<div className="flex items-center justify-center py-4">
 									<div className="h-16 w-16 overflow-hidden rounded-full cursor-pointer"
 										 onClick={handleFullScreenNavbarClose}
@@ -75,7 +75,7 @@ const NavBarFullScreen: React.FC<NavBarFullScreenProps> = ({ setShowNavBarFullSc
 						)
 					}
 
-					<Link href="/">
+					<Link href="/" passHref={true}>
 						<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200"
 								onClick={handleFullScreenNavbarClose}
 						>
@@ -83,7 +83,7 @@ const NavBarFullScreen: React.FC<NavBarFullScreenProps> = ({ setShowNavBarFullSc
 						</button>
 					</Link>
 
-					<Link href="/profile/reservations/">
+					<Link href="/profile/reservations/" passHref={true}>
 						<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200"
 								onClick={handleFullScreenNavbarClose}
 						>
@@ -94,7 +94,7 @@ const NavBarFullScreen: React.FC<NavBarFullScreenProps> = ({ setShowNavBarFullSc
 					{
 						status === "authenticated" && data && (
 						<>
-							<Link href="/profile/settings/">
+							<Link href="/profile/settings/" passHref={true}>
 								<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200"
 										onClick={handleFullScreenNavbarClose}
 								>
@@ -104,7 +104,7 @@ const NavBarFullScreen: React.FC<NavBarFullScreenProps> = ({ setShowNavBarFullSc
 
 							<button className="py-2 w-full hover:bg-gray-100 active:bg-gray-200"
 									onClick={() => signOut({callbackUrl: SIGNOUT_CALLBACK_URL})}
-									>
+							>
 								Log Out
 							</button>
 						</>
