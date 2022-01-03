@@ -2,26 +2,39 @@
 /*
 
 Cheers - Floating Search Bar for Smaller Screen
-Last Updated: Dec. 30, 2021
+Last Updated: Jan. 3, 2022
 Tolentino, Francis James S.
 
 */
 
+
 import React from "react";
+import useCursorOutside from "../../../Custom-Hooks/useCursorOutside";
 
-interface FloatingSearchBarProps {}
 
-const FloatingSearchBar: React.FC<FloatingSearchBarProps> = () => {
+interface FloatingSearchBarProps {
+	setShowFloatingSearchBar: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+
+const FloatingSearchBar: React.FC<FloatingSearchBarProps> = ({ setShowFloatingSearchBar }) => {
+
+	const elementRef = useCursorOutside(() => {
+		setShowFloatingSearchBar(false);
+	})
+
+
 	return (
 		<div
-			className="fixed right-0 left-0 h-auto px-5 py-2 flex justify-between shadow-lg"
+			ref={elementRef}
+			className="fixed right-0 left-0 h-auto px-5 py-2 flex flex-col justify-between shadow-lg"
 			style={{ top: "3rem", backgroundColor: "#ffff" }}
 		>
 			<input
-				className="text-sm py-2 px-4 flex-1 mr-2 bg-white border rounded-md"
+				className="text-sm py-2 px-4 flex-1 bg-white border rounded-md"
 				placeholder="Search"
 			/>
-			<button className="text-sm bg-black text-white px-5 rounded-md">
+			<button className="text-sm flex-1 py-2 border border-black mt-2 bg-black text-white px-5 rounded-md">
 				Search
 			</button>
 		</div>

@@ -1,9 +1,8 @@
-/* eslint-disable @next/next/link-passhref */
 
 /*
 
 Cheers - Navigation bar Component
-Last Update: Dec. 30, 2021
+Last Update: Jan. 3, 2022
 Tolentino, Francis James S.
 
  */
@@ -15,7 +14,7 @@ import { AiOutlineHome, AiFillHome} from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 
-import React, { useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
@@ -44,7 +43,6 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 	const [showFullScreenNavBar, setShowFullScreenNavBar] = useState<boolean>(false);
 	const [showFloatingSearchBar, setShowFloatingSearchBar] = useState<boolean>(false);
 	const hamburgerMenuRef = useRef<HTMLDivElement>(null);
-	const searchIconRef = useRef<HTMLDivElement>(null);
 	const { data: session, status: status } = useSession();
 
 
@@ -66,18 +64,13 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 
 
 	// Floating Search bar on click event
-	const handleFloatingSearchBarIconClick = () => {
-		setShowFloatingSearchBar((prev) => {
-			if (prev) {
-				prev = false;
-				searchIconRef.current?.classList.remove("bg-gray-200");
-			} else {
-				prev = true;
-				searchIconRef.current?.classList.add("bg-gray-200");
-			}
-			return prev;
-		});
-	};
+	const handleFloatingSearchBarIconClick = useMemo(() => {
+		if (showFloatingSearchBar) {
+			return "lg:hidden md:hidden sm:flex items-center justify-center ml-4 h-8 w-8 rounded-full cursor-pointer bg-gray-200";
+		}
+		return "lg:hidden md:hidden sm:flex items-center justify-center ml-4 h-8 w-8 rounded-full cursor-pointer";
+
+	}, [showFloatingSearchBar]);
 
 
 	return (
@@ -91,21 +84,22 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 
 					<div className="flex items-center">
 						
-						<Link href="/">
+						<Link href="/" passHref={true}>
 							<h2 className="text-2xl font-semibold cursor-pointer">
 								Cheers.
 							</h2>
 						</Link>
 
 						<div
-							ref={searchIconRef}
-							className="lg:hidden md:hidden sm:flex items-center justify-center ml-4 h-8 w-8 rounded-full cursor-pointer"
-							onClick={handleFloatingSearchBarIconClick}
+							className={handleFloatingSearchBarIconClick}
+							onClick={() => setShowFloatingSearchBar(prev => prev = !prev)}
 						>
 							<MdSearch size={22} />
 						</div>
 
-						{showFloatingSearchBar && <FloatingSearchBar />}
+						{
+							showFloatingSearchBar && <FloatingSearchBar setShowFloatingSearchBar={setShowFloatingSearchBar}/>
+						}
 						
 					</div>
 
@@ -131,7 +125,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 
 					<ul className="lg:flex md:flex sm:hidden justify-end w-1/4 h-full">
 
-						<Link href="/">
+						<Link href="/" passHref={true}>
 							{activePage === "home" ? (
 								<li className={ACTIVE_NAVBAR_LINK_STYLING}>
 									<AiFillHome size={22} />
@@ -143,7 +137,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 							)}
 						</Link>
 
-						<Link href="/profile/reservations">
+						<Link href="/profile/reservations" passHref={true}>
 							{activePage === "reservations" ? (
 								<li className={ACTIVE_NAVBAR_LINK_STYLING}>
 									<BsCalendarEventFill size={18} />
@@ -161,7 +155,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 					<div className="items-center lg:flex md:flex sm:hidden">
 						{session && status === "authenticated" ? (
 							<>
-								<Link href="/profile/settings">
+								<Link href="/profile/settings" passHref={true}>
 									<div
 										className="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400"
 									>
@@ -196,7 +190,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 						) : (
 							<>
 								<p className="text-sm">Guest</p>
-								<Link href="/login">
+								<Link href="/login" passHref={true}>
 									<p className="text-sm rounded-md ml-4 cursor-pointer hover:bg-black active:bg-gray-700 hover:text-white transition-all p-1 px-3 border-black border">
 										Log in
 									</p>
@@ -229,7 +223,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 						{
 							status === "unauthenticated" && 
 							(
-								<Link href="/login">
+								<Link href="/login" passHref={true}>
 									<p className="text-sm rounded-md cursor-pointer hover:bg-black active:bg-gray-700 hover:text-white transition-all p-1 px-3 border-black border ml-3">
 										Log in
 									</p>
