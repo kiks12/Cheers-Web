@@ -2,14 +2,13 @@
 /*
 
 Cheers - Single Bar page header/bar
-Last Updated: Dec. 30, 2021
+Last Updated: Jan. 4, 2022
 Tolentino, Francis James S.
 
 */
 
 import { MdStar } from "react-icons/md";
 import { BsArrowLeft } from "react-icons/bs";
-import { useActivePage } from "../../Custom-Hooks/useActivePage";
 
 
 import React from "react";
@@ -28,7 +27,6 @@ interface PageBarProps {
 
 const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active }) => {
 
-  const [_activePage, setActivePage] = useActivePage();
   
   return (
     <>
@@ -39,7 +37,7 @@ const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active }) => {
           <Link href='/'>
             <button
               className='font-light border-black border px-5 py-1 text-sm rounded-md hover:bg-black hover:text-white transition-all flex items-center'
-              onClick={() => setActivePage("home")}>
+              >
               <div className='w-auto h-auto mr-1'>
                 <BsArrowLeft size={18} />
               </div>

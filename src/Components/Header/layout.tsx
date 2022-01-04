@@ -12,10 +12,10 @@ import React from "react";
 import Link from "next/link";
 
 
-import Navhar from "./Navbar/navbar";
+// import Navhar from "./Navbar/navbar";
 
 
-import { useActivePage } from "../../Custom-Hooks/useActivePage";
+// import { useActivePage } from "../../Custom-Hooks/useActivePage";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 
@@ -24,11 +24,11 @@ const Layout: React.FC = ({ children }) => {
 
 	const router = useRouter();
 
-	const [activePage] = useActivePage();
+	// const [activePage] = useActivePage();
 
 	const { status } = useSession();
 
-	
+
 	if (router.pathname === "/login"){
 		return (
 			<div>
@@ -143,7 +143,7 @@ const Layout: React.FC = ({ children }) => {
 
 	return (
 		<div>
-			<Navhar activePage={activePage} />
+			{/* <Navhar activePage={activePage} /> */}
 			{children}
 		</div>
 	);

@@ -20,13 +20,18 @@ import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
 
 
-import Layout from "../src/Components/Header/layout";
+import Navhar from "../src/Components/Header/Navbar/navbar";
 
 
 import { ActivePageProvider } from "../src/Custom-Hooks/useActivePage";
+import { useRouter } from "next/router";
 
 
 const MyApp = ( { Component, pageProps: { session, ...pageProps } }: AppProps) => {
+
+  const router = useRouter();
+
+  const activePage = ActivePageProvider();
 
     return (
         <>
@@ -39,13 +44,10 @@ const MyApp = ( { Component, pageProps: { session, ...pageProps } }: AppProps) =
 
           <SessionProvider session={session}>
 
-            <ActivePageProvider>
-
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-
-            </ActivePageProvider>
+            {
+              router.pathname !== "/login" && <Navhar activePage={activePage}/>
+            }
+            <Component {...pageProps} />
             
           </SessionProvider>
         </>

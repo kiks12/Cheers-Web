@@ -14,12 +14,12 @@ import React from "react";
 import Link from "next/dist/client/link";
 
 
-import { useActivePage } from "../../Custom-Hooks/useActivePage";
+// import { useActivePage } from "../../Custom-Hooks/useActivePage";
 
 
 const Featured: React.FC = () => {
 
-  const [_activePage, setActivePage] = useActivePage();
+  // const [_activePage, setActivePage] = useActivePage();
 
   const BARNAME = "BARNAME";
   const IS_FEATURED = true;
@@ -38,7 +38,7 @@ const Featured: React.FC = () => {
               backgroundImage: "url(bar-goto-nyc-bar-interior-Alex-lau.jpeg)",
               backgroundSize: "contain",
             }}
-            onClick={() => setActivePage("")}>
+            >
             <div className='flex flex-col justify-start z-10'>
               <h1 className='text-white font-bold text-6xl'>Bar Name</h1>
 
