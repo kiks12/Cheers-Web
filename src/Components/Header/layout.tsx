@@ -2,13 +2,14 @@
 /*
 
 Cheers - Header Layout
-Last Updated: Jan. 3, 2022
+Last Updated: Jan. 4, 2022
 Tolentino, Francis James S.
 
 */
 
 
 import React from "react";
+import Link from "next/link";
 
 
 import Navhar from "./Navbar/navbar";
@@ -27,6 +28,7 @@ const Layout: React.FC = ({ children }) => {
 
 	const { status } = useSession();
 
+	
 	if (router.pathname === "/login"){
 		return (
 			<div>
@@ -40,7 +42,13 @@ const Layout: React.FC = ({ children }) => {
 		return (
 			<>
 				<nav className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20" 
-					 style={{ backgroundColor: "white" }} />
+					 style={{ backgroundColor: "white" }} >
+					<Link href="/" passHref={true}>
+						<h2 className="text-2xl font-semibold cursor-pointer">
+							Cheers.
+						</h2>
+					</Link>
+				</nav>
 					
        		    <main className='lg:container md:mx-5 sm:mx-5 lg:mx-auto h-full py-16 flex flex-col items-center'>
 					<div className='w-full flex flex-col items-center'>
