@@ -2,7 +2,7 @@
 /*
 
 Cheers - Featured Bar Component 
-Last Updated: Dec. 30, 2021
+Last Updated: Jan. 4, 2022
 Tolentino, Francis James S.
 
 */
@@ -14,16 +14,12 @@ import React from "react";
 import Link from "next/dist/client/link";
 
 
-// import { useActivePage } from "../../Custom-Hooks/useActivePage";
-
-
 const Featured: React.FC = () => {
-
-  // const [_activePage, setActivePage] = useActivePage();
 
   const BARNAME = "BARNAME";
   const IS_FEATURED = true;
   
+
   return (
     <>
       <div className='w-full flex flex-col items-center'>
@@ -64,5 +60,6 @@ const Featured: React.FC = () => {
     </>
   );
 };
+
 
 export default Featured;
