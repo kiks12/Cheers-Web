@@ -3,7 +3,7 @@
 /*
 
 Cheers - _app main component
-Last Updated: Dec. 31, 2021
+Last Updated: Jan. 4, 2022
 Tolentino, Francis James S.
 
 */
@@ -23,7 +23,7 @@ import { SessionProvider } from "next-auth/react";
 import Navhar from "../src/Components/Header/Navbar/navbar";
 
 
-import { ActivePageProvider } from "../src/Custom-Hooks/useActivePage";
+import useActivePage from "../src/Custom-Hooks/useActivePage";
 import { useRouter } from "next/router";
 
 
@@ -31,7 +31,7 @@ const MyApp = ( { Component, pageProps: { session, ...pageProps } }: AppProps) =
 
   const router = useRouter();
 
-  const activePage = ActivePageProvider();
+  const activePage = useActivePage();
 
     return (
         <>

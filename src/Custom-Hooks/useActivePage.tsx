@@ -19,7 +19,7 @@ const PROFILE_RESERVATIONS_ROUTE = "/profile/reservations";
 type ActivePage = "home" | "reservations" | "";
 
 
-export const ActivePageProvider = () => {
+const useActivePage = () => {
 	
 	const router = useRouter();
 
@@ -47,3 +47,6 @@ export const ActivePageProvider = () => {
 
 	return activePage;
 };
+
+
+export default useActivePage;
