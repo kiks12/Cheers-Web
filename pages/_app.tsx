@@ -3,7 +3,7 @@
 /*
 
 Cheers - _app main component
-Last Updated: Jan. 4, 2022
+Last Updated: Jan. 5, 2022
 Tolentino, Francis James S.
 
 */
@@ -18,13 +18,13 @@ import type { AppProps } from "next/app";
 
 import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
+import { useRouter } from "next/router";
 
 
 import Navhar from "../src/Components/Header/Navbar/navbar";
 
 
 import useActivePage from "../src/Custom-Hooks/useActivePage";
-import { useRouter } from "next/router";
 
 
 const MyApp = ( { Component, pageProps: { session, ...pageProps } }: AppProps) => {
