@@ -2,7 +2,7 @@
 /*
 
 Cheers - Login UI Component
-Created: Jan. 5, 2022
+Created: Jan. 6, 2022
 Last Updated: Jan. 5, 2022
 Author: Tolentino, Francis James S.
 
@@ -14,6 +14,12 @@ import Link from "next/link";
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import { signIn } from 'next-auth/react';
+
+
+type SignInCallbackURL = "http://localhost:3000/";
+
+
+const SIGNIN_CALLBACK_URL : SignInCallbackURL = "http://localhost:3000/";
 
 
 const LoginUI: React.FC = () => {
@@ -82,16 +88,16 @@ const LoginUI: React.FC = () => {
 						className='rounded-full h-12 w-12 shadow-md mr-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all'
 						onClick={() =>
 							signIn("google", {
-							callbackUrl: "http://localhost:3000/",
+							callbackUrl: SIGNIN_CALLBACK_URL,
 							})
 						}>
-						<FcGoogle size={32} />
+						<FcGoogle size={38} />
 						</div>
 						<div
 						className='rounded-full h-12 w-12 shadow-md ml-2 cursor-pointer flex items-center justify-center hover:shadow-lg transition-all'
 						onClick={() => {
 							signIn("facebook", {
-							callbackUrl: "http://localhost:3000/",
+							callbackUrl: SIGNIN_CALLBACK_URL,
 							});
 						}}>
 						<BsFacebook color='#1977F3' size={32} />

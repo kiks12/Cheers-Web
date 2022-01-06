@@ -2,7 +2,7 @@
 /*
 
 Cheers - Login Page
-Last Updated: Jan. 5, 2022
+Last Updated: Jan. 6, 2022
 Tolentino, Francis James S.
 
 */
@@ -20,7 +20,12 @@ import { GetServerSideProps } from "next";
 
 const DynamicLoginUI = dynamic(() => import('../../src/Components/Login/Login'), {
 		loading: () => (
-			<p>asdfsadfas</p>
+			<ReactLoading
+				type="spinningBubbles"
+				color="#2d2d2d"
+				height="100px"
+				width="100px" 
+			/>
 		)
 	}
 )
