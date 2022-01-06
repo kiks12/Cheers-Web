@@ -14,14 +14,19 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 
+
+const GOOGLE_CLIENT_ID : string = process.env.GOOGLE_CLIENT_ID as string;
+const GOOGLE_CLIENT_SECRET : string = process.env.GOOGLE_CLIENT_SECRET as string;
+
+
 export default NextAuth({
 
 	secret: "YxD0B2pHi7YmneR7LewlR6XaRhUr/gm+0bxUy87jC1A=",
 	
 	providers: [
 		GoogleProvider({
-			clientId: "440043100008-d4m6dvh53v3jhk7i2lpuf5cr2j1s45ce.apps.googleusercontent.com",
-			clientSecret: "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",
+			clientId: GOOGLE_CLIENT_ID,
+			clientSecret: GOOGLE_CLIENT_SECRET,
 		}),
 
 		FacebookProvider({
@@ -32,7 +37,6 @@ export default NextAuth({
 
 	callbacks: {
 		session: async ({ session }) => {
-			console.log("Session: ", session);
 			return Promise.resolve(session);
 		},
 	},
