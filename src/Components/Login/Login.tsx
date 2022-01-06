@@ -2,8 +2,8 @@
 /*
 
 Cheers - Login UI Component
-Created: Jan. 6, 2022
-Last Updated: Jan. 5, 2022
+Created: Jan. 5, 2022
+Last Updated: Jan. 6, 2022
 Author: Tolentino, Francis James S.
 
 */
