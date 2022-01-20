@@ -2,13 +2,14 @@
 /*
 
 Cheers - Reservations Header Component
-Last Updated: Jan. 4, 2022
+Last Updated: Jan. 20, 2022
 Tolentino, Francis James S.
 
 */
 
 
 import React, { useState } from "react";
+import SortBy from "../SortByComponent/SortBy";
 
 
 interface ReservationsHeaderProps {}
@@ -21,11 +22,15 @@ const LATEST : SortByValues = "Latest";
 const SPECIFIC_DATE : SortByValues = "Specific Date";
 
 
+const SORTING_VALUES = [ALPHABETICAL, LATEST, SPECIFIC_DATE];
+
+
 const ReservationsHeader: React.FC<ReservationsHeaderProps> = () => {
 
-	const [sortBy, setSortBy] = useState<any>("Alphabetical");
+	const [sortBy, setSortBy] = useState<SortByValues>(() => SORTING_VALUES[0]);
 
-	const handleSortByChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+	const sortingHandler = (e: any, setter: React.Dispatch<string>) => {
+		setter(e.target.value);
 		setSortBy(e.target.value);
 	};
 	
@@ -35,52 +40,49 @@ const ReservationsHeader: React.FC<ReservationsHeaderProps> = () => {
 
 			<h1 className="font-semibold text-xl mb-5">Reservations</h1>
 
-			<div className="flex justify-between lg:flex-row md:flex-row sm:flex-col">
+			<div className="flex lg:flex-col md:flex-col sm:flex-col justify-start">
 				
 
 				{/* large to medium screen */}
 
 
-				<div className="lg:flex md:flex lg:flex-row md:flex-row sm:flex-col lg:mr-5 md:mr-5 sm:mr-0 lg:items-center md:items-center sm:hidden">
-					<p className="mr-3 font-light text-sm">Sort By:</p>
-					<select
-						className="bg-white border rounded-md py-1 px-3 text-sm"
-						value={sortBy}
-						onChange={handleSortByChange}
-					>
-						<option value={ALPHABETICAL}>Alphabetical</option>
-						<option value={LATEST}>Latest</option>
-						<option value={SPECIFIC_DATE}>Specific Date</option>
-					</select>
-				</div>
+				<div className="md:flex-row lg:flex-row lg:w-1/3 md:w-2/3 py-2 sm:hidden md:flex lg:flex">
+					<input className="bg-white border lg:w-100 md:w-100 sm:w-full p-1 text-sm py-1 px-2" 
+						   placeholder="Search Reservation" />
 
-
-				{
-					sortBy === SPECIFIC_DATE && (
-						<div className="lg:flex md:flex sm:hidden lg:flex-row md:flex-row sm:flex-col lg:items-center md:items-center lg:mt-0 md:mt-0 sm:mt-3">
-							<p className="mr-3 font-light text-sm">Select Date</p>
-							<input type="date" className="bg-white border text-sm py-1 px-2 rounded-md" />
-						</div>
-					)
-				}
-
-
-				{/*  */}
-
-
-				<div className="lg:flex-1 md:flex-1 sm:w-full flex lg:flex-row md:flex-row sm:flex-col justify-end">
-					<input className="bg-white border rounded-md lg:w-72 md:w-72 sm:w-full p-1 mr-3 text-sm py-1" placeholder="Search Reservation" />
-
-					<button className="bg-black hover:bg-gray-700 active:bg-gray-400 text-white px-6 py-1 border border-black text-sm rounded-md ;lg:mt-0 md:mt-0 sm:mt-2 ">
+					<button className="bg-black hover:bg-gray-700 active:bg-gray-400 text-white px-6 py-1 border border-black text-sm lg:mt-0 md:mt-0 sm:mt-2 ">
 						Search
 					</button>
 				</div>
 
 
+				<div className="flex w-100 mt-5">
+
+					<div className="w-1/4 mr-5">
+						<SortBy values={SORTING_VALUES} handler={sortingHandler}/>
+					</div>
+
+
+					{
+						sortBy === SPECIFIC_DATE && (
+							<div className="lg:flex md:flex sm:hidden lg:flex-col md:flex-col lg:mt-0 md:mt-0 sm:mt-3 py-2">
+								<p className="mr-3 font-light ">Select Date</p>
+								<input type="date" className="bg-white border text-sm py-1 px-2 mt-2" />
+							</div>
+						)
+					}
+				
+				</div>
+
+
+				{/*  */}
+
+
+
 				{/* small screen */}
 
 
-				<div className="flex flex-col mt-2 lg:hidden md:hidden">
+				{/* <div className="flex flex-col mt-2 lg:hidden md:hidden">
 					<p className="mr-3 font-light text-sm">Sort By:</p>
 					<select
 						className="bg-white border rounded-md py-1 px-3 text-sm"
@@ -91,17 +93,17 @@ const ReservationsHeader: React.FC<ReservationsHeaderProps> = () => {
 						<option value={LATEST}>Latest</option>
 						<option value={SPECIFIC_DATE}>Specific Date</option>
 					</select>
-				</div>
+				</div> */}
 				
 				
-				{
+				{/* {
 					sortBy === SPECIFIC_DATE && (
 						<div className="lg:hidden md:hidden flex flex-col mt-3">
 							<p className="mr-3 font-light text-sm">Select Date</p>
 							<input type="date" className="bg-white border text-sm py-1 px-2 rounded-md" />
 						</div>
 					)
-				}
+				} */}
 
 
 				{/*  */}
