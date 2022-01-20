@@ -2,7 +2,7 @@
 /*
 
 Cheers - Next auth Middleware Configuration
-Last Updated: Jan. 6, 2022
+Last Updated: Jan. 20, 2022
 Tolentino, Francis James S.
 
 */
@@ -41,6 +41,12 @@ export default NextAuth({
 		session: async ({ session }) => {
 			return Promise.resolve(session);
 		},
+	},
+
+	session: {
+		maxAge: 7 * 24 * 60 * 60,
+		updateAge: 24 * 60 * 60,
 	}
+
 	
 });
