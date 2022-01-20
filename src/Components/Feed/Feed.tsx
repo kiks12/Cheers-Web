@@ -2,7 +2,7 @@
 /*
 
 Cheers - Feed Component
-Last Updated: Dec. 30, 2021
+Last Updated: Jan. 20, 2022
 Tolentino, Francis James S.
 
 */
@@ -13,19 +13,32 @@ import React, { useState } from "react";
 
 import BarFeed from "./BarFeed";
 import Filter from "./FeedFilter/Filter";
-import SortBy from "./SortBy";
+import SortBy from "../SortByComponent/SortBy";
+
+
+const SORTING_VALUES = ["Location", "Reviews"];
 
 
 const Feed: React.FC = () => {
 
   const [bars] = useState(() => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
+
+  const sortingHandler = (e:any, setter: React.Dispatch<React.SetStateAction<string>>) => {
+    setter(e.target.value);
+  }
+
+
   return (
     <div className='mt-10 w-full flex flex-col items-center'>
       
       <Filter />
 
-      <SortBy />
+      <div className="w-full">
+          <div className="w-1/4">
+              <SortBy values={SORTING_VALUES} handler={sortingHandler}/>
+          </div>
+      </div>
       
       {
         bars ? 
