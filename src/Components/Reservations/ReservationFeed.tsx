@@ -2,7 +2,7 @@
 /*
 
 Cheers - Reservation Feed Component
-Last Updated: Dec. 30, 2021
+Last Updated: Jan. 20, 2022
 Tolentino, Francis James S.
 
 */
@@ -12,6 +12,7 @@ import { BsThreeDots } from "react-icons/bs";
 
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 
 import CancelReservationPopUp from "./CancelReservationPopUp";
@@ -41,9 +42,11 @@ const ReservationFeed: React.FC<ReservationFeedProps> = () => {
 					</div>
 				</div>
 
-				<button className="bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 py-1 px-5 rounded-md text-sm">
-					View Details
-				</button>
+				<Link href="/profile/reservations/name" passHref={true}>
+					<button className="bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-500 py-1 px-5 rounded-md text-sm">
+						View Details
+					</button>
+				</Link>
 			</div>
 
 		</div>
