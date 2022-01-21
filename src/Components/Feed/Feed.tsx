@@ -20,18 +20,16 @@ const Feed: React.FC = () => {
 
 
   return (
-    <div className='w-full flex flex-col items-center'>
-   
+      <>
       {
         bars ? 
-          bars.map((bar) => {
-            return <BarFeed key={bar} />;
-          }) : (
-            <p>No Bars to show</p>
+        bars.map((bar) => {
+          return <BarFeed key={bar} />;
+        }) : (
+          <p>No Bars to show</p>
           )
-      }
-
-    </div>
+        }
+      </>
   );
 };
 

@@ -2,7 +2,7 @@
 /*
 
 Cheers - Index Page
-Last Updated: Jan. 3, 2022
+Last Updated: Jan. 21, 2022
 Tolentino, Francis James S.
 
 */
@@ -59,7 +59,9 @@ const Home: NextPage = () => {
                     </div>
                 </div>
 
-                <Feed />
+                <div className="grid grid-cols-3 gap-2 w-full">
+                    <Feed />
+                </div>
             </div>
 
             {topOfPage !== 0 && <ScrollToTopButton />}
