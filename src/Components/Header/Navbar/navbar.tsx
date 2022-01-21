@@ -12,6 +12,7 @@ import { MdSearch, MdArrowDropDown } from "react-icons/md";
 import { BsCalendarEvent, BsCalendarEventFill } from "react-icons/bs";
 import { AiOutlineHome, AiFillHome} from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoPeopleOutline, IoPeople} from "react-icons/io5";
 
 
 import React, { useMemo, useRef, useState } from "react";
@@ -147,6 +148,18 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 							) : (
 								<li className={INACTIVE_NAVBAR_LINK_STYLING}>
 									<BsCalendarEvent size={18} />
+								</li>
+							)}
+						</Link>
+						
+						<Link href="/community" passHref={true}>
+							{activePage === "community" ? (
+								<li className={ACTIVE_NAVBAR_LINK_STYLING}>
+									<IoPeople size={23} />
+								</li>
+							) : (
+								<li className={INACTIVE_NAVBAR_LINK_STYLING}>
+									<IoPeopleOutline size={23} />
 								</li>
 							)}
 						</Link>

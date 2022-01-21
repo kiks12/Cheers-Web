@@ -14,9 +14,10 @@ import { useRouter } from "next/router";
 
 const INDEX_ROUTE = "/";
 const PROFILE_RESERVATIONS_ROUTE = "/profile/reservations";
+const COMMUNITY_ROUTE = "/community";
 
 
-type ActivePage = "home" | "reservations" | "";
+type ActivePage = "home" | "reservations" | "community" | "";
 
 
 const useActivePage = () => {
@@ -36,6 +37,9 @@ const useActivePage = () => {
 				break;
 			case PROFILE_RESERVATIONS_ROUTE:
 				setActivePage("reservations");
+				break;
+			case COMMUNITY_ROUTE:
+				setActivePage("community");
 				break;
 			default:
 				setActivePage("");
