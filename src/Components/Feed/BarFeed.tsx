@@ -15,13 +15,13 @@ import Link from "next/link";
 import React from "react";
 
 
-const BarFeed: React.FC = () => {
+
+const BarFeed: React.FC= () => {
 
 	const BARNAME = "adsfasdf";
 	const IS_FEATURED = false;
 
 	return (
-
 		<Link href={`/${BARNAME}/${IS_FEATURED ? 1 : 0}`}>
 			
 			<div className="mt-2 h-28 bg-transparent border hover:border-gray-400 flex justify-between w-full cursor-pointer relative">
@@ -60,7 +60,6 @@ const BarFeed: React.FC = () => {
 			</div>
 
 		</Link>
-
 	);
 };
 

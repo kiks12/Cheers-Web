@@ -59,8 +59,8 @@ const Home: NextPage = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 w-full">
-                    <Feed />
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 w-full mt-5">
+                    <Feed/>
                 </div>
             </div>
 
