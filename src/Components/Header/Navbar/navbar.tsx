@@ -84,7 +84,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 				<nav className="flex w-full h-12 px-5 items-center border-b justify-between fixed z-20" 
 					 style={{ backgroundColor: "white" }}>
 
-					<div className="flex items-center">
+					<div className="flex items-center w-2/12">
 						
 						<Link href="/" passHref={true}>
 							<h2 className="text-2xl font-semibold cursor-pointer">
@@ -106,9 +106,9 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 					</div>
 
 
-					<div className="lg:w-1/4 md:w-1/3 lg:block md:block sm:hidden h-full items-center justify-center p-2">
+					<div className="w-1/3 lg:flex md:flex sm:hidden h-full items-center p-2">
 						
-						<div className="w-full h-full flex relative">
+						<div className="w-full h-full flex bg-red-100">
 							
 							<input
 								className="bg-transparent h-full focus:outline-none text-sm border bg-white pl-2 pr-2"
@@ -116,7 +116,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 								placeholder="Search"
 							/>
 
-							<div className="bg-black w-8 h-full flex-auto cursor-pointer border border-black hover:bg-gray-700 flex items-center justify-center absolute top-0 right-0 bottom-0 active:bg-gray-500">
+							<div className="bg-black w-8 h-full flex-auto cursor-pointer border border-black hover:bg-gray-700 flex items-center justify-center active:bg-gray-500">
 								<MdSearch color="#f8f8f8" size={18} />
 							</div>
 
@@ -125,7 +125,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 					</div>
 
 
-					<ul className="lg:flex md:flex sm:hidden justify-end w-1/4 h-full">
+					<ul className="lg:flex md:flex sm:hidden justify-end lg:w-1/4 md:w-1/3 h-full flex-1">
 
 						<Link href="/" passHref={true}>
 							{activePage === "home" ? (
@@ -154,14 +154,14 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 					</ul>
 
 
-					<div className="items-center lg:flex md:flex sm:hidden">
+					<div className="items-center lg:flex md:flex sm:hidden flex-1 justify-end">
 						{session && status === "authenticated" ? (
 							<>
 								<Link href="/profile/settings" passHref={true}>
 									<div
-										className="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400"
+										className="flex items-center cursor-pointer hover:bg-gray-200 p-1 rounded-md transition-all active:bg-gray-400 md:hidden lg:flex"
 									>
-										<div className="rounded-full h-8 w-8 mr-2 overflow-hidden">
+										<div className="rounded-full h-8 w-8 lg:mr-2 overflow-hidden">
 											<span>
 												{session && (
 													<Image
@@ -179,7 +179,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 								</Link>
 								<div className="flex items-center relative">
 									<div
-										className="ml-3 w-6 h-6 cursor-pointer rounded-full hover:bg-gray-200 transition-all"
+										className="ml-3 w-8 h-8 cursor-pointer rounded-full bg-gray-200 hover:bg-gray-300 active:bg-gray-100 transition-all flex items-center justify-center"
 										onClick={popupSettingsOnClickHandler}
 									>
 										<MdArrowDropDown size={24} />
