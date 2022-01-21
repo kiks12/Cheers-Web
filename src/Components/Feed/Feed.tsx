@@ -2,7 +2,7 @@
 /*
 
 Cheers - Feed Component
-Last Updated: Jan. 20, 2022
+Last Updated: Jan. 21, 2022
 Tolentino, Francis James S.
 
 */
@@ -35,7 +35,7 @@ const Feed: React.FC = () => {
       <Filter />
 
       <div className="w-full">
-          <div className="w-1/4">
+          <div className="lg:w-1/4 md:w-1/3 sm:w-full">
               <SortBy values={SORTING_VALUES} handler={sortingHandler}/>
           </div>
       </div>
