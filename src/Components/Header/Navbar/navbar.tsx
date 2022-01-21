@@ -126,7 +126,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 					</div>
 
 
-					<ul className="lg:flex md:flex sm:hidden justify-end lg:w-1/4 md:w-1/3 h-full flex-1">
+					<ul className="lg:flex md:flex sm:hidden items-center justify-center h-full flex-1">
 
 						<Link href="/" passHref={true}>
 							{activePage === "home" ? (
@@ -167,7 +167,7 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 					</ul>
 
 
-					<div className="items-center lg:flex md:flex sm:hidden flex-1 justify-end">
+					<div className="items-center lg:flex md:flex sm:hidden justify-end">
 						{session && status === "authenticated" ? (
 							<>
 								<Link href="/profile/settings" passHref={true}>
