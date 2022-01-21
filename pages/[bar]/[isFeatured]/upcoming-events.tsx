@@ -2,7 +2,7 @@
 /*
 
 Cheers - Single Bar Page Upcoming Events Page
-Last Updated: Dec. 30, 2021
+Last Updated: Jan. 21, 2022
 Tolentino, Francis James S.
 
 */
@@ -13,7 +13,10 @@ import { useRouter } from "next/dist/client/router";
 import Head from "next/dist/shared/lib/head";
 
 
+import Feed from "../../../src/Components/Feed/Feed";
+import BarPageSkeleton from "../../../src/Components/SingleBarPage/BarPageSkeleton";
 import PageBar from "../../../src/Components/SingleBarPage/PageHeader";
+
 
 const UpcomingEvents = () => {
   
@@ -27,11 +30,17 @@ const UpcomingEvents = () => {
         <title>{bar}</title>
       </Head>
 
-      <main className='md:mx-5 sm:mx-5 lg:container lg:mx-auto h-full py-16 flex flex-col items-center'>
 
-        <PageBar barName={bar} isFeatured={true} active='upcomingEvents' />
+      <BarPageSkeleton>
+          <div className="col-span-2">
+              <PageBar barName={bar} isFeatured={true} active='upcomingEvents' />
+          </div>
 
-      </main>
+          <div>
+              <Feed />
+          </div>
+      </BarPageSkeleton>
+
     </>
   );
 };
