@@ -2,10 +2,11 @@
 /*
 
 Cheers - Single Bar page header/bar
-Last Updated: Jan. 4, 2022
+Last Updated: Jan. 21, 2022
 Tolentino, Francis James S.
 
 */
+
 
 import { MdStar } from "react-icons/md";
 import { BsArrowLeft } from "react-icons/bs";
@@ -36,7 +37,7 @@ const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active }) => {
 
           <Link href='/'>
             <button
-              className='font-light border-black border px-5 py-1 text-sm rounded-md hover:bg-black hover:text-white transition-all flex items-center'
+              className='font-light border-black border px-5 py-1 text-sm hover:bg-black hover:text-white transition-all flex items-center'
               >
               <div className='w-auto h-auto mr-1'>
                 <BsArrowLeft size={18} />
@@ -65,7 +66,7 @@ const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active }) => {
           </div>
 
           <div className='lg:w-auto md:w-auto sm:w-full'>
-            <button className='bg-black text-white py-2 px-5 text-sm font-light rounded-md hover:bg-gray-700 transition-all w-full lg:mt-0 md:mt-0 sm:mt-4'>
+            <button className='bg-black text-white py-2 px-5 text-sm font-light hover:bg-gray-700 transition-all w-full lg:mt-0 md:mt-0 sm:mt-4'>
               Create Reservation
             </button>
           </div>
