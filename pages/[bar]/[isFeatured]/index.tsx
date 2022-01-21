@@ -42,7 +42,7 @@ const Overview = () => {
 
       <BarPageSkeleton>
 
-          <div className="col-span-3">
+          <div className="col-span-2">
               <PageBar barName={bar} isFeatured={barIsFeatured} active="overview" />
 
               <div className='w-full h-auto mt-5 flex lg:flex-row md:flex-row sm:flex-col'>

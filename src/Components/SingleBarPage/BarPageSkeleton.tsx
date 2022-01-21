@@ -18,7 +18,7 @@ interface BarPageSkeletonProps {
 
 const BarPageSkeleton : React.FC<BarPageSkeletonProps> = ({ children }) => {
     return(
-        <main className="md:mx-5 sm:mx-5 lg:container lg:mx-auto h-full py-16 grid grid-cols-4 gap-6">
+        <main className="md:mx-5 sm:mx-5 lg:container lg:mx-auto h-full py-16 lg:grid md:grid sm:flex grid-cols-3 gap-6 flex-col">
             {children}
         </main>
     )

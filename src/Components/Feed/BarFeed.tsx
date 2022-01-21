@@ -24,7 +24,7 @@ const BarFeed: React.FC = () => {
 
 		<Link href={`/${BARNAME}/${IS_FEATURED ? 1 : 0}`}>
 			
-			<div className="mt-4 h-28 bg-transparent border hover:border-gray-400 rounded-md p-2 flex justify-between w-full cursor-pointer relative">
+			<div className="mt-2 h-28 bg-transparent border hover:border-gray-400 p-2 flex justify-between w-full cursor-pointer relative">
 
 				<div className="flex flex-col flex-1 pr-2">
 
