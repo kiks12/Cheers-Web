@@ -2,7 +2,7 @@
 /*
 
 Cheers - Navigation bar Component
-Last Update: Jan. 3, 2022
+Last Update: Jan. 21, 2022
 Tolentino, Francis James S.
 
  */
@@ -111,12 +111,12 @@ const Navhar: React.FC<NavBarProps> = ({ activePage }) => {
 						<div className="w-full h-full flex relative">
 							
 							<input
-								className="bg-transparent h-full focus:outline-none text-sm border bg-white pl-2 rounded-l-md pr-2"
+								className="bg-transparent h-full focus:outline-none text-sm border bg-white pl-2 pr-2"
 								style={{ width: "91%" }}
 								placeholder="Search"
 							/>
 
-							<div className="bg-black w-8 h-full flex-auto cursor-pointer rounded-r-md border border-black hover:bg-gray-700 flex items-center justify-center absolute top-0 right-0 bottom-0 active:bg-gray-500">
+							<div className="bg-black w-8 h-full flex-auto cursor-pointer border border-black hover:bg-gray-700 flex items-center justify-center absolute top-0 right-0 bottom-0 active:bg-gray-500">
 								<MdSearch color="#f8f8f8" size={18} />
 							</div>
 
