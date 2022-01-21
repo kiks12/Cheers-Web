@@ -2,7 +2,7 @@
 /*
 
 Cheers - Reservations Header Component
-Last Updated: Jan. 20, 2022
+Last Updated: Jan. 21, 2022
 Tolentino, Francis James S.
 
 */
@@ -41,12 +41,9 @@ const ReservationsHeader: React.FC<ReservationsHeaderProps> = () => {
 			<h1 className="font-semibold text-xl mb-5">Reservations</h1>
 
 			<div className="flex lg:flex-col md:flex-col sm:flex-col justify-start">
-				
-
-				{/* large to medium screen */}
 
 
-				<div className="md:flex-row lg:flex-row lg:w-1/3 md:w-2/3 py-2 sm:hidden md:flex lg:flex">
+				<div className="md:flex-row lg:flex-row lg:w-1/3 md:w-2/3 py-2 sm:flex md:flex lg:flex">
 					<input className="bg-white border lg:w-100 md:w-100 sm:w-full p-1 text-sm py-1 px-2" 
 						   placeholder="Search Reservation" />
 
@@ -56,17 +53,17 @@ const ReservationsHeader: React.FC<ReservationsHeaderProps> = () => {
 				</div>
 
 
-				<div className="flex w-100 mt-5">
+				<div className="flex lg:flex-row md:flex-row sm:flex-col w-100 mt-5">
 
-					<div className="w-1/4 mr-5">
+					<div className="lg:w-1/4 sm:w-100 lg:mr-5 md:mr-5 sm:mr-0 ">
 						<SortBy values={SORTING_VALUES} handler={sortingHandler}/>
 					</div>
 
 
 					{
 						sortBy === SPECIFIC_DATE && (
-							<div className="lg:flex md:flex sm:hidden lg:flex-col md:flex-col lg:mt-0 md:mt-0 sm:mt-3 py-2">
-								<p className="mr-3 font-light ">Select Date</p>
+							<div className="flex flex-col lg:mt-0 md:mt-0 sm:mt-3 py-2">
+								<p className="mr-3 font-light ">Select Date: </p>
 								<input type="date" className="bg-white border text-sm py-1 px-2 mt-2" />
 							</div>
 						)
@@ -74,39 +71,6 @@ const ReservationsHeader: React.FC<ReservationsHeaderProps> = () => {
 				
 				</div>
 
-
-				{/*  */}
-
-
-
-				{/* small screen */}
-
-
-				{/* <div className="flex flex-col mt-2 lg:hidden md:hidden">
-					<p className="mr-3 font-light text-sm">Sort By:</p>
-					<select
-						className="bg-white border rounded-md py-1 px-3 text-sm"
-						value={sortBy}
-						onChange={handleSortByChange}
-					>
-						<option value={ALPHABETICAL}>Alphabetical</option>
-						<option value={LATEST}>Latest</option>
-						<option value={SPECIFIC_DATE}>Specific Date</option>
-					</select>
-				</div> */}
-				
-				
-				{/* {
-					sortBy === SPECIFIC_DATE && (
-						<div className="lg:hidden md:hidden flex flex-col mt-3">
-							<p className="mr-3 font-light text-sm">Select Date</p>
-							<input type="date" className="bg-white border text-sm py-1 px-2 rounded-md" />
-						</div>
-					)
-				} */}
-
-
-				{/*  */}
 
 			</div>
 		</div>
