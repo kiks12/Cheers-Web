@@ -13,6 +13,7 @@ import type { NextPage } from "next";
 
 
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 
@@ -25,6 +26,7 @@ const BarPage : NextPage = () => {
 
     const [activePrompt, setActivePrompt] = useState<string>("overview");
 
+    const { bar } = useRouter().query;
 
     return(
         <>
@@ -34,7 +36,10 @@ const BarPage : NextPage = () => {
 
             <BarPageSkeleton>
                 <div className="col-span-2">
-                    <PageBar barName={""} isFeatured={true} active={activePrompt} setActive={setActivePrompt}/>
+                    <PageBar barName={bar} isFeatured={true} active={activePrompt} setActive={setActivePrompt}/>
+
+                    
+                    
                 </div> 
 
                 <div>
