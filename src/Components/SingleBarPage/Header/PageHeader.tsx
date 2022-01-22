@@ -9,11 +9,11 @@ Tolentino, Francis James S.
 
 
 import { MdStar } from "react-icons/md";
-import { BsArrowLeft } from "react-icons/bs";
+// import { BsArrowLeft } from "react-icons/bs";
 
 
 import React from "react";
-import Link from "next/dist/client/link";
+// import Link from "next/dist/client/link";
 
 
 import OverviewPhotosReviewsEventsBar from "./OverviewPhotosReviewsEventsBar";
@@ -36,7 +36,7 @@ const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active, setActiv
         
         <div className='w-full'>
 
-          <Link href='/'>
+          {/* <Link href='/'>
             <button
               className='font-light border-black border px-5 py-1 text-sm hover:bg-black hover:text-white transition-all flex items-center'
               >
@@ -45,7 +45,7 @@ const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active, setActiv
               </div>
               Go Back
             </button>
-          </Link>
+          </Link> */}
 
         </div>
 
