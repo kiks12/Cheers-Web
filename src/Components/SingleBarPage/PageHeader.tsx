@@ -2,7 +2,7 @@
 /*
 
 Cheers - Single Bar page header/bar
-Last Updated: Jan. 21, 2022
+Last Updated: Jan. 22, 2022
 Tolentino, Francis James S.
 
 */
@@ -23,10 +23,11 @@ interface PageBarProps {
   barName: string | string[] | undefined;
   isFeatured: boolean;
   active: string;
+  setActive: React.Dispatch<React.SetStateAction<string>>;
 }
 
 
-const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active }) => {
+const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active, setActive}) => {
 
   
   return (
@@ -73,7 +74,7 @@ const PageBar: React.FC<PageBarProps> = ({ barName, isFeatured, active }) => {
         </div>
       </div>
 
-      <OverviewPhotosReviewsEventsBar active={active} />
+      <OverviewPhotosReviewsEventsBar active={active} setActive={setActive}/>
     </>
   );
 };

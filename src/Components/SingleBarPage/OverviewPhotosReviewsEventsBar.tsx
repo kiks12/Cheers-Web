@@ -2,22 +2,22 @@
 /*
 
 Cheers - One Bar Page OPRE Bar Component
-Last Updated: Jan. 10, 2022 
+Last Updated: Jan. 22, 2022 
 Tolentino, Francis James S.
 
 */
 
 
 import React, { useEffect, useRef } from "react";
-import Link from "next/dist/client/link";
 
 
 interface OPREBarProps {
 	active: string;
+	setActive: React.Dispatch<React.SetStateAction<string>>;
 }
 
 
-const OverviewPhotosReviewsEventsBar: React.FC<OPREBarProps> = ({ active }) => {
+const OverviewPhotosReviewsEventsBar: React.FC<OPREBarProps> = ({ active, setActive}) => {
 
 	const navbarRef = useRef<HTMLElement | null>(null);
 	const ulRef = useRef<HTMLUListElement | null>(null);
@@ -70,56 +70,48 @@ const OverviewPhotosReviewsEventsBar: React.FC<OPREBarProps> = ({ active }) => {
 			
 			<ul ref={ulRef} className="flex h-full lg:w-1/2 md:w-2/3 items-center md:container md:mx-auto md:static sm:absolute sm:top-0 sm:bottom-0 justify-center">
 
-				<Link href="/Bar-name/0/">
-					{active === "overview" ? (
-						<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1">
-							Overview
-						</li>
-					) : (
-						<li className="h-full flex items-center py-1 border-b-4 border-transparent justify-center px-5 text-sm font-light cursor-pointer flex-1">
-							Overview
-						</li>
-					)}
-				</Link>
+				{active === "overview" ? (
+					<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1" onClick={() => setActive("overview")}>
+						Overview
+					</li>
+				) : (
+					<li className="h-full flex items-center py-1 border-b-4 border-transparent justify-center px-5 text-sm font-light cursor-pointer flex-1" onClick={() => setActive("overview")}>
+						Overview
+					</li>
+				)}
 
 
-				<Link href="/Bar-name/0/photos">
-					{active === "photos" ? (
-						<li className="h-full flex items-center justify-center px-5 py-1 border-b-4 border-black text-sm font-light cursor-pointer flex-1">
-							Photos
-						</li>
-					) : (
-						<li className="h-full flex items-center border-b-4 py-1 border-transparent justify-center px-5 text-sm font-light cursor-pointer flex-1">
-							Photos
-						</li>
-					)}
-				</Link>
+				{active === "photos" ? (
+					<li className="h-full flex items-center justify-center px-5 py-1 border-b-4 border-black text-sm font-light cursor-pointer flex-1" onClick={() => setActive("photos")}>
+						Photos
+					</li>
+				) : (
+					<li className="h-full flex items-center border-b-4 py-1 border-transparent justify-center px-5 text-sm font-light cursor-pointer flex-1" onClick={() => setActive("photos")}>
+						Photos
+					</li>
+				)}
 
 
-				<Link href="/Bar-name/0/reviews">
-					{active === "reviews" ? (
-						<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1">
-							Reviews
-						</li>
-					) : (
-						<li className="h-full flex items-center border-b-4 py-1 border-transparent justify-center px-5 text-sm font-light cursor-pointer flex-1">
-							Reviews
-						</li>
-					)}
-				</Link>
+				{active === "reviews" ? (
+					<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1" onClick={() => setActive("reviews")}>
+						Reviews
+					</li>
+				) : (
+					<li className="h-full flex items-center border-b-4 py-1 border-transparent justify-center px-5 text-sm font-light cursor-pointer flex-1" onClick={() => setActive("reviews")}>
+						Reviews
+					</li>
+				)}
 
 
-				<Link href="/Bar-name/0/upcoming-events">
-					{active === "upcomingEvents" ? (
-						<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1 whitespace-nowrap">
-							Upcoming Events
-						</li>
-					) : (
-						<li className="h-full flex items-center border-b-4 py-1 border-transparent justify-center px-5 text-sm font-light cursor-pointer flex-1 whitespace-nowrap">
-							Upcoming Events
-						</li>
-					)}
-				</Link>
+				{active === "upcomingEvents" ? (
+					<li className="h-full flex items-center justify-center py-1 px-5 border-b-4 border-black text-sm font-light cursor-pointer flex-1 whitespace-nowrap" onClick={() => setActive("upcomingEvents")}>
+						Upcoming Events
+					</li>
+				) : (
+					<li className="h-full flex items-center border-b-4 py-1 border-transparent justify-center px-5 text-sm font-light cursor-pointer flex-1 whitespace-nowrap" onClick={() => setActive("upcomingEvents")}>
+						Upcoming Events
+					</li>
+				)}
 
 			</ul>
 
