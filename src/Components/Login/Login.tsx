@@ -3,7 +3,7 @@
 
 Cheers - Login UI Component
 Created: Jan. 5, 2022
-Last Updated: Jan. 6, 2022
+Last Updated: Jan. 22, 2022
 Author: Tolentino, Francis James S.
 
 */
@@ -69,13 +69,13 @@ const LoginUI: React.FC = () => {
 						</div>
 
 						<Link href='/' passHref={true}>
-						<button className='w-full my-3 py-2 bg-black text-white rounded-md text-sm border border-black'>
+						<button className='w-full my-3 py-2 bg-black text-white text-sm border border-black'>
 							Log In
 						</button>
 						</Link>
 
 						<Link href='/' passHref={true}>
-						<button className='w-full py-2 text-black text-sm mb-6 border border-black hover:bg-black hover:text-white transition-all rounded-md'>
+						<button className='w-full py-2 text-black text-sm mb-6 border border-black hover:bg-black hover:text-white transition-all'>
 							Continue as guest
 						</button>
 						</Link>
