@@ -18,6 +18,7 @@ import Image from "next/image";
 
 
 interface BarFeedProps {
+	barID: number;
 	barName: string;
 	image: string;
 	type: string;
@@ -27,7 +28,7 @@ interface BarFeedProps {
 
 
 
-const BarFeed: React.FC<BarFeedProps> = ( { barName, image, location, priceRange, type } ) => {
+const BarFeed: React.FC<BarFeedProps> = ({ barName, image, location, priceRange, type }) => {
 
 
 	return (
