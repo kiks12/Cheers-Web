@@ -17,7 +17,7 @@ import Head from "next/dist/shared/lib/head";
 import Feed from "../../../src/Components/Feed/Feed";
 import BarPageSkeleton from "../../../src/Components/SingleBarPage/BarPageSkeleton";
 import PageBar from "../../../src/Components/SingleBarPage/PageHeader";
-import Review from "../../../src/Components/SingleBarPage/Review";
+import Review from "../../../src/Components/SingleBarPage/Reviews/Review";
 
 
 const dummyReviews = [

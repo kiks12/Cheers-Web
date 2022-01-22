@@ -18,9 +18,10 @@ import { useState } from "react";
 
 
 import BarPageSkeleton from "../../src/Components/SingleBarPage/BarPageSkeleton";
-import PageBar from "../../src/Components/SingleBarPage/PageHeader";
+import PageBar from "../../src/Components/SingleBarPage/Header/PageHeader";
 import Feed from "../../src/Components/Feed/Feed";
 import Overview from "../../src/Components/SingleBarPage/Overview";
+import Reviews from "../../src/Components/SingleBarPage/Reviews/Reviews";
 
 
 const BarPage : NextPage = () => {
@@ -41,6 +42,10 @@ const BarPage : NextPage = () => {
 
                     {
                         activePrompt === "overview" && <Overview />
+                    }
+
+                    {
+                        activePrompt === "reviews" && <Reviews />
                     }
                     
                 </div> 
