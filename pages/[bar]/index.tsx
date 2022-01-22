@@ -20,6 +20,7 @@ import { useState } from "react";
 import BarPageSkeleton from "../../src/Components/SingleBarPage/BarPageSkeleton";
 import PageBar from "../../src/Components/SingleBarPage/PageHeader";
 import Feed from "../../src/Components/Feed/Feed";
+import Overview from "../../src/Components/SingleBarPage/Overview";
 
 
 const BarPage : NextPage = () => {
@@ -38,7 +39,9 @@ const BarPage : NextPage = () => {
                 <div className="col-span-2">
                     <PageBar barName={bar} isFeatured={true} active={activePrompt} setActive={setActivePrompt}/>
 
-                    
+                    {
+                        activePrompt === "overview" && <Overview />
+                    }
                     
                 </div> 
 
