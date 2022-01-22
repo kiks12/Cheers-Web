@@ -22,6 +22,7 @@ import PageBar from "../../src/Components/SingleBarPage/Header/PageHeader";
 import Feed from "../../src/Components/Feed/Feed";
 import Overview from "../../src/Components/SingleBarPage/Overview";
 import Reviews from "../../src/Components/SingleBarPage/Reviews/Reviews";
+import Photos from "../../src/Components/SingleBarPage/Photos";
 
 
 const BarPage : NextPage = () => {
@@ -42,6 +43,10 @@ const BarPage : NextPage = () => {
 
                     {
                         activePrompt === "overview" && <Overview />
+                    }
+
+                    {
+                        activePrompt === "photos" && <Photos />
                     }
 
                     {

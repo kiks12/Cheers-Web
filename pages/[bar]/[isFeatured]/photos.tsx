@@ -14,7 +14,7 @@ import Head from "next/dist/shared/lib/head";
 
 import BarPageSkeleton from "../../../src/Components/SingleBarPage/BarPageSkeleton";
 import Feed from "../../../src/Components/Feed/Feed";
-import PageBar from "../../../src/Components/SingleBarPage/PageHeader";
+// import PageBar from "../../../src/Components/SingleBarPage/PageHeader";
 
 
 const dummyImages = [
@@ -45,7 +45,7 @@ const Photos = () => {
 
       <BarPageSkeleton>
           <div className="col-span-2">
-              <PageBar barName={bar} isFeatured={true} active="photos" />
+              {/* <PageBar barName={bar} isFeatured={true} active="photos" /> */}
 
               <div className='mt-5 flex w-full flex-wrap'>
                 {dummyImages ? (
