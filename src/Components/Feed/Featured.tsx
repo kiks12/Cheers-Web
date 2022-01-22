@@ -2,7 +2,7 @@
 /*
 
 Cheers - Featured Bar Component 
-Last Updated: Jan. 4, 2022
+Last Updated: Jan. 22, 2022
 Tolentino, Francis James S.
 
 */

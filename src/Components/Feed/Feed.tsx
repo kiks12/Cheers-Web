@@ -18,7 +18,7 @@ const dummyData = [
   {
     barName: "abc",
     isFeatured: false,
-    image: "",
+    image: "/bar-goto-nyc-bar-interior-Alex-lau.jpeg",
     type: "bar",
     location: "1 km",
     priceRange: "200 php - 500 php",
@@ -26,7 +26,7 @@ const dummyData = [
   {
     barName: "1ajdkf",
     isFeatured: false,
-    image: "",
+    image: "/bar-goto-nyc-bar-interior-Alex-lau.jpeg",
     type: "bar",
     location: "1 km",
     priceRange: "200 php - 500 php",
@@ -34,7 +34,7 @@ const dummyData = [
   {
     barName: "abc",
     isFeatured: false,
-    image: "",
+    image: "/bar-goto-nyc-bar-interior-Alex-lau.jpeg",
     type: "bar",
     location: "1 km",
     priceRange: "200 php - 500 php",
@@ -42,7 +42,7 @@ const dummyData = [
   {
     barName: "abc",
     isFeatured: false,
-    image: "",
+    image: "/bar-goto-nyc-bar-interior-Alex-lau.jpeg",
     type: "bar",
     location: "1 km",
     priceRange: "200 php - 500 php",
@@ -50,7 +50,7 @@ const dummyData = [
   {
     barName: "abc",
     isFeatured: false,
-    image: "",
+    image: "/bar-goto-nyc-bar-interior-Alex-lau.jpeg",
     type: "bar",
     location: "1 km",
     priceRange: "200 php - 500 php",
@@ -58,7 +58,7 @@ const dummyData = [
   {
     barName: "abc",
     isFeatured: false,
-    image: "",
+    image: "/bar-goto-nyc-bar-interior-Alex-lau.jpeg",
     type: "bar",
     location: "1 km",
     priceRange: "200 php - 500 php",
@@ -66,7 +66,7 @@ const dummyData = [
   {
     barName: "abc",
     isFeatured: false,
-    image: "",
+    image: "/bar-goto-nyc-bar-interior-Alex-lau.jpeg",
     type: "bar",
     location: "1 km",
     priceRange: "200 php - 500 php",
@@ -74,7 +74,7 @@ const dummyData = [
   {
     barName: "abc",
     isFeatured: false,
-    image: "",
+    image: "/bar-goto-nyc-bar-interior-Alex-lau.jpeg",
     type: "bar",
     location: "1 km",
     priceRange: "200 php - 500 php",
@@ -82,7 +82,7 @@ const dummyData = [
   {
     barName: "abc",
     isFeatured: false,
-    image: "",
+    image: "/bar-goto-nyc-bar-interior-Alex-lau.jpeg",
     type: "bar",
     location: "1 km",
     priceRange: "200 php - 500 php",
@@ -90,7 +90,7 @@ const dummyData = [
   {
     barName: "abc",
     isFeatured: false,
-    image: "",
+    image: "/bar-goto-nyc-bar-interior-Alex-lau.jpeg",
     type: "bar",
     location: "1 km",
     priceRange: "200 php - 500 php",
