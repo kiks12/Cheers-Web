@@ -3,7 +3,7 @@
 
 Cheers - Bar SPA 
 Date Created: Jan. 22, 2022
-Last Updated: Jan. 22, 2022
+Last Updated: Jan. 23, 2022
 Tolentino, Francis James S.
 
 */
@@ -34,7 +34,7 @@ const BarPage : NextPage = () => {
     return(
         <>
             <Head>
-                <title></title>
+                <title>{bar}</title>
             </Head>
 
             <BarPageSkeleton>
