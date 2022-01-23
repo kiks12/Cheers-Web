@@ -3,7 +3,7 @@
 /*
 
 Cheers - Bar Feed Component
-Last Updated: Jan. 22, 2022
+Last Updated: Jan. 23, 2022
 Tolentino, Francis James S.
 
 */
@@ -28,7 +28,7 @@ interface BarFeedProps {
 
 
 
-const BarFeed: React.FC<BarFeedProps> = ({ barName, image, location, priceRange, type }) => {
+const BarFeed: React.FC<BarFeedProps> = ({ barName, image, location, priceRange, type }) => {
 
 
 	return (
@@ -36,7 +36,7 @@ const BarFeed: React.FC<BarFeedProps> = ({ barName, image, location, priceRange,
 			
 			<div className="mt-2 h-28 bg-transparent border hover:border-gray-400 flex justify-between w-full cursor-pointer relative">
 
-				<div className="w-48 h-full text-sm bg-black text-white flex items-center justify-center lg:flex md:flex sm:hidden z-10 overflow-hidden">
+				<div className="w-48 h-full text-sm bg-black text-white flex items-center justify-center lg:flex md:flex sm:flex z-10 overflow-hidden">
 					<Image src={image} width={220} height={150}/>
 				</div>
 
